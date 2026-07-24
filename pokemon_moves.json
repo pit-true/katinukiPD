@@ -1,0 +1,6528 @@
+[
+  {
+    "name": "はたく",
+    "romaji": "hataku",
+    "type": "ノーマル",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "からてチョップ",
+    "romaji": "karatechoppu",
+    "type": "かくとう",
+    "power": 50,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "おうふくビンタ",
+    "romaji": "oufukubinta",
+    "type": "ノーマル",
+    "power": 15,
+    "accuracy": 85,
+    "category": "Physical",
+    "class": "multi_hit",
+    "target": 1
+  },
+  {
+    "name": "れんぞくパンチ",
+    "romaji": "renzokupanchi",
+    "type": "ノーマル",
+    "power": 18,
+    "accuracy": 85,
+    "category": "Physical",
+    "class": "multi_hit",
+    "target": 1
+  },
+  {
+    "name": "メガトンパンチ",
+    "romaji": "megatonpanchi",
+    "type": "ノーマル",
+    "power": 80,
+    "accuracy": 85,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ネコにこばん",
+    "romaji": "nekonikoban",
+    "type": "ノーマル",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ほのおのパンチ",
+    "romaji": "honoonopanchi",
+    "type": "ほのお",
+    "power": 75,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "れいとうパンチ",
+    "romaji": "reitoupanchi",
+    "type": "こおり",
+    "power": 75,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "かみなりパンチ",
+    "romaji": "kaminaripanchi",
+    "type": "でんき",
+    "power": 75,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ひっかく",
+    "romaji": "hikkaku",
+    "type": "ノーマル",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "はさむ",
+    "romaji": "hasamu",
+    "type": "ノーマル",
+    "power": 55,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ハサミギロチン",
+    "romaji": "hasamigirochin",
+    "type": "ノーマル",
+    "power": 1,
+    "accuracy": 30,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "かまいたち",
+    "romaji": "kamaitachi",
+    "type": "ノーマル",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "つるぎのまい",
+    "romaji": "tsuruginomai",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "いあいぎり",
+    "romaji": "iaigiri",
+    "type": "ノーマル",
+    "power": 50,
+    "accuracy": 95,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "かぜおこし",
+    "romaji": "kazeokoshi",
+    "type": "ひこう",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "two_fold",
+    "target": 1
+  },
+  {
+    "name": "つばさでうつ",
+    "romaji": "tsubasadeutsu",
+    "type": "ひこう",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ふきとばし",
+    "romaji": "fukitobashi",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "そらをとぶ",
+    "romaji": "sorawotobu",
+    "type": "ひこう",
+    "power": 90,
+    "accuracy": 95,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "しめつける",
+    "romaji": "shimetsukeru",
+    "type": "ノーマル",
+    "power": 15,
+    "accuracy": 85,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "たたきつける",
+    "romaji": "tatakitsukeru",
+    "type": "ノーマル",
+    "power": 80,
+    "accuracy": 75,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "つるのムチ",
+    "romaji": "tsurunomuchi",
+    "type": "くさ",
+    "power": 45,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ふみつけ",
+    "romaji": "fumitsuke",
+    "type": "ノーマル",
+    "power": 65,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "two_fold",
+    "target": 1
+  },
+  {
+    "name": "にどげり",
+    "romaji": "nidogeri",
+    "type": "かくとう",
+    "power": 30,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "two_hit",
+    "target": 1
+  },
+  {
+    "name": "メガトンキック",
+    "romaji": "megatonkikku",
+    "type": "ノーマル",
+    "power": 120,
+    "accuracy": 75,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "とびげり",
+    "romaji": "tobigeri",
+    "type": "かくとう",
+    "power": 100,
+    "accuracy": 95,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "まわしげり",
+    "romaji": "mawashigeri",
+    "type": "かくとう",
+    "power": 60,
+    "accuracy": 85,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "すなかけ",
+    "romaji": "sunakake",
+    "type": "じめん",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ずつき",
+    "romaji": "zutsuki",
+    "type": "ノーマル",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "つのでつく",
+    "romaji": "tsunodetsuku",
+    "type": "ノーマル",
+    "power": 65,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "みだれづき",
+    "romaji": "midarezuki",
+    "type": "ノーマル",
+    "power": 15,
+    "accuracy": 85,
+    "category": "Physical",
+    "class": "multi_hit",
+    "target": 1
+  },
+  {
+    "name": "つのドリル",
+    "romaji": "tsunodoriru",
+    "type": "ノーマル",
+    "power": 1,
+    "accuracy": 30,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "たいあたり",
+    "romaji": "taiatari",
+    "type": "ノーマル",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "のしかかり",
+    "romaji": "noshikakari",
+    "type": "ノーマル",
+    "power": 85,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "まきつく",
+    "romaji": "makitsuku",
+    "type": "ノーマル",
+    "power": 15,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "とっしん",
+    "romaji": "tosshin",
+    "type": "ノーマル",
+    "power": 90,
+    "accuracy": 85,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "あばれる",
+    "romaji": "abareru",
+    "type": "ノーマル",
+    "power": 120,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "すてみタックル",
+    "romaji": "sutemitakkuru",
+    "type": "ノーマル",
+    "power": 120,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "しっぽをふる",
+    "romaji": "shippowofuru",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "どくばり",
+    "romaji": "dokubari",
+    "type": "どく",
+    "power": 15,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ダブルニードル",
+    "romaji": "daburuni-doru",
+    "type": "むし",
+    "power": 25,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "two_hit",
+    "target": 1
+  },
+  {
+    "name": "ミサイルばり",
+    "romaji": "misairubari",
+    "type": "むし",
+    "power": 25,
+    "accuracy": 95,
+    "category": "Physical",
+    "class": "multi_hit",
+    "target": 1
+  },
+  {
+    "name": "にらみつける",
+    "romaji": "niramitsukeru",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "かみつく",
+    "romaji": "kamitsuku",
+    "type": "あく",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "なきごえ",
+    "romaji": "nakigoe",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "ほえる",
+    "romaji": "hoeru",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "うたう",
+    "romaji": "utau",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 55,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ちょうおんぱ",
+    "romaji": "chouonpa",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 55,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ソニックブーム",
+    "romaji": "sonikkubu-mu",
+    "type": "ノーマル",
+    "power": 1,
+    "accuracy": 90,
+    "category": "Special",
+    "class": "fixed",
+    "target": 1,
+    "fixed_value": 20
+  },
+  {
+    "name": "かなしばり",
+    "romaji": "kanashibari",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ようかいえき",
+    "romaji": "youkaieki",
+    "type": "どく",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ひのこ",
+    "romaji": "hinoko",
+    "type": "ほのお",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "かえんほうしゃ",
+    "romaji": "kaenhousha",
+    "type": "ほのお",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "しろいきり",
+    "romaji": "shiroikiri",
+    "type": "こおり",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "みずでっぽう",
+    "romaji": "mizudeppou",
+    "type": "みず",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ハイドロポンプ",
+    "romaji": "haidoroponpu",
+    "type": "みず",
+    "power": 110,
+    "accuracy": 80,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "なみのり",
+    "romaji": "naminori",
+    "type": "みず",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "two_fold",
+    "target": 2
+  },
+  {
+    "name": "れいとうビーム",
+    "romaji": "reitoubi-mu",
+    "type": "こおり",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ふぶき",
+    "romaji": "fubuki",
+    "type": "こおり",
+    "power": 110,
+    "accuracy": 70,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "サイケこうせん",
+    "romaji": "saikekousen",
+    "type": "エスパー",
+    "power": 65,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "バブルこうせん",
+    "romaji": "baburukousen",
+    "type": "みず",
+    "power": 65,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "オーロラビーム",
+    "romaji": "o-rorabi-mu",
+    "type": "こおり",
+    "power": 65,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "はかいこうせん",
+    "romaji": "hakaikousen",
+    "type": "ノーマル",
+    "power": 150,
+    "accuracy": 90,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "つつく",
+    "romaji": "tsutsuku",
+    "type": "ひこう",
+    "power": 35,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ドリルくちばし",
+    "romaji": "dorirukuchibashi",
+    "type": "ひこう",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "じごくぐるま",
+    "romaji": "jigokuguruma",
+    "type": "かくとう",
+    "power": 80,
+    "accuracy": 80,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "けたぐり",
+    "romaji": "ketaguri",
+    "type": "かくとう",
+    "power": 1,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "カウンター",
+    "romaji": "kaunta-",
+    "type": "かくとう",
+    "power": 1,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ちきゅうなげ",
+    "romaji": "chikyuunage",
+    "type": "かくとう",
+    "power": 1,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "fixed",
+    "target": 1,
+    "fixed_value": "level"
+  },
+  {
+    "name": "かいりき",
+    "romaji": "kairiki",
+    "type": "ノーマル",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "すいとる",
+    "romaji": "suitoru",
+    "type": "くさ",
+    "power": 20,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "メガドレイン",
+    "romaji": "megadorein",
+    "type": "くさ",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "やどりぎのタネ",
+    "romaji": "yadoriginotane",
+    "type": "くさ",
+    "power": 0,
+    "accuracy": 90,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "せいちょう",
+    "romaji": "seichou",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "はっぱカッター",
+    "romaji": "happakatta-",
+    "type": "くさ",
+    "power": 55,
+    "accuracy": 95,
+    "category": "Physical",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "ソーラービーム",
+    "romaji": "so-ra-bi-mu",
+    "type": "くさ",
+    "power": 120,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "solarbeam",
+    "target": 1
+  },
+  {
+    "name": "どくのこな",
+    "romaji": "dokunokona",
+    "type": "どく",
+    "power": 0,
+    "accuracy": 75,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "しびれごな",
+    "romaji": "shibiregona",
+    "type": "くさ",
+    "power": 0,
+    "accuracy": 75,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ねむりごな",
+    "romaji": "nemurigona",
+    "type": "くさ",
+    "power": 0,
+    "accuracy": 75,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "はなびらのまい",
+    "romaji": "hanabiranomai",
+    "type": "くさ",
+    "power": 120,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "いとをはく",
+    "romaji": "itowohaku",
+    "type": "むし",
+    "power": 0,
+    "accuracy": 95,
+    "category": "Status",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "りゅうのいかり",
+    "romaji": "ryuunoikari",
+    "type": "ドラゴン",
+    "power": 1,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "fixed",
+    "target": 1,
+    "fixed_value": 40
+  },
+  {
+    "name": "ほのおのうず",
+    "romaji": "honoonouzu",
+    "type": "ほのお",
+    "power": 35,
+    "accuracy": 85,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "でんきショック",
+    "romaji": "denkishokku",
+    "type": "でんき",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "10まんボルト",
+    "romaji": "10manboruto",
+    "type": "でんき",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "でんじは",
+    "romaji": "denjiha",
+    "type": "でんき",
+    "power": 0,
+    "accuracy": 90,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "かみなり",
+    "romaji": "kaminari",
+    "type": "でんき",
+    "power": 110,
+    "accuracy": 70,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "いわおとし",
+    "romaji": "iwaotoshi",
+    "type": "いわ",
+    "power": 50,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "じしん",
+    "romaji": "jishin",
+    "type": "じめん",
+    "power": 100,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "じわれ",
+    "romaji": "jiware",
+    "type": "じめん",
+    "power": 1,
+    "accuracy": 30,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "あなをほる",
+    "romaji": "anawohoru",
+    "type": "じめん",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "どくどく",
+    "romaji": "dokudoku",
+    "type": "どく",
+    "power": 0,
+    "accuracy": 90,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ねんりき",
+    "romaji": "nenriki",
+    "type": "エスパー",
+    "power": 50,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "サイコキネシス",
+    "romaji": "saikokineshisu",
+    "type": "エスパー",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "さいみんじゅつ",
+    "romaji": "saiminjutsu",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 60,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ヨガのポーズ",
+    "romaji": "yoganopo-zu",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "こうそくいどう",
+    "romaji": "kousokuidou",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "でんこうせっか",
+    "romaji": "denkousekka",
+    "type": "ノーマル",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "いかり",
+    "romaji": "ikari",
+    "type": "ノーマル",
+    "power": 20,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "variable",
+    "target": 1
+  },
+  {
+    "name": "テレポート",
+    "romaji": "terepo-to",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ナイトヘッド",
+    "romaji": "naitoheddo",
+    "type": "ゴースト",
+    "power": 1,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "fixed",
+    "target": 1,
+    "fixed_value": "level"
+  },
+  {
+    "name": "ものまね",
+    "romaji": "monomane",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "いやなおと",
+    "romaji": "iyanaoto",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 85,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "かげぶんしん",
+    "romaji": "kagebunshin",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "じこさいせい",
+    "romaji": "jikosaisei",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "かたくなる",
+    "romaji": "katakunaru",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ちいさくなる",
+    "romaji": "chiisakunaru",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "えんまく",
+    "romaji": "enmaku",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "あやしいひかり",
+    "romaji": "ayashiihikari",
+    "type": "ゴースト",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "からにこもる",
+    "romaji": "karanikomoru",
+    "type": "みず",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "まるくなる",
+    "romaji": "marukunaru",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "バリアー",
+    "romaji": "baria-",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ひかりのかべ",
+    "romaji": "hikarinokabe",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "くろいきり",
+    "romaji": "kuroikiri",
+    "type": "こおり",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "リフレクター",
+    "romaji": "rifurekuta-",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "きあいだめ",
+    "romaji": "kiaidame",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "がまん",
+    "romaji": "gaman",
+    "type": "ノーマル",
+    "power": 1,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ゆびをふる",
+    "romaji": "yubiwofuru",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "オウムがえし",
+    "romaji": "oumugaeshi",
+    "type": "ひこう",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "じばく",
+    "romaji": "jibaku",
+    "type": "ノーマル",
+    "power": 200,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "jibaku",
+    "target": 2
+  },
+  {
+    "name": "タマゴばくだん",
+    "romaji": "tamagobakudan",
+    "type": "ノーマル",
+    "power": 100,
+    "accuracy": 75,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "したでなめる",
+    "romaji": "shitadenameru",
+    "type": "ゴースト",
+    "power": 30,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "スモッグ",
+    "romaji": "sumoggu",
+    "type": "どく",
+    "power": 30,
+    "accuracy": 70,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ヘドロこうげき",
+    "romaji": "hedorokougeki",
+    "type": "どく",
+    "power": 65,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ホネこんぼう",
+    "romaji": "honekonbou",
+    "type": "じめん",
+    "power": 65,
+    "accuracy": 85,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "だいもんじ",
+    "romaji": "daimonji",
+    "type": "ほのお",
+    "power": 110,
+    "accuracy": 85,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "たきのぼり",
+    "romaji": "takinobori",
+    "type": "みず",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "アクセルボルト",
+    "romaji": "akuseruboruto",
+    "type": "でんき",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "スピードスター",
+    "romaji": "supi-dosuta-",
+    "type": "ノーマル",
+    "power": 60,
+    "accuracy": 0,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "ロケットずつき",
+    "romaji": "rokettozutsuki",
+    "type": "ノーマル",
+    "power": 130,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "とげキャノン",
+    "romaji": "togekyanon",
+    "type": "ノーマル",
+    "power": 20,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "multi_hit",
+    "target": 1
+  },
+  {
+    "name": "からみつく",
+    "romaji": "karamitsuku",
+    "type": "ノーマル",
+    "power": 10,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ドわすれ",
+    "romaji": "dowasure",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "タマゴうみ",
+    "romaji": "tamagoumi",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "とびひざげり",
+    "romaji": "tobihizageri",
+    "type": "かくとう",
+    "power": 130,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "へびにらみ",
+    "romaji": "hebinirami",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ゆめくい",
+    "romaji": "yumekui",
+    "type": "エスパー",
+    "power": 100,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "どくガス",
+    "romaji": "dokugasu",
+    "type": "どく",
+    "power": 0,
+    "accuracy": 90,
+    "category": "Status",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "なかまづくり",
+    "romaji": "nakamazukuri",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "きゅうけつ",
+    "romaji": "kyuuketsu",
+    "type": "むし",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "あくまのキッス",
+    "romaji": "akumanokissu",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 75,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ゴッドバード",
+    "romaji": "goddoba-do",
+    "type": "ひこう",
+    "power": 140,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "へんしん",
+    "romaji": "henshin",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "あわ",
+    "romaji": "awa",
+    "type": "みず",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "ピヨピヨパンチ",
+    "romaji": "piyopiyopanchi",
+    "type": "ノーマル",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "キノコのほうし",
+    "romaji": "kinokonohoushi",
+    "type": "くさ",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "フラッシュ",
+    "romaji": "furasshu",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "サイコウェーブ",
+    "romaji": "saikowe-bu",
+    "type": "エスパー",
+    "power": 1,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "fixed",
+    "target": 1,
+    "fixed_value": "level"
+  },
+  {
+    "name": "はねる",
+    "romaji": "haneru",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "とける",
+    "romaji": "tokeru",
+    "type": "どく",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "だいばくはつ",
+    "romaji": "daibakuhatsu",
+    "type": "ノーマル",
+    "power": 250,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "b_harf",
+    "target": 2
+  },
+  {
+    "name": "みだれひっかき",
+    "romaji": "midarehikkaki",
+    "type": "ノーマル",
+    "power": 18,
+    "accuracy": 80,
+    "category": "Physical",
+    "class": "multi_hit",
+    "target": 1
+  },
+  {
+    "name": "ホネブーメラン",
+    "romaji": "honebu-meran",
+    "type": "じめん",
+    "power": 50,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "two_hit",
+    "target": 1
+  },
+  {
+    "name": "ねむる",
+    "romaji": "nemuru",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "いわなだれ",
+    "romaji": "iwanadare",
+    "type": "いわ",
+    "power": 75,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "ひっさつまえば",
+    "romaji": "hissatsumaeba",
+    "type": "ノーマル",
+    "power": 80,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "かくばる",
+    "romaji": "kakubaru",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "トライアタック",
+    "romaji": "toraiatakku",
+    "type": "ノーマル",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "いかりのまえば",
+    "romaji": "ikarinomaeba",
+    "type": "ノーマル",
+    "power": 1,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "harf",
+    "target": 1
+  },
+  {
+    "name": "きりさく",
+    "romaji": "kirisaku",
+    "type": "ノーマル",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "みがわり",
+    "romaji": "migawari",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "スケッチ",
+    "romaji": "suketchi",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "しゅうきほう",
+    "romaji": "shuukihou",
+    "type": "かくとう",
+    "power": 120,
+    "accuracy": 80,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "どろぼう",
+    "romaji": "dorobou",
+    "type": "あく",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ロックスパイク",
+    "romaji": "rokkusupaiku",
+    "type": "いわ",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "こころのめ",
+    "romaji": "kokoronome",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "あくむ",
+    "romaji": "akumu",
+    "type": "ゴースト",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "かえんぐるま",
+    "romaji": "kaenguruma",
+    "type": "ほのお",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "いびき",
+    "romaji": "ibiki",
+    "type": "ノーマル",
+    "power": 50,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "のろい",
+    "romaji": "noroi",
+    "type": "ゴースト",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "noroi",
+    "target": 1
+  },
+  {
+    "name": "じたばた",
+    "romaji": "jitabata",
+    "type": "ノーマル",
+    "power": 1,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "pinch_up",
+    "target": 1
+  },
+  {
+    "name": "えんしょう",
+    "romaji": "enshou",
+    "type": "ほのお",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "わたほうし",
+    "romaji": "watahoushi",
+    "type": "くさ",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "きしかいせい",
+    "romaji": "kishikaisei",
+    "type": "かくとう",
+    "power": 1,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "pinch_up",
+    "target": 1
+  },
+  {
+    "name": "うらみ",
+    "romaji": "urami",
+    "type": "ゴースト",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "こなゆき",
+    "romaji": "konayuki",
+    "type": "こおり",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "まもる",
+    "romaji": "mamoru",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "マッハパンチ",
+    "romaji": "mahhapanchi",
+    "type": "かくとう",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "こわいかお",
+    "romaji": "kowaikao",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "だましうち",
+    "romaji": "damashiuchi",
+    "type": "あく",
+    "power": 60,
+    "accuracy": 0,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "てんしのキッス",
+    "romaji": "tenshinokissu",
+    "type": "フェアリー",
+    "power": 0,
+    "accuracy": 75,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "はらだいこ",
+    "romaji": "haradaiko",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ヘドロばくだん",
+    "romaji": "hedorobakudan",
+    "type": "どく",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "どろかけ",
+    "romaji": "dorokake",
+    "type": "じめん",
+    "power": 20,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "スミばくだん",
+    "romaji": "sumibakudan",
+    "type": "みず",
+    "power": 65,
+    "accuracy": 85,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "まきびし",
+    "romaji": "makibishi",
+    "type": "じめん",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "でんじほう",
+    "romaji": "denjihou",
+    "type": "でんき",
+    "power": 120,
+    "accuracy": 50,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "みやぶる",
+    "romaji": "miyaburu",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "みちづれ",
+    "romaji": "michizure",
+    "type": "ゴースト",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ほろびのうた",
+    "romaji": "horobinouta",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "こごえるかぜ",
+    "romaji": "kogoerukaze",
+    "type": "こおり",
+    "power": 55,
+    "accuracy": 95,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "みきり",
+    "romaji": "mikiri",
+    "type": "かくとう",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ボーンラッシュ",
+    "romaji": "bo-nrasshu",
+    "type": "じめん",
+    "power": 25,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "multi_hit",
+    "target": 1
+  },
+  {
+    "name": "ロックオン",
+    "romaji": "rokkuon",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "げきりん",
+    "romaji": "gekirin",
+    "type": "ドラゴン",
+    "power": 120,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "すなあらし",
+    "romaji": "sunaarashi",
+    "type": "いわ",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ギガドレイン",
+    "romaji": "gigadorein",
+    "type": "くさ",
+    "power": 75,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "こらえる",
+    "romaji": "koraeru",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "あまえる",
+    "romaji": "amaeru",
+    "type": "フェアリー",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ころがる",
+    "romaji": "korogaru",
+    "type": "いわ",
+    "power": 30,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "variable",
+    "target": 1
+  },
+  {
+    "name": "みねうち",
+    "romaji": "mineuchi",
+    "type": "ノーマル",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "いばる",
+    "romaji": "ibaru",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 85,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ミルクのみ",
+    "romaji": "mirukunomi",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "スパーク",
+    "romaji": "supa-ku",
+    "type": "でんき",
+    "power": 65,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "れんぞくぎり",
+    "romaji": "renzokugiri",
+    "type": "むし",
+    "power": 40,
+    "accuracy": 95,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "はがねのつばさ",
+    "romaji": "haganenotsubasa",
+    "type": "はがね",
+    "power": 70,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "くろいまなざし",
+    "romaji": "kuroimanazashi",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "メロメロ",
+    "romaji": "meromero",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ねごと",
+    "romaji": "negoto",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "いやしのすず",
+    "romaji": "iyashinosuzu",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "おんがえし",
+    "romaji": "ongaeshi",
+    "type": "ノーマル",
+    "power": 1,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "プレゼント",
+    "romaji": "purezento",
+    "type": "ノーマル",
+    "power": 1,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "variable",
+    "target": 1
+  },
+  {
+    "name": "やつあたり",
+    "romaji": "yatsuatari",
+    "type": "ノーマル",
+    "power": 1,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "しんぴのまもり",
+    "romaji": "shinpinomamori",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "いたみわけ",
+    "romaji": "itamiwake",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "itamiwake",
+    "target": 1
+  },
+  {
+    "name": "マグニチュード",
+    "romaji": "magunichu-do",
+    "type": "じめん",
+    "power": 1,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "ばくれつパンチ",
+    "romaji": "bakuretsupanchi",
+    "type": "かくとう",
+    "power": 100,
+    "accuracy": 50,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "メガホーン",
+    "romaji": "megaho-n",
+    "type": "むし",
+    "power": 120,
+    "accuracy": 85,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "りゅうのいぶき",
+    "romaji": "ryuunoibuki",
+    "type": "ドラゴン",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "バトンタッチ",
+    "romaji": "batontatchi",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "アンコール",
+    "romaji": "anko-ru",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "おいうち",
+    "romaji": "oiuchi",
+    "type": "あく",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "two_fold",
+    "target": 1
+  },
+  {
+    "name": "こうそくスピン",
+    "romaji": "kousokusupin",
+    "type": "ノーマル",
+    "power": 20,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "あまいかおり",
+    "romaji": "amaikaori",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "アイアンテール",
+    "romaji": "aiante-ru",
+    "type": "はがね",
+    "power": 100,
+    "accuracy": 75,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "メタルクロー",
+    "romaji": "metarukuro-",
+    "type": "はがね",
+    "power": 50,
+    "accuracy": 95,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "あてみなげ",
+    "romaji": "ateminage",
+    "type": "かくとう",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "あさのひざし",
+    "romaji": "asanohizashi",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "こうごうせい",
+    "romaji": "kougousei",
+    "type": "くさ",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "つきのひかり",
+    "romaji": "tsukinohikari",
+    "type": "フェアリー",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "めざめるパワー",
+    "romaji": "mezamerupawa-",
+    "type": "ノーマル",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "awaken_power",
+    "target": 1
+  },
+  {
+    "name": "クロスチョップ",
+    "romaji": "kurosuchoppu",
+    "type": "かくとう",
+    "power": 100,
+    "accuracy": 80,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "たつまき",
+    "romaji": "tatsumaki",
+    "type": "ドラゴン",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "two_fold",
+    "target": 2
+  },
+  {
+    "name": "あまごい",
+    "romaji": "amagoi",
+    "type": "みず",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "にほんばれ",
+    "romaji": "nihonbare",
+    "type": "ほのお",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "かみくだく",
+    "romaji": "kamikudaku",
+    "type": "あく",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ミラーコート",
+    "romaji": "mira-ko-to",
+    "type": "エスパー",
+    "power": 1,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "じこあんじ",
+    "romaji": "jikoanji",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "しんそく",
+    "romaji": "shinsoku",
+    "type": "ノーマル",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "げんしのちから",
+    "romaji": "genshinochikara",
+    "type": "いわ",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "シャドーボール",
+    "romaji": "shado-bo-ru",
+    "type": "ゴースト",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "みらいよち",
+    "romaji": "miraiyochi",
+    "type": "エスパー",
+    "power": 120,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "absolute",
+    "target": 1
+  },
+  {
+    "name": "いわくだき",
+    "romaji": "iwakudaki",
+    "type": "かくとう",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "うずしお",
+    "romaji": "uzushio",
+    "type": "みず",
+    "power": 35,
+    "accuracy": 85,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ふくろだたき",
+    "romaji": "fukurodataki",
+    "type": "あく",
+    "power": 10,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "variable",
+    "target": 1
+  },
+  {
+    "name": "ねこだまし",
+    "romaji": "nekodamashi",
+    "type": "ノーマル",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "さわぐ",
+    "romaji": "sawagu",
+    "type": "ノーマル",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "たくわえる",
+    "romaji": "takuwaeru",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "はきだす",
+    "romaji": "hakidasu",
+    "type": "ノーマル",
+    "power": 100,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "special_case",
+    "target": 1
+  },
+  {
+    "name": "のみこむ",
+    "romaji": "nomikomu",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ねっぷう",
+    "romaji": "neppuu",
+    "type": "ほのお",
+    "power": 95,
+    "accuracy": 90,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "あられ",
+    "romaji": "arare",
+    "type": "こおり",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "いちゃもん",
+    "romaji": "ichamon",
+    "type": "あく",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "おだてる",
+    "romaji": "odateru",
+    "type": "あく",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "おにび",
+    "romaji": "onibi",
+    "type": "ほのお",
+    "power": 0,
+    "accuracy": 85,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "おきみやげ",
+    "romaji": "okimiyage",
+    "type": "あく",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "からげんき",
+    "romaji": "karagenki",
+    "type": "ノーマル",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "two_fold",
+    "target": 1
+  },
+  {
+    "name": "きあいパンチ",
+    "romaji": "kiaipanchi",
+    "type": "かくとう",
+    "power": 150,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "きつけ",
+    "romaji": "kitsuke",
+    "type": "ノーマル",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "two_fold",
+    "target": 1
+  },
+  {
+    "name": "このゆびとまれ",
+    "romaji": "konoyubitomare",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "しぜんのちから",
+    "romaji": "shizennochikara",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "じゅうでん",
+    "romaji": "juuden",
+    "type": "でんき",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ちょうはつ",
+    "romaji": "chouhatsu",
+    "type": "あく",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "てだすけ",
+    "romaji": "tedasuke",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "トリック",
+    "romaji": "torikku",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "なりきり",
+    "romaji": "narikiri",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ねがいごと",
+    "romaji": "negaigoto",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ねこのて",
+    "romaji": "nekonote",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ねをはる",
+    "romaji": "newoharu",
+    "type": "くさ",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ばかぢから",
+    "romaji": "bakajikara",
+    "type": "かくとう",
+    "power": 120,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "マジックコート",
+    "romaji": "majikkuko-to",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "リサイクル",
+    "romaji": "risaikuru",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "リベンジ",
+    "romaji": "ribenji",
+    "type": "かくとう",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "two_fold",
+    "target": 1
+  },
+  {
+    "name": "かわらわり",
+    "romaji": "kawarawari",
+    "type": "かくとう",
+    "power": 75,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "あくび",
+    "romaji": "akubi",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "はたきおとす",
+    "romaji": "hatakiotosu",
+    "type": "あく",
+    "power": 65,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "がむしゃら",
+    "romaji": "gamushara",
+    "type": "ノーマル",
+    "power": 1,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "variable",
+    "target": 1
+  },
+  {
+    "name": "ふんか",
+    "romaji": "funka",
+    "type": "ほのお",
+    "power": 150,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "pinch_down",
+    "target": 2
+  },
+  {
+    "name": "スキルスワップ",
+    "romaji": "sukirusuwappu",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ふういん",
+    "romaji": "fuuin",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "リフレッシュ",
+    "romaji": "rifuresshu",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "おんねん",
+    "romaji": "onnen",
+    "type": "ゴースト",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "よこどり",
+    "romaji": "yokodori",
+    "type": "あく",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ひみつのちから",
+    "romaji": "himitsunochikara",
+    "type": "ノーマル",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ダイビング",
+    "romaji": "daibingu",
+    "type": "みず",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ライフドレイン",
+    "romaji": "raifudorein",
+    "type": "あく",
+    "power": 75,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ほごしょく",
+    "romaji": "hogoshoku",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "クイックターン",
+    "romaji": "kuikkuta-n",
+    "type": "ドラゴン",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "めぐみのつばさ",
+    "romaji": "meguminotsubasa",
+    "type": "ひこう",
+    "power": 95,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ぼうふう",
+    "romaji": "boufuu",
+    "type": "ひこう",
+    "power": 120,
+    "accuracy": 70,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "フェザーダンス",
+    "romaji": "feza-dansu",
+    "type": "ひこう",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "フラフラダンス",
+    "romaji": "furafuradansu",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "ブレイズキック",
+    "romaji": "bureizukikku",
+    "type": "ほのお",
+    "power": 85,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "どろあそび",
+    "romaji": "doroasobi",
+    "type": "じめん",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "アイスボール",
+    "romaji": "aisubo-ru",
+    "type": "こおり",
+    "power": 30,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "variable",
+    "target": 1
+  },
+  {
+    "name": "バッドポイズン",
+    "romaji": "baddopoizun",
+    "type": "どく",
+    "power": 95,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "なまける",
+    "romaji": "namakeru",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ハイパーボイス",
+    "romaji": "haipa-boisu",
+    "type": "ノーマル",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "どくどくのキバ",
+    "romaji": "dokudokunokiba",
+    "type": "どく",
+    "power": 50,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ブレイククロー",
+    "romaji": "bureikukuro-",
+    "type": "ノーマル",
+    "power": 75,
+    "accuracy": 95,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ブラストバーン",
+    "romaji": "burasutoba-n",
+    "type": "ほのお",
+    "power": 150,
+    "accuracy": 90,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ハイドロカノン",
+    "romaji": "haidorokanon",
+    "type": "みず",
+    "power": 150,
+    "accuracy": 90,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "コメットパンチ",
+    "romaji": "komettopanchi",
+    "type": "はがね",
+    "power": 90,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "おどろかす",
+    "romaji": "odorokasu",
+    "type": "ゴースト",
+    "power": 30,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ウェザーボール",
+    "romaji": "weza-bo-ru",
+    "type": "ノーマル",
+    "power": 50,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "weather_ball",
+    "target": 1
+  },
+  {
+    "name": "アロマセラピー",
+    "romaji": "aromaserapi-",
+    "type": "くさ",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "うそなき",
+    "romaji": "usonaki",
+    "type": "あく",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "エアカッター",
+    "romaji": "eakatta-",
+    "type": "ひこう",
+    "power": 60,
+    "accuracy": 95,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "オーバーヒート",
+    "romaji": "o-ba-hi-to",
+    "type": "ほのお",
+    "power": 130,
+    "accuracy": 90,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "かぎわける",
+    "romaji": "kagiwakeru",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "がんせきふうじ",
+    "romaji": "gansekifuuji",
+    "type": "いわ",
+    "power": 60,
+    "accuracy": 95,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ぎんいろのかぜ",
+    "romaji": "ginironokaze",
+    "type": "むし",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "きんぞくおん",
+    "romaji": "kinzokuon",
+    "type": "はがね",
+    "power": 0,
+    "accuracy": 85,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "くさぶえ",
+    "romaji": "kusabue",
+    "type": "くさ",
+    "power": 0,
+    "accuracy": 55,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "くすぐる",
+    "romaji": "kusuguru",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "コスモパワー",
+    "romaji": "kosumopawa-",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "しおふき",
+    "romaji": "shiofuki",
+    "type": "みず",
+    "power": 150,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "pinch_down",
+    "target": 2
+  },
+  {
+    "name": "シグナルビーム",
+    "romaji": "shigunarubi-mu",
+    "type": "むし",
+    "power": 75,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "シャドーパンチ",
+    "romaji": "shado-panchi",
+    "type": "ゴースト",
+    "power": 60,
+    "accuracy": 0,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "じんつうりき",
+    "romaji": "jintsuuriki",
+    "type": "エスパー",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "スカイアッパー",
+    "romaji": "sukaiappa-",
+    "type": "かくとう",
+    "power": 85,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "すなじごく",
+    "romaji": "sunajigoku",
+    "type": "じめん",
+    "power": 35,
+    "accuracy": 85,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ぜったいれいど",
+    "romaji": "zettaireido",
+    "type": "こおり",
+    "power": 1,
+    "accuracy": 30,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "だくりゅう",
+    "romaji": "dakuryuu",
+    "type": "みず",
+    "power": 90,
+    "accuracy": 85,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "タネマシンガン",
+    "romaji": "tanemashingan",
+    "type": "くさ",
+    "power": 25,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "multi_hit",
+    "target": 1
+  },
+  {
+    "name": "つばめがえし",
+    "romaji": "tsubamegaeshi",
+    "type": "ひこう",
+    "power": 60,
+    "accuracy": 0,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "つららばり",
+    "romaji": "tsurarabari",
+    "type": "こおり",
+    "power": 25,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "multi_hit",
+    "target": 1
+  },
+  {
+    "name": "てっぺき",
+    "romaji": "teppeki",
+    "type": "はがね",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "とおせんぼう",
+    "romaji": "toosenbou",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "とおぼえ",
+    "romaji": "tooboe",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ドラゴンクロー",
+    "romaji": "doragonkuro-",
+    "type": "ドラゴン",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ハードプラント",
+    "romaji": "ha-dopuranto",
+    "type": "くさ",
+    "power": 150,
+    "accuracy": 90,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ビルドアップ",
+    "romaji": "birudoappu",
+    "type": "かくとう",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "とびはねる",
+    "romaji": "tobihaneru",
+    "type": "ひこう",
+    "power": 85,
+    "accuracy": 85,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "マッドショット",
+    "romaji": "maddoshotto",
+    "type": "じめん",
+    "power": 55,
+    "accuracy": 95,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ポイズンテール",
+    "romaji": "poizunte-ru",
+    "type": "どく",
+    "power": 50,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ほしがる",
+    "romaji": "hoshigaru",
+    "type": "ノーマル",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ボルテッカー",
+    "romaji": "borutekka-",
+    "type": "でんき",
+    "power": 120,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "マジカルリーフ",
+    "romaji": "majikaruri-fu",
+    "type": "くさ",
+    "power": 60,
+    "accuracy": 0,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "みずあそび",
+    "romaji": "mizuasobi",
+    "type": "みず",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "めいそう",
+    "romaji": "meisou",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "リーフブレード",
+    "romaji": "ri-fubure-do",
+    "type": "くさ",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "りゅうのまい",
+    "romaji": "ryuunomai",
+    "type": "ドラゴン",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ロックブラスト",
+    "romaji": "rokkuburasuto",
+    "type": "いわ",
+    "power": 25,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "multi_hit",
+    "target": 1
+  },
+  {
+    "name": "でんげきは",
+    "romaji": "dengekiha",
+    "type": "でんき",
+    "power": 60,
+    "accuracy": 0,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "みずのはどう",
+    "romaji": "mizunohadou",
+    "type": "みず",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ベノムショック",
+    "romaji": "benomushokku",
+    "type": "どく",
+    "power": 65,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "two_fold",
+    "target": 1
+  },
+  {
+    "name": "グラベルブレス",
+    "romaji": "guraberuburesu",
+    "type": "いわ",
+    "power": 70,
+    "accuracy": 90,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "グランボールダ",
+    "romaji": "guranbo-ruda",
+    "type": "いわ",
+    "power": 120,
+    "accuracy": 80,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ソウルブレイク",
+    "romaji": "sourubureiku",
+    "type": "ゴースト",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "スターダスト",
+    "romaji": "suta-dasuto",
+    "type": "はがね",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "だいちのいかり",
+    "romaji": "daichinoikari",
+    "type": "じめん",
+    "power": 120,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "のりうつる",
+    "romaji": "noriutsuru",
+    "type": "ゴースト",
+    "power": 120,
+    "accuracy": 70,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ぶちこわす",
+    "romaji": "buchikowasu",
+    "type": "あく",
+    "power": 120,
+    "accuracy": 80,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "メタルブラスト",
+    "romaji": "metaruburasuto",
+    "type": "はがね",
+    "power": 120,
+    "accuracy": 85,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "アームハンマー",
+    "romaji": "a-muhanma-",
+    "type": "かくとう",
+    "power": 100,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "インファイト",
+    "romaji": "infaito",
+    "type": "かくとう",
+    "power": 120,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "フレアドライブ",
+    "romaji": "fureadoraibu",
+    "type": "ほのお",
+    "power": 120,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "はっけい",
+    "romaji": "hakkei",
+    "type": "かくとう",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "はどうだん",
+    "romaji": "hadoudan",
+    "type": "かくとう",
+    "power": 80,
+    "accuracy": 0,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ロックカット",
+    "romaji": "rokkukatto",
+    "type": "いわ",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "どくづき",
+    "romaji": "dokuzuki",
+    "type": "どく",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "あくのはどう",
+    "romaji": "akunohadou",
+    "type": "あく",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "つじぎり",
+    "romaji": "tsujigiri",
+    "type": "あく",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "アクアテール",
+    "romaji": "akuate-ru",
+    "type": "みず",
+    "power": 90,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "タネばくだん",
+    "romaji": "tanebakudan",
+    "type": "くさ",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "エアスラッシュ",
+    "romaji": "easurasshu",
+    "type": "ひこう",
+    "power": 75,
+    "accuracy": 95,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "シザークロス",
+    "romaji": "shiza-kurosu",
+    "type": "むし",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "むしのさざめき",
+    "romaji": "mushinosazameki",
+    "type": "むし",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "りゅうのはどう",
+    "romaji": "ryuunohadou",
+    "type": "ドラゴン",
+    "power": 85,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ドラゴンダイブ",
+    "romaji": "doragondaibu",
+    "type": "ドラゴン",
+    "power": 100,
+    "accuracy": 75,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "パワージェム",
+    "romaji": "pawa-jiemu",
+    "type": "いわ",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ドレインパンチ",
+    "romaji": "doreinpanchi",
+    "type": "かくとう",
+    "power": 75,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "しんくうは",
+    "romaji": "shinkuuha",
+    "type": "かくとう",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "きあいだま",
+    "romaji": "kiaidama",
+    "type": "かくとう",
+    "power": 120,
+    "accuracy": 70,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "エナジーボール",
+    "romaji": "enaji-bo-ru",
+    "type": "くさ",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ブレイブバード",
+    "romaji": "bureibuba-do",
+    "type": "ひこう",
+    "power": 120,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "だいちのちから",
+    "romaji": "daichinochikara",
+    "type": "じめん",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "すりかえ",
+    "romaji": "surikae",
+    "type": "あく",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ギガインパクト",
+    "romaji": "gigainpakuto",
+    "type": "ノーマル",
+    "power": 150,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "わるだくみ",
+    "romaji": "warudakumi",
+    "type": "あく",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "バレットパンチ",
+    "romaji": "barettopanchi",
+    "type": "はがね",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ゆきなだれ",
+    "romaji": "yukinadare",
+    "type": "こおり",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "two_fold",
+    "target": 1
+  },
+  {
+    "name": "こおりのつぶて",
+    "romaji": "koorinotsubute",
+    "type": "こおり",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "シャドークロー",
+    "romaji": "shado-kuro-",
+    "type": "ゴースト",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "かげうち",
+    "romaji": "kageuchi",
+    "type": "ゴースト",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "どろばくだん",
+    "romaji": "dorobakudan",
+    "type": "じめん",
+    "power": 65,
+    "accuracy": 85,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "サイコカッター",
+    "romaji": "saikokatta-",
+    "type": "エスパー",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "しねんのずつき",
+    "romaji": "shinennozutsuki",
+    "type": "エスパー",
+    "power": 80,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ミラーショット",
+    "romaji": "mira-shotto",
+    "type": "はがね",
+    "power": 65,
+    "accuracy": 85,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ラスターカノン",
+    "romaji": "rasuta-kanon",
+    "type": "はがね",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ロッククライム",
+    "romaji": "rokkukuraimu",
+    "type": "ノーマル",
+    "power": 90,
+    "accuracy": 85,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "りゅうせいぐん",
+    "romaji": "ryuuseigun",
+    "type": "ドラゴン",
+    "power": 130,
+    "accuracy": 90,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ほうでん",
+    "romaji": "houden",
+    "type": "でんき",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "リーフストーム",
+    "romaji": "ri-fusuto-mu",
+    "type": "くさ",
+    "power": 130,
+    "accuracy": 90,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "パワーウィップ",
+    "romaji": "pawa-wippu",
+    "type": "くさ",
+    "power": 120,
+    "accuracy": 85,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "がんせきほう",
+    "romaji": "gansekihou",
+    "type": "いわ",
+    "power": 150,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ダストシュート",
+    "romaji": "dasutoshu-to",
+    "type": "どく",
+    "power": 120,
+    "accuracy": 80,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "アイアンヘッド",
+    "romaji": "aianheddo",
+    "type": "はがね",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "マグネットボム",
+    "romaji": "magunettobomu",
+    "type": "はがね",
+    "power": 60,
+    "accuracy": 0,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ストーンエッジ",
+    "romaji": "suto-nejji",
+    "type": "いわ",
+    "power": 100,
+    "accuracy": 80,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "くさむすび",
+    "romaji": "kusamusubi",
+    "type": "くさ",
+    "power": 1,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "チャージビーム",
+    "romaji": "cha-jibi-mu",
+    "type": "でんき",
+    "power": 50,
+    "accuracy": 90,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ウッドハンマー",
+    "romaji": "uddohanma-",
+    "type": "くさ",
+    "power": 120,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "アクアジェット",
+    "romaji": "akuajietto",
+    "type": "みず",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "こうげきしれい",
+    "romaji": "kougekishirei",
+    "type": "むし",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ぼうぎょしれい",
+    "romaji": "bougyoshirei",
+    "type": "むし",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "かいふくしれい",
+    "romaji": "kaifukushirei",
+    "type": "むし",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ダブルアタック",
+    "romaji": "daburuatakku",
+    "type": "ノーマル",
+    "power": 35,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "two_hit",
+    "target": 1
+  },
+  {
+    "name": "サイコショック",
+    "romaji": "saikoshokku",
+    "type": "エスパー",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ちょくげきだん",
+    "romaji": "chokugekidan",
+    "type": "ドラゴン",
+    "power": 100,
+    "accuracy": 80,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ワームホール",
+    "romaji": "wa-muho-ru",
+    "type": "あく",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "あやしいかぜ",
+    "romaji": "ayashiikaze",
+    "type": "ゴースト",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "クロスポイズン",
+    "romaji": "kurosupoizun",
+    "type": "どく",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "かみなりのキバ",
+    "romaji": "kaminarinokiba",
+    "type": "でんき",
+    "power": 65,
+    "accuracy": 95,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "こおりのキバ",
+    "romaji": "koorinokiba",
+    "type": "こおり",
+    "power": 65,
+    "accuracy": 95,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ほのおのキバ",
+    "romaji": "honoonokiba",
+    "type": "ほのお",
+    "power": 65,
+    "accuracy": 95,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "げきとつ",
+    "romaji": "gekitotsu",
+    "type": "ノーマル",
+    "power": 140,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "スピンテール",
+    "romaji": "supinte-ru",
+    "type": "ノーマル",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ダブルスピン",
+    "romaji": "daburusupin",
+    "type": "ノーマル",
+    "power": 35,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "two_hit",
+    "target": 1
+  },
+  {
+    "name": "おんち",
+    "romaji": "onchi",
+    "type": "ノーマル",
+    "power": 100,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "めまわし",
+    "romaji": "memawashi",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "おおあくび",
+    "romaji": "ooakubi",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "いかりのほのお",
+    "romaji": "ikarinohonoo",
+    "type": "ほのお",
+    "power": 110,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "マグマでかこむ",
+    "romaji": "magumadekakomu",
+    "type": "ほのお",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "スプラッシュ",
+    "romaji": "supurasshu",
+    "type": "みず",
+    "power": 100,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "だいこうずい",
+    "romaji": "daikouzui",
+    "type": "みず",
+    "power": 130,
+    "accuracy": 90,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "アクアボルト",
+    "romaji": "akuaboruto",
+    "type": "みず",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ギガスパーク",
+    "romaji": "gigasupa-ku",
+    "type": "でんき",
+    "power": 120,
+    "accuracy": 80,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ピッカリだま",
+    "romaji": "pikkaridama",
+    "type": "でんき",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "メガショック",
+    "romaji": "megashokku",
+    "type": "でんき",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "マッハボルト",
+    "romaji": "mahhaboruto",
+    "type": "でんき",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "たいでん",
+    "romaji": "taiden",
+    "type": "でんき",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "おいしげる",
+    "romaji": "oishigeru",
+    "type": "くさ",
+    "power": 100,
+    "accuracy": 95,
+    "category": "Physical",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "ポイズンリーフ",
+    "romaji": "poizunri-fu",
+    "type": "どく",
+    "power": 85,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "だいせいちょう",
+    "romaji": "daiseichou",
+    "type": "くさ",
+    "power": 100,
+    "accuracy": 80,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "げんわくごな",
+    "romaji": "genwakugona",
+    "type": "くさ",
+    "power": 0,
+    "accuracy": 75,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "スターフリーズ",
+    "romaji": "suta-furi-zu",
+    "type": "こおり",
+    "power": 120,
+    "accuracy": 70,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "つららパンチ",
+    "romaji": "tsurarapanchi",
+    "type": "こおり",
+    "power": 100,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "アイスバーン",
+    "romaji": "aisuba-n",
+    "type": "こおり",
+    "power": 80,
+    "accuracy": 95,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "こおりのキッス",
+    "romaji": "koorinokissu",
+    "type": "こおり",
+    "power": 80,
+    "accuracy": 90,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "マグナムパンチ",
+    "romaji": "magunamupanchi",
+    "type": "かくとう",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ダブルショット",
+    "romaji": "daburushotto",
+    "type": "かくとう",
+    "power": 35,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "two_hit",
+    "target": 1
+  },
+  {
+    "name": "きけんなどくそ",
+    "romaji": "kikennadokuso",
+    "type": "どく",
+    "power": 120,
+    "accuracy": 70,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "どくえんまく",
+    "romaji": "dokuenmaku",
+    "type": "どく",
+    "power": 65,
+    "accuracy": 90,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "もぐる",
+    "romaji": "moguru",
+    "type": "じめん",
+    "power": 75,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "サンドソニック",
+    "romaji": "sandosonikku",
+    "type": "じめん",
+    "power": 100,
+    "accuracy": 90,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "すなかぜ",
+    "romaji": "sunakaze",
+    "type": "じめん",
+    "power": 95,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "かっくう",
+    "romaji": "kakkuu",
+    "type": "ひこう",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ハリケーン",
+    "romaji": "harike-n",
+    "type": "ひこう",
+    "power": 110,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "サイコバレット",
+    "romaji": "saikobaretto",
+    "type": "エスパー",
+    "power": 120,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "サイコパンチ",
+    "romaji": "saikopanchi",
+    "type": "エスパー",
+    "power": 75,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "サイコバーン",
+    "romaji": "saikoba-n",
+    "type": "エスパー",
+    "power": 120,
+    "accuracy": 70,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "めざめぬパワー",
+    "romaji": "mezamenupawa-",
+    "type": "エスパー",
+    "power": 140,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "さいみんはどう",
+    "romaji": "saiminhadou",
+    "type": "エスパー",
+    "power": 75,
+    "accuracy": 90,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "じゅうりょくは",
+    "romaji": "juuryokuha",
+    "type": "エスパー",
+    "power": 1,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "バグノイズ",
+    "romaji": "bagunoizu",
+    "type": "むし",
+    "power": 110,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "かくらんひこう",
+    "romaji": "kakuranhikou",
+    "type": "むし",
+    "power": 80,
+    "accuracy": 95,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "いわころがり",
+    "romaji": "iwakorogari",
+    "type": "いわ",
+    "power": 60,
+    "accuracy": 80,
+    "category": "Physical",
+    "class": "variable",
+    "target": 1
+  },
+  {
+    "name": "ダイヤブラスト",
+    "romaji": "daiyaburasuto",
+    "type": "いわ",
+    "power": 100,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "げんしのいぶき",
+    "romaji": "genshinoibuki",
+    "type": "いわ",
+    "power": 50,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "くらいつく",
+    "romaji": "kuraitsuku",
+    "type": "ゴースト",
+    "power": 90,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "たたり",
+    "romaji": "tatari",
+    "type": "ゴースト",
+    "power": 1,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "pinch_up",
+    "target": 1
+  },
+  {
+    "name": "ライフダウン",
+    "romaji": "raifudaun",
+    "type": "ゴースト",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ドラゴンビート",
+    "romaji": "doragonbi-to",
+    "type": "ドラゴン",
+    "power": 140,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ふくしゅう",
+    "romaji": "fukushuu",
+    "type": "あく",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "two_fold",
+    "target": 1
+  },
+  {
+    "name": "ダークリゾルブ",
+    "romaji": "da-kurizorubu",
+    "type": "あく",
+    "power": 130,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ダークカッター",
+    "romaji": "da-kukatta-",
+    "type": "あく",
+    "power": 60,
+    "accuracy": 95,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ダークロアー",
+    "romaji": "da-kuroa-",
+    "type": "あく",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ダークハンド",
+    "romaji": "da-kuhando",
+    "type": "あく",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "おいつめる",
+    "romaji": "oitsumeru",
+    "type": "あく",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "メタルニッパー",
+    "romaji": "metarunippa-",
+    "type": "はがね",
+    "power": 30,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ジオインパクト",
+    "romaji": "jioinpakuto",
+    "type": "はがね",
+    "power": 140,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "じりょくせん",
+    "romaji": "jiryokusen",
+    "type": "はがね",
+    "power": 120,
+    "accuracy": 80,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "はねやすめ",
+    "romaji": "haneyasume",
+    "type": "ひこう",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "きりばらい",
+    "romaji": "kiribarai",
+    "type": "ひこう",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ふんえん",
+    "romaji": "funen",
+    "type": "ほのお",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "しゅうげき",
+    "romaji": "shuugeki",
+    "type": "むし",
+    "power": 100,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "weather_ball",
+    "target": 1
+  },
+  {
+    "name": "アシッドボム",
+    "romaji": "ashiddobomu",
+    "type": "どく",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "エレキネット",
+    "romaji": "erekinetto",
+    "type": "でんき",
+    "power": 55,
+    "accuracy": 95,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "からをやぶる",
+    "romaji": "karawoyaburu",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "いえき",
+    "romaji": "ieki",
+    "type": "どく",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "かんせんしょう",
+    "romaji": "kansenshou",
+    "type": "どく",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "グラスミキサー",
+    "romaji": "gurasumikisa-",
+    "type": "くさ",
+    "power": 65,
+    "accuracy": 90,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "くいあらす",
+    "romaji": "kuiarasu",
+    "type": "むし",
+    "power": 100,
+    "accuracy": 90,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "じならし",
+    "romaji": "jinarashi",
+    "type": "じめん",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "ダブルチョップ",
+    "romaji": "daburuchoppu",
+    "type": "ドラゴン",
+    "power": 40,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "two_hit",
+    "target": 1
+  },
+  {
+    "name": "ちょうのまい",
+    "romaji": "chounomai",
+    "type": "むし",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "つめとぎ",
+    "romaji": "tsumetogi",
+    "type": "あく",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "つららおとし",
+    "romaji": "tsuraraotoshi",
+    "type": "こおり",
+    "power": 85,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "とぐろをまく",
+    "romaji": "togurowomaku",
+    "type": "どく",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ドリルライナー",
+    "romaji": "doriruraina-",
+    "type": "じめん",
+    "power": 80,
+    "accuracy": 95,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ハートスタンプ",
+    "romaji": "ha-tosutanpu",
+    "type": "エスパー",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ハードローラー",
+    "romaji": "ha-doro-ra-",
+    "type": "むし",
+    "power": 65,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "two_fold",
+    "target": 1
+  },
+  {
+    "name": "ふるいたてる",
+    "romaji": "furuitateru",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ヘドロウェーブ",
+    "romaji": "hedorowe-bu",
+    "type": "どく",
+    "power": 95,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "むしのていこう",
+    "romaji": "mushinoteikou",
+    "type": "むし",
+    "power": 50,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "れんごく",
+    "romaji": "rengoku",
+    "type": "ほのお",
+    "power": 100,
+    "accuracy": 50,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ワイルドボルト",
+    "romaji": "wairudoboruto",
+    "type": "でんき",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ねらいうち",
+    "romaji": "neraiuchi",
+    "type": "あく",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ねっとう",
+    "romaji": "nettou",
+    "type": "みず",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ムーンフォース",
+    "romaji": "mu-nfo-su",
+    "type": "フェアリー",
+    "power": 95,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "マジカルシャイン",
+    "romaji": "majikarushain",
+    "type": "フェアリー",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "ようせいのかぜ",
+    "romaji": "youseinokaze",
+    "type": "フェアリー",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "チャームボイス",
+    "romaji": "cha-muboisu",
+    "type": "フェアリー",
+    "power": 40,
+    "accuracy": 0,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "つぶらなひとみ",
+    "romaji": "tsuburanahitomi",
+    "type": "フェアリー",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "じゃれつく",
+    "romaji": "jaretsuku",
+    "type": "フェアリー",
+    "power": 90,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "アクアインパクト",
+    "romaji": "akuainpakuto",
+    "type": "みず",
+    "power": 120,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "おいかぜ",
+    "romaji": "oikaze",
+    "type": "ひこう",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "おしゃべり",
+    "romaji": "oshaberi",
+    "type": "ひこう",
+    "power": 65,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "トリックルーム",
+    "romaji": "torikkuru-mu",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ふいうち",
+    "romaji": "fuiuchi",
+    "type": "あく",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "もろはのずつき",
+    "romaji": "morohanozutsuki",
+    "type": "いわ",
+    "power": 150,
+    "accuracy": 80,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "クリアスモッグ",
+    "romaji": "kuriasumoggu",
+    "type": "どく",
+    "power": 50,
+    "accuracy": 0,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "こおりのいぶき",
+    "romaji": "koorinoibuki",
+    "type": "こおり",
+    "power": 60,
+    "accuracy": 90,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "スイープビンタ",
+    "romaji": "sui-pubinta",
+    "type": "ノーマル",
+    "power": 25,
+    "accuracy": 85,
+    "category": "Physical",
+    "class": "multi_hit",
+    "target": 1
+  },
+  {
+    "name": "たたりめ",
+    "romaji": "tatarime",
+    "type": "ゴースト",
+    "power": 65,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "two_fold",
+    "target": 1
+  },
+  {
+    "name": "ニトロチャージ",
+    "romaji": "nitorocha-ji",
+    "type": "ほのお",
+    "power": 50,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "バークアウト",
+    "romaji": "ba-kuauto",
+    "type": "あく",
+    "power": 55,
+    "accuracy": 95,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "やきつくす",
+    "romaji": "yakitsukusu",
+    "type": "ほのお",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "かいでんぱ",
+    "romaji": "kaidenpa",
+    "type": "でんき",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "グロウパンチ",
+    "romaji": "guroupanchi",
+    "type": "かくとう",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ないしょばなし",
+    "romaji": "naishobanashi",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "なかよくする",
+    "romaji": "nakayokusuru",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ばくおんぱ",
+    "romaji": "bakuonpa",
+    "type": "ノーマル",
+    "power": 140,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "two_fold",
+    "target": 2
+  },
+  {
+    "name": "はなふぶき",
+    "romaji": "hanafubuki",
+    "type": "くさ",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "two_fold",
+    "target": 2
+  },
+  {
+    "name": "フリーズドライ",
+    "romaji": "furi-zudorai",
+    "type": "こおり",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ベノムトラップ",
+    "romaji": "benomutorappu",
+    "type": "どく",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "ほっぺすりすり",
+    "romaji": "hoppesurisuri",
+    "type": "でんき",
+    "power": 20,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "フリーズショック",
+    "romaji": "furi-zushokku",
+    "type": "こおり",
+    "power": 85,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "がんせきだん",
+    "romaji": "gansekidan",
+    "type": "いわ",
+    "power": 85,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ジェムレーザー",
+    "romaji": "jiemure-za-",
+    "type": "いわ",
+    "power": 95,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "せいけんづき",
+    "romaji": "seikenzuki",
+    "type": "かくとう",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ジェットシュート",
+    "romaji": "jiettoshu-to",
+    "type": "ひこう",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "サイコクラッシュ",
+    "romaji": "saikokurasshu",
+    "type": "エスパー",
+    "power": 95,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "シャドーアタック",
+    "romaji": "shado-atakku",
+    "type": "ゴースト",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ソウルストライク",
+    "romaji": "sourusutoraiku",
+    "type": "ゴースト",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "クリアボール",
+    "romaji": "kuriabo-ru",
+    "type": "はがね",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ドラゴンバイト",
+    "romaji": "doragonbaito",
+    "type": "ドラゴン",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "リューズバスター",
+    "romaji": "ryu-zubasuta-",
+    "type": "ドラゴン",
+    "power": 95,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "かじりつく",
+    "romaji": "kajiritsuku",
+    "type": "むし",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "みずびたし",
+    "romaji": "mizubitashi",
+    "type": "みず",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "シンプルビーム",
+    "romaji": "shinpurubi-mu",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "なやみのタネ",
+    "romaji": "nayaminotane",
+    "type": "くさ",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ムーンインパクト",
+    "romaji": "mu-ninpakuto",
+    "type": "フェアリー",
+    "power": 150,
+    "accuracy": 80,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ライフエナジー",
+    "romaji": "raifuenaji-",
+    "type": "フェアリー",
+    "power": 120,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "pinch_down",
+    "target": 1
+  },
+  {
+    "name": "マジカルブレイク",
+    "romaji": "majikarubureiku",
+    "type": "フェアリー",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "はしゃのいちげき",
+    "romaji": "hashanoichigeki",
+    "type": "ドラゴン",
+    "power": 140,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ダイナソード",
+    "romaji": "dainaso-do",
+    "type": "ドラゴン",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ウインドミル",
+    "romaji": "uindomiru",
+    "type": "くさ",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "グレンダイブ",
+    "romaji": "gurendaibu",
+    "type": "ほのお",
+    "power": 100,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "とうきのおたけび",
+    "romaji": "toukinootakebi",
+    "type": "かくとう",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "インパクトサイト",
+    "romaji": "inpakutosaito",
+    "type": "はがね",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "バリアブラスト",
+    "romaji": "bariaburasuto",
+    "type": "エスパー",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ソイルシュート",
+    "romaji": "soirushu-to",
+    "type": "じめん",
+    "power": 65,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ロックスリング",
+    "romaji": "rokkusuringu",
+    "type": "いわ",
+    "power": 65,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ローキック",
+    "romaji": "ro-kikku",
+    "type": "かくとう",
+    "power": 65,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "フェイント",
+    "romaji": "feinto",
+    "type": "ノーマル",
+    "power": 30,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "マリンドロップ",
+    "romaji": "marindoroppu",
+    "type": "みず",
+    "power": 65,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "このはがくれ",
+    "romaji": "konohagakure",
+    "type": "くさ",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "きゅうせんかい",
+    "romaji": "kyuusenkai",
+    "type": "ひこう",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "しんけいどく",
+    "romaji": "shinkeidoku",
+    "type": "どく",
+    "power": 0,
+    "accuracy": 90,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ラップおん",
+    "romaji": "rappuon",
+    "type": "ゴースト",
+    "power": 0,
+    "accuracy": 95,
+    "category": "Status",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "ゾンビタッチ",
+    "romaji": "zonbitatchi",
+    "type": "ゴースト",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "アクアバルカン",
+    "romaji": "akuabarukan",
+    "type": "みず",
+    "power": 25,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "multi_hit",
+    "target": 1
+  },
+  {
+    "name": "ひれビンタ",
+    "romaji": "hirebinta",
+    "type": "みず",
+    "power": 40,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "みずとばし",
+    "romaji": "mizutobashi",
+    "type": "みず",
+    "power": 55,
+    "accuracy": 95,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "アロマウインド",
+    "romaji": "aromauindo",
+    "type": "くさ",
+    "power": 70,
+    "accuracy": 95,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "せんせいじゅつ",
+    "romaji": "senseijutsu",
+    "type": "エスパー",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "おんみょうじゅつ",
+    "romaji": "onmyoujutsu",
+    "type": "エスパー",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "あなあけパンチ",
+    "romaji": "anaakepanchi",
+    "type": "むし",
+    "power": 90,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "メタルホーン",
+    "romaji": "metaruho-n",
+    "type": "はがね",
+    "power": 120,
+    "accuracy": 85,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "パワーボルテージ",
+    "romaji": "pawa-borute-ji",
+    "type": "でんき",
+    "power": 100,
+    "accuracy": 90,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "エレキインパクト",
+    "romaji": "erekiinpakuto",
+    "type": "でんき",
+    "power": 85,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ガイアキューブ",
+    "romaji": "gaiakyu-bu",
+    "type": "じめん",
+    "power": 140,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ひかりのはどう",
+    "romaji": "hikarinohadou",
+    "type": "フェアリー",
+    "power": 85,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "まおうのいかり",
+    "romaji": "maounoikari",
+    "type": "あく",
+    "power": 95,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "マジカルボイス",
+    "romaji": "majikaruboisu",
+    "type": "フェアリー",
+    "power": 60,
+    "accuracy": 0,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "アクアカッター",
+    "romaji": "akuakatta-",
+    "type": "みず",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "いのちとり",
+    "romaji": "inochitori",
+    "type": "ゴースト",
+    "power": 120,
+    "accuracy": 80,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ヨガスマッシュ",
+    "romaji": "yogasumasshu",
+    "type": "エスパー",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ドラゴンテール",
+    "romaji": "doragonte-ru",
+    "type": "ドラゴン",
+    "power": 60,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "メロメロパンチ",
+    "romaji": "meromeropanchi",
+    "type": "フェアリー",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "しおみず",
+    "romaji": "shiomizu",
+    "type": "みず",
+    "power": 65,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "パワーシェア",
+    "romaji": "pawa-shiea",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ガードシェア",
+    "romaji": "ga-doshiea",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "パワースワップ",
+    "romaji": "pawa-suwappu",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ガードスワップ",
+    "romaji": "ga-dosuwappu",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "イカサマ",
+    "romaji": "ikasama",
+    "type": "あく",
+    "power": 95,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "カラフルアタック",
+    "romaji": "karafuruatakku",
+    "type": "ノーマル",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "めざましビンタ",
+    "romaji": "mezamashibinta",
+    "type": "かくとう",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "two_fold",
+    "target": 1
+  },
+  {
+    "name": "おわかれビンタ",
+    "romaji": "owakarebinta",
+    "type": "フェアリー",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "two_fold",
+    "target": 1
+  },
+  {
+    "name": "アイシング",
+    "romaji": "aishingu",
+    "type": "こおり",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "two_fold",
+    "target": 1
+  },
+  {
+    "name": "アイスクラッシュ",
+    "romaji": "aisukurasshu",
+    "type": "こおり",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "two_fold",
+    "target": 1
+  },
+  {
+    "name": "こおりづけ",
+    "romaji": "koorizuke",
+    "type": "こおり",
+    "power": 0,
+    "accuracy": 40,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "パイロキネシス",
+    "romaji": "pairokineshisu",
+    "type": "エスパー",
+    "power": 60,
+    "accuracy": 90,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "バリアアタック",
+    "romaji": "bariaatakku",
+    "type": "いわ",
+    "power": 90,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "いやしのはどう",
+    "romaji": "iyashinohadou",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "いかりのこな",
+    "romaji": "ikarinokona",
+    "type": "むし",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ギフトパス",
+    "romaji": "gifutopasu",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "アシストパワー",
+    "romaji": "ashisutopawa-",
+    "type": "エスパー",
+    "power": 20,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ともえなげ",
+    "romaji": "tomoenage",
+    "type": "かくとう",
+    "power": 60,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "とんぼがえり",
+    "romaji": "tonbogaeri",
+    "type": "むし",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ボルトチェンジ",
+    "romaji": "borutochienji",
+    "type": "でんき",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "かじばのいちげき",
+    "romaji": "kajibanoichigeki",
+    "type": "ほのお",
+    "power": 65,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ストレッチ",
+    "romaji": "sutoretchi",
+    "type": "かくとう",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "いやなにおい",
+    "romaji": "iyananioi",
+    "type": "どく",
+    "power": 0,
+    "accuracy": 90,
+    "category": "Status",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "さえずる",
+    "romaji": "saezuru",
+    "type": "ひこう",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "むしのこえ",
+    "romaji": "mushinokoe",
+    "type": "むし",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "むしがつく",
+    "romaji": "mushigatsuku",
+    "type": "むし",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "むしかえす",
+    "romaji": "mushikaesu",
+    "type": "むし",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "two_fold",
+    "target": 1
+  },
+  {
+    "name": "ひょうい",
+    "romaji": "hyoui",
+    "type": "ゴースト",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ソウルシェイプ",
+    "romaji": "sourushieipu",
+    "type": "ゴースト",
+    "power": 65,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ワイルドカード",
+    "romaji": "wairudoka-do",
+    "type": "フェアリー",
+    "power": 95,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "しぼりとる",
+    "romaji": "shiboritoru",
+    "type": "ノーマル",
+    "power": 120,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "pinch_down",
+    "target": 1
+  },
+  {
+    "name": "ゆうわく",
+    "romaji": "yuuwaku",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "ドリームミスト",
+    "romaji": "dori-mumisuto",
+    "type": "フェアリー",
+    "power": 0,
+    "accuracy": 60,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "コットンガード",
+    "romaji": "kottonga-do",
+    "type": "くさ",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "やまあらし",
+    "romaji": "yamaarashi",
+    "type": "かくとう",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "おしおき",
+    "romaji": "oshioki",
+    "type": "あく",
+    "power": 60,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "マグナライズ",
+    "romaji": "magunaraizu",
+    "type": "じめん",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "あらりょうじ",
+    "romaji": "araryouji",
+    "type": "ノーマル",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "two_fold",
+    "target": 1
+  },
+  {
+    "name": "なしくずし",
+    "romaji": "nashikuzushi",
+    "type": "ノーマル",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "せいなるつるぎ",
+    "romaji": "seinarutsurugi",
+    "type": "かくとう",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "シンクロノイズ",
+    "romaji": "shinkuronoizu",
+    "type": "エスパー",
+    "power": 120,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "ミラータイプ",
+    "romaji": "mira-taipu",
+    "type": "ノーマル",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ドレインキッス",
+    "romaji": "doreinkissu",
+    "type": "フェアリー",
+    "power": 50,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ヘドロボンバー",
+    "romaji": "hedorobonba-",
+    "type": "どく",
+    "power": 130,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ブラックホール",
+    "romaji": "burakkuho-ru",
+    "type": "あく",
+    "power": 130,
+    "accuracy": 90,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "だきつく",
+    "romaji": "dakitsuku",
+    "type": "フェアリー",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "まとわりつく",
+    "romaji": "matowaritsuku",
+    "type": "むし",
+    "power": 20,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "しっぺがえし",
+    "romaji": "shippegaeshi",
+    "type": "あく",
+    "power": 50,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "サイコシフト",
+    "romaji": "saikoshifuto",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 85,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "パワートリック",
+    "romaji": "pawa-torikku",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ミラクルトリック",
+    "romaji": "mirakurutorikku",
+    "type": "エスパー",
+    "power": 0,
+    "accuracy": 0,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "アクロバット",
+    "romaji": "akurobatto",
+    "type": "ひこう",
+    "power": 55,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "メタルバースト",
+    "romaji": "metaruba-suto",
+    "type": "はがね",
+    "power": 0,
+    "accuracy": 100,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "かげぬい",
+    "romaji": "kagenui",
+    "type": "ゴースト",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "フラッシュバブル",
+    "romaji": "furasshubaburu",
+    "type": "みず",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ハイパージングル",
+    "romaji": "haipa-jinguru",
+    "type": "エスパー",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "スマートホーン",
+    "romaji": "suma-toho-n",
+    "type": "はがね",
+    "power": 70,
+    "accuracy": 0,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "あんやのつばさ",
+    "romaji": "anyanotsubasa",
+    "type": "ゴースト",
+    "power": 80,
+    "accuracy": 95,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "アースライザー",
+    "romaji": "a-suraiza-",
+    "type": "じめん",
+    "power": 120,
+    "accuracy": 80,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "なぎはらう",
+    "romaji": "nagiharau",
+    "type": "あく",
+    "power": 80,
+    "accuracy": 90,
+    "category": "Physical",
+    "class": "standard",
+    "target": 2
+  },
+  {
+    "name": "ラブリースパーク",
+    "romaji": "raburi-supa-ku",
+    "type": "でんき",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ブロッサムライト",
+    "romaji": "burossamuraito",
+    "type": "でんき",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "じゅうおうのキバ",
+    "romaji": "juuounokiba",
+    "type": "じめん",
+    "power": 90,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "fixed",
+    "target": 1,
+    "fixed_value": 40
+  },
+  {
+    "name": "デッドリーボーン",
+    "romaji": "deddori-bo-n",
+    "type": "ゴースト",
+    "power": 80,
+    "accuracy": 100,
+    "category": "Physical",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "だいせんぷう",
+    "romaji": "daisenpuu",
+    "type": "ひこう",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "ランチャーアーム",
+    "romaji": "rancha-a-mu",
+    "type": "はがね",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "しこんのみちびき",
+    "romaji": "shikonnomichibiki",
+    "type": "どく",
+    "power": 70,
+    "accuracy": 100,
+    "category": "Special",
+    "class": "standard",
+    "target": 1
+  },
+  {
+    "name": "フェロモンどく",
+    "romaji": "feromondoku",
+    "type": "どく",
+    "power": 0,
+    "accuracy": 80,
+    "category": "Status",
+    "class": "standard",
+    "target": 1
+  }
+]
