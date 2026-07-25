@@ -166,3 +166,40 @@ test("技タグに応じてがんじょうあご・てつのこぶし・ちか�
   assert.ok(punch.max > normal.max);
   assert.ok(sheerForce.max > normal.max);
 });
+
+test("攻撃側HPと防御側HPを混同せず、よわきとしんりょくを判定する", () => {
+  const normal = calculateDamageRange({
+    ...base,
+    moveType: "くさ",
+    attackerTypes: ["くさ"],
+  });
+  const defenderDamaged = calculateDamageRange({
+    ...base,
+    moveType: "くさ",
+    attackerTypes: ["くさ"],
+    attackerAbility: "よわき",
+    currentHp: 1,
+    maxHp: 200,
+    attackerCurrentHp: 200,
+    attackerMaxHp: 200,
+  });
+  const attackerDamaged = calculateDamageRange({
+    ...base,
+    moveType: "くさ",
+    attackerTypes: ["くさ"],
+    attackerAbility: "よわき",
+    attackerCurrentHp: 100,
+    attackerMaxHp: 200,
+  });
+  const overgrow = calculateDamageRange({
+    ...base,
+    moveType: "くさ",
+    attackerTypes: ["くさ"],
+    attackerAbility: "しんりょく",
+    attackerCurrentHp: 60,
+    attackerMaxHp: 200,
+  });
+  assert.deepEqual(defenderDamaged, normal);
+  assert.ok(attackerDamaged.max < normal.max);
+  assert.ok(overgrow.max > normal.max);
+});

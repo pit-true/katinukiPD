@@ -168,6 +168,8 @@
     const category = options.category;
     const ability = options.attackerAbility || "";
     const item = options.attackerItem || "";
+    const attackerMaxHp = options.attackerMaxHp || 1;
+    const attackerCurrentHp = options.attackerCurrentHp ?? attackerMaxHp;
     let result = value;
 
     if (category === "Physical" && ability === "ちからもち") {
@@ -178,7 +180,7 @@
       result = applyRatio(result, 3, 2);
     } else if (category === "Special" && ability === "サンパワー" && options.weather === "sunny") {
       result = applyRatio(result, 3, 2);
-    } else if (ability === "よわき" && options.currentHp <= options.maxHp / 2) {
+    } else if (ability === "よわき" && attackerCurrentHp <= attackerMaxHp / 2) {
       result = applyRatio(result, 1, 2);
     }
 
@@ -242,12 +244,26 @@
   function applyPowerModifiers(power, options, moveType) {
     const ability = options.attackerAbility || "";
     const item = options.attackerItem || "";
+    const attackerMaxHp = options.attackerMaxHp || 1;
+    const attackerCurrentHp = options.attackerCurrentHp ?? attackerMaxHp;
     let result = power;
 
     const biting = options.biting || BITING_MOVES.has(options.moveName);
     const punching = options.punching || PUNCHING_MOVES.has(options.moveName);
 
-    if (ability === "ちからずく" && options.secondaryEffect) {
+    const pinchTypes = {
+      "しんりょく": "くさ",
+      "もうか": "ほのお",
+      "げきりゅう": "みず",
+      "むしのしらせ": "むし",
+    };
+
+    if (
+      pinchTypes[ability] === moveType
+      && attackerCurrentHp <= attackerMaxHp / 3
+    ) {
+      result = applyRatio(result, 3, 2);
+    } else if (ability === "ちからずく" && options.secondaryEffect) {
       result = applyRatio(result, 13, 10);
     } else if (ability === "テクニシャン" && result <= 60) {
       result = applyRatio(result, 3, 2);

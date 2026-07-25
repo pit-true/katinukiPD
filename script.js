@@ -5890,6 +5890,13 @@ function calculateDamage(attack, defense, level, power, category, moveType, atta
       finalPower = Math.floor(finalPower * 3 / 2);
   }
 
+  const attackerStats = calculateStats(attackerPokemon);
+  const attackerMaxHp = Math.max(1, attackerStats.hp || 1);
+  const attackerCurrentHp = Math.max(
+      0,
+      parseInt(document.getElementById('attackerCurrentHP')?.value)
+          || attackerMaxHp
+  );
   const defenderStats = calculateStats(defenderPokemon);
   const defenderMaxHp = Math.max(
       1,
@@ -5925,6 +5932,8 @@ function calculateDamage(attack, defense, level, power, category, moveType, atta
       critical: document.getElementById('criticalCheck')?.checked || false,
       burned: document.getElementById('burnCheck')?.checked || false,
       statused: document.getElementById('burnCheck')?.checked || false,
+      attackerCurrentHp,
+      attackerMaxHp,
       defenderStatused:
           (document.getElementById('statusDamageSelect')?.value || 'none') !== 'none',
       screen: document.getElementById('wallCheck')?.checked || false,
