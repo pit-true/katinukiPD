@@ -1,0 +1,417 @@
+[
+  {
+    "name": "シルクのスカーフ", 
+    "type": "ノーマル", 
+    "a": 1.1,
+    "timing": "attackMod",
+    "description": "ノーマルタイプの技の威力が1.1倍になる",
+    "romaji":"sirukunosuka-fu"
+  },
+  {
+    "name": "しんぴのしずく", 
+    "type": "みず", 
+    "c": 1.1,
+    "timing": "attackMod",
+    "description": "みずタイプの技の威力が1.1倍になる",
+    "romaji":"sinpinosizuku"
+  },
+  {
+    "name": "きせきのたね", 
+    "type": "くさ", 
+    "c": 1.1,
+    "timing": "attackMod",
+    "description": "くさタイプの技の威力が1.1倍になる",
+    "romaji":"kisekinotane"
+  },
+  {
+    "name": "もくたん", 
+    "type": "ほのお", 
+    "c": 1.1,
+    "timing": "attackMod",
+    "description": "ほのおタイプの技の威力が1.1倍になる",
+    "romaji":"mokutan"
+  },
+  {
+    "name": "じしゃく", 
+    "type": "でんき", 
+    "c": 1.1,
+    "timing": "attackMod",
+    "description": "でんきタイプの技の威力が1.1倍になる",
+    "romaji":"jisyaku"
+  },
+  {
+    "name": "とけないこおり", 
+    "type": "こおり", 
+    "c": 1.1,
+    "timing": "attackMod",
+    "description": "こおりタイプの技の威力が1.1倍になる",
+    "romaji":"tokenaikoori"
+  },
+  {
+    "name": "くろおび", 
+    "type": "かくとう", 
+    "a": 1.1,
+    "timing": "attackMod",
+    "description": "かくとうタイプの技の威力が1.1倍になる",
+    "romaji":"kuroobi"
+  },
+  {
+    "name": "くろいメガネ", 
+    "type": "あく", 
+    "a": 1.1,
+    "timing": "attackMod",
+    "description": "あくタイプの技の威力が1.1倍になる",
+    "romaji":"kuroimegane"
+  },
+  {
+    "name": "どくバリ", 
+    "type": "どく", 
+    "a": 1.1,
+    "timing": "attackMod",
+    "description": "どくタイプの技の威力が1.1倍になる",
+    "romaji":"dokubari"
+  },
+  {
+    "name": "やわらかいすな", 
+    "type": "じめん", 
+    "a": 1.1,
+    "timing": "attackMod",
+    "description": "じめんタイプの技の威力が1.1倍になる",
+    "romaji":"yawarakaisuna"
+  },
+  {
+    "name": "するどいくちばし", 
+    "type": "ひこう", 
+    "a": 1.1,
+    "timing": "attackMod",
+    "description": "ひこうタイプの技の威力が1.1倍になる",
+    "romaji":"surudoikutibasi"
+  },
+  {
+    "name": "まがったスプーン", 
+    "type": "エスパー", 
+    "c": 1.1,
+    "timing": "attackMod",
+    "description": "エスパータイプの技の威力が1.1倍になる",
+    "romaji":"magattasupu-n"
+  },
+  {
+    "name": "かたいいわ", 
+    "type": "いわ", 
+    "a": 1.1,
+    "timing": "attackMod",
+    "description": "いわタイプの技の威力が1.1倍になる",
+    "romaji":"kataiiwa"
+  },
+  {
+    "name": "ぎんのこな", 
+    "type": "むし", 
+    "a": 1.1,
+    "timing": "attackMod",
+    "description": "むしタイプの技の威力が1.1倍になる",
+    "romaji":"ginnnokona"
+  },
+  {
+    "name": "のろいのおふだ", 
+    "type": "ゴースト", 
+    "a": 1.1,
+    "timing": "attackMod",
+    "description": "ゴーストタイプの技の威力が1.1倍になる",
+    "romaji":"noroinoofuda"
+  },
+  {
+    "name": "りゅうのキバ", 
+    "type": "ドラゴン", 
+    "c": 1.1,
+    "timing": "attackMod",
+    "description": "ドラゴンタイプの技の威力が1.1倍になる",
+    "romaji":"ryuunokiba"
+  },
+  {
+    "name": "メタルコート", 
+    "type": "はがね", 
+    "a": 1.1,
+    "timing": "attackMod",
+    "description": "はがねタイプの技の威力が1.1倍になる",
+    "romaji":"metaruko-to"
+  },
+  {
+    "name": "こだわりハチマキ", 
+    "a": 1.5,
+    "timing": "attackMod",
+    "description": "物理攻撃の威力が1.5倍になる",
+    "romaji":"kodawarihatimaki"
+  },
+  {
+    "name": "こころのしずく", 
+    "c": 1.5,
+    "d": 1.5,
+    "timing": "attackMod",
+    "description": "特殊攻撃と特殊防御が1.5倍になる（ラティオス/ラティアスが持った場合）",
+    "romaji":"kokoronosizuku"
+  },
+  {
+    "name": "しんかいのキバ",
+    "c": 2.0, 
+    "timing": "attackMod",
+    "description": "特殊攻撃が2.0倍になる（パールルが持った場合）",
+    "romaji":"sinkainokiba"
+  },
+  {
+    "name": "しんかいのウロコ",
+    "d": 2.0, 
+    "description": "特殊防御が2.0倍になる（パールルが持った場合）",
+    "romaji":"sinkainouroko"
+  },
+  {
+    "name": "でんきだま",
+    "a": 2.0, 
+    "c": 2.0, 
+    "timing": "attackMod",
+    "description": "攻撃と特殊攻撃が2.0倍になる（ピカチュウが持った場合）",
+    "romaji":"denkidama"
+  },
+  {
+    "name": "メタルパウダー", 
+    "b": 2.0,
+    "description": "防御が2倍になる（メタモンが持った場合）",
+    "romaji":"metarupauda-"
+  },
+  {
+    "name": "ふといホネ", 
+    "a": 2.0,
+    "timing": "attackMod",
+    "description": "物理攻撃の威力が2.0倍になる（カラカラが持った場合）",
+    "romaji":"futoihone"
+  },
+  {
+    "name": "ピントレンズ", 
+    "timing": "attackMod",
+    "description": "急所に当たりやすくなる",
+    "romaji":"pintorenzu"
+  },  
+  {
+    "name": "たべのこし", 
+    "description": "最大HPの1/16回復する",
+    "romaji":"tabenokosi"
+  },
+  {
+    "name": "オボンのみ", 
+    "description": "最大HPの1/2以下になったとき30回復する",
+    "romaji":"obonnnomi"
+  },
+  {
+    "name": "フィラのみ", 
+    "description": "最大HPの1/2以下になったとき最大HPの1/8回復する",
+    "romaji":"firanomi"
+  },
+  {
+    "name": "ウイのみ", 
+    "description": "最大HPの1/2以下になったとき最大HPの1/8回復する",
+    "romaji":"uinomi"
+  },
+  {
+    "name": "マゴのみ", 
+    "description": "最大HPの1/2以下になったとき最大HPの1/8回復する",
+    "romaji":"magonomi"
+  },
+  {
+    "name": "バンジのみ", 
+    "description": "最大HPの1/2以下になったとき最大HPの1/8回復する",
+    "romaji":"banzinomi"
+  },
+  {
+    "name": "イアのみ", 
+    "description": "最大HPの1/2以下になったとき最大HPの1/8回復する",
+    "romaji":"ianomi"
+  },
+  {
+    "name": "ひかりのこな", 
+    "description": "持たせたポケモンに対するわざの命中率が0.9倍になる",
+    "romaji":"hikarinokona"
+  },
+  {
+    "name": "こだわりメガネ",
+    "description": "特殊攻撃が1.5倍になる"
+  },
+  {
+    "name": "いのちのたま",
+    "description": "攻撃技のダメージが1.3倍になる"
+  },
+  {
+    "name": "たつじんのおび",
+    "description": "効果ばつぐんの技のダメージが1.2倍になる"
+  },
+  {
+    "name": "ちからのハチマキ",
+    "description": "物理技の威力が1.1倍になる"
+  },
+  {
+    "name": "ものしりメガネ",
+    "description": "特殊技の威力が1.1倍になる"
+  },
+  {
+    "name": "しんかのきせき",
+    "description": "進化前のポケモンの防御と特防が1.5倍になる"
+  },
+  {
+    "name": "とつげきチョッキ",
+    "description": "特防が1.5倍になる"
+  },
+  {
+    "name": "きせきのタネ",
+    "description": "くさタイプの技の威力が1.2倍になる"
+  },
+  {
+    "name": "かたいいし",
+    "description": "いわタイプの技の威力が1.2倍になる"
+  },
+  {
+    "name": "ようせいのはね",
+    "description": "フェアリータイプの技の威力が1.2倍になる"
+  },
+  {
+    "name": "ノーマルのジュエル",
+    "description": "ノーマルタイプの技の威力が1.3倍になる"
+  },
+  {
+    "name": "ほのおのジュエル",
+    "description": "ほのおタイプの技の威力が1.3倍になる"
+  },
+  {
+    "name": "みずのジュエル",
+    "description": "みずタイプの技の威力が1.3倍になる"
+  },
+  {
+    "name": "でんきのジュエル",
+    "description": "でんきタイプの技の威力が1.3倍になる"
+  },
+  {
+    "name": "くさのジュエル",
+    "description": "くさタイプの技の威力が1.3倍になる"
+  },
+  {
+    "name": "こおりのジュエル",
+    "description": "こおりタイプの技の威力が1.3倍になる"
+  },
+  {
+    "name": "かくとうのジュエル",
+    "description": "かくとうタイプの技の威力が1.3倍になる"
+  },
+  {
+    "name": "どくのジュエル",
+    "description": "どくタイプの技の威力が1.3倍になる"
+  },
+  {
+    "name": "じめんのジュエル",
+    "description": "じめんタイプの技の威力が1.3倍になる"
+  },
+  {
+    "name": "ひこうのジュエル",
+    "description": "ひこうタイプの技の威力が1.3倍になる"
+  },
+  {
+    "name": "エスパーのジュエル",
+    "description": "エスパータイプの技の威力が1.3倍になる"
+  },
+  {
+    "name": "むしのジュエル",
+    "description": "むしタイプの技の威力が1.3倍になる"
+  },
+  {
+    "name": "いわのジュエル",
+    "description": "いわタイプの技の威力が1.3倍になる"
+  },
+  {
+    "name": "ゴーストのジュエル",
+    "description": "ゴーストタイプの技の威力が1.3倍になる"
+  },
+  {
+    "name": "ドラゴンのジュエル",
+    "description": "ドラゴンタイプの技の威力が1.3倍になる"
+  },
+  {
+    "name": "あくのジュエル",
+    "description": "あくタイプの技の威力が1.3倍になる"
+  },
+  {
+    "name": "はがねのジュエル",
+    "description": "はがねタイプの技の威力が1.3倍になる"
+  },
+  {
+    "name": "フェアリーのジュエル",
+    "description": "フェアリータイプの技の威力が1.3倍になる"
+  },
+  {
+    "name": "ホズのみ",
+    "description": "ノーマル技のダメージを半減する"
+  },
+  {
+    "name": "オッカのみ",
+    "description": "効果ばつぐんのほのお技のダメージを半減する"
+  },
+  {
+    "name": "イトケのみ",
+    "description": "効果ばつぐんのみず技のダメージを半減する"
+  },
+  {
+    "name": "ソクノのみ",
+    "description": "効果ばつぐんのでんき技のダメージを半減する"
+  },
+  {
+    "name": "リンドのみ",
+    "description": "効果ばつぐんのくさ技のダメージを半減する"
+  },
+  {
+    "name": "ヤチェのみ",
+    "description": "効果ばつぐんのこおり技のダメージを半減する"
+  },
+  {
+    "name": "ヨプのみ",
+    "description": "効果ばつぐんのかくとう技のダメージを半減する"
+  },
+  {
+    "name": "ビアーのみ",
+    "description": "効果ばつぐんのどく技のダメージを半減する"
+  },
+  {
+    "name": "シュカのみ",
+    "description": "効果ばつぐんのじめん技のダメージを半減する"
+  },
+  {
+    "name": "バコウのみ",
+    "description": "効果ばつぐんのひこう技のダメージを半減する"
+  },
+  {
+    "name": "ウタンのみ",
+    "description": "効果ばつぐんのエスパー技のダメージを半減する"
+  },
+  {
+    "name": "タンガのみ",
+    "description": "効果ばつぐんのむし技のダメージを半減する"
+  },
+  {
+    "name": "ヨロギのみ",
+    "description": "効果ばつぐんのいわ技のダメージを半減する"
+  },
+  {
+    "name": "カシブのみ",
+    "description": "効果ばつぐんのゴースト技のダメージを半減する"
+  },
+  {
+    "name": "ハバンのみ",
+    "description": "効果ばつぐんのドラゴン技のダメージを半減する"
+  },
+  {
+    "name": "ナモのみ",
+    "description": "効果ばつぐんのあく技のダメージを半減する"
+  },
+  {
+    "name": "リリバのみ",
+    "description": "効果ばつぐんのはがね技のダメージを半減する"
+  },
+  {
+    "name": "ロゼルのみ",
+    "description": "効果ばつぐんのフェアリー技のダメージを半減する"
+  }
+]
