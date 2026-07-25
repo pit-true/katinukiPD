@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カチヌキPD</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="damage_core.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <!-- モバイル専用ボタン群 -->
+    <div class="mobile-button-group">
+        <button class="mobile-swap-button" onclick="swapPokemon()" title="攻撃側と防御側を入れ替え">
+            ⇄
+        </button>
+        <button class="mobile-damage-calc-button" onclick="performDamageCalculationEnhanced()">
+            ダメージ計算
+        </button>
+    </div>
+    <!-- ナビゲーションメニュー -->
+    <nav class="top-navigation">
+        <div class="nav-toggle">☰</div>
+        <div class="nav-menu">
+            <a href="#attacker-section">攻撃側</a>
+            <a href="#defender-section">防御側</a>
+            <a href="#results-section">結果</a>
+        </div>
+    </nav>
+
+    <header class="app-header">
+        <h1>カチヌキPD</h1>
+        <label class="edition-control" for="editionSelect">
+            作品
+            <select id="editionSelect">
+                <option value="procyon">プロキオン</option>
+                <option value="deneb">デネブ</option>
+            </select>
+        </label>
+    </header>
+    
+    <div class="battle-container">
+        <!-- 左上の攻守交代ボタン -->
+        <div class="swap-button-container">
+            <button type="button" class="swap-button" onclick="swapPokemon()" title="攻撃側と防御側を入れ替え">
+            ⇄
+            </button>
+        </div>
+        <!-- 左側セクション: 攻撃側ポケモン -->
+        <div class="section attacker-section" id="attacker-section">
+            <h2>攻撃側</h2>
+            
+            <!-- ポケモン選択 -->
+            <div class="input-row">
+                <label class="inline-label">ポケモン:</label>
+                <input type="text" id="attackerPokemon" placeholder="ポケモン名を検索">
+            </div>
+            <div id="attackerPokemonInfo" class="pokemon-info" style="display: none;"></div>
+            <!-- レベル -->
+            <div class="input-row">
+                <label class="inline-label">レベル:</label>
+                <input type="number" class="level-input" id="attackerLevel" value="50" min="1" max="100">
+                <select class="level-preset" id="attackerLevelPreset"
+                        aria-label="攻撃側レベルプリセット"
+                        onchange="setLevelPreset('attacker', this.value)">
+                    <option value="">任意</option>
+                    <option value="5">Lv5</option>
+                    <option value="15">Lv15</option>
+                    <option value="20">Lv20</option>
+                    <option value="30">Lv30</option>
+                    <option value="50" selected>Lv50</option>
+                    <option value="55">Lv55</option>
+                    <option value="100">Lv100</option>
+                </select>
+            </div>
+            
+            <!-- A実数値・個体値・努力値・性格補正 -->
+            <div class="stat-row">
+                <label class="stat-label">A:</label>
+                <input type="number" class="stat-input" id="attackerRealA">
+                <input type="number" class="iv-input" id="attackerIvA" value="31" min="0" max="31">
+                <button class="iv-quick-btn" onclick="setIV('attacker', 'a', 30)">30</button>
+                <input type="number" class="ev-input" id="attackerEvA" value="0" min="0" max="252" onchange="updateStats('attacker')">
+                <button class="ev-quick-btn" onclick="setEV('attacker', 'a', 252)">252</button>
+                <span class="stat-separator">|</span>
+                <button class="nature-btn" data-side="attacker" data-stat="a" data-value="0.9" onclick="setNatureModifier('attacker', 'a', 0.9, this)">0.9</button>
+                <button class="nature-btn selected" data-side="attacker" data-stat="a" data-value="1.0" onclick="setNatureModifier('attacker', 'a', 1.0, this)">1.0</button>
+                <button class="nature-btn" data-side="attacker" data-stat="a" data-value="1.1" onclick="setNatureModifier('attacker', 'a', 1.1, this)">1.1</button>
+            </div>
+            
+            <!-- C実数値・個体値・努力値・性格補正 -->
+            <div class="stat-row">
+                <label class="stat-label">C:</label>
+                <input type="number" class="stat-input" id="attackerRealC">
+                <input type="number" class="iv-input" id="attackerIvC" value="31" min="0" max="31">
+                <button class="iv-quick-btn" onclick="setIV('attacker', 'c', 30)">30</button>
+                <input type="number" class="ev-input" id="attackerEvC" value="0" min="0" max="252" onchange="updateStats('attacker')">
+                <button class="ev-quick-btn" onclick="setEV('attacker', 'c', 252)">252</button>
+                <span class="stat-separator">|</span>
+                <button class="nature-btn" data-side="attacker" data-stat="c" data-value="0.9" onclick="setNatureModifier('attacker', 'c', 0.9, this)">0.9</button>
+                <button class="nature-btn selected" data-side="attacker" data-stat="c" data-value="1.0" onclick="setNatureModifier('attacker', 'c', 1.0, this)">1.0</button>
+                <button class="nature-btn" data-side="attacker" data-stat="c" data-value="1.1" onclick="setNatureModifier('attacker', 'c', 1.1, this)">1.1</button>
+            </div>
+            
+            <!-- 詳細設定 -->
+            <div class="detail-settings">
+                <div class="detail-header" onclick="toggleDetail('attacker')">
+                    ▶ 詳細設定を開く
+                </div>
+                <div class="detail-content" id="attackerDetail" style="display: none;">
+                    <!-- 性格選択 -->
+                    <div class="input-row">
+                        <label class="inline-label">性格:</label>
+                        <input type="text" id="attackerNature" list="natureList" value="まじめ" placeholder="性格を選択">
+                    </div>
+                    
+                    <!-- 各ステータスの詳細設定 -->
+                    <div class="detail-stat-row">
+                        <label class="stat-label">H:</label>
+                        <input type="number" class="stat-input" id="attackerDetailRealHP">
+                        <input type="number" class="iv-input" id="attackerDetailIvHP" value="31" min="0" max="31" onchange="updateStats('attacker')">
+                        <button class="iv-quick-btn" onclick="setDetailIV('attacker', 'hp', 30)">30</button>
+                        <input type="number" class="ev-input" id="attackerDetailEvHP" value="0" min="0" max="252" onchange="updateStats('attacker')">
+                        <button class="ev-quick-btn" onclick="setDetailEV('attacker', 'hp', 252)">252</button>
+                        <div class="nature-plus-minus-heading">
+                            <span>+</span>
+                            <span>-</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-stat-row">
+                        <label class="stat-label">A:</label>
+                        <input type="number" class="stat-input" id="attackerDetailRealA">
+                        <input type="number" class="iv-input" id="attackerDetailIvA" value="31" min="0" max="31" onchange="updateStats('attacker')">
+                        <button class="iv-quick-btn" onclick="setDetailIV('attacker', 'a', 30)">30</button>
+                        <input type="number" class="ev-input" id="attackerDetailEvA" value="0" min="0" max="252" onchange="updateStats('attacker')">
+                        <button class="ev-quick-btn" onclick="setDetailEV('attacker', 'a', 252)">252</button>
+                        <div class="nature-checkbox-container">
+                            <span><input type="checkbox" id="attackerAPlus" class="nature-plus-checkbox" data-stat="a" data-side="attacker" onclick="handleNatureCheckbox('attacker', 'a', 'plus')"></span>
+                            <span><input type="checkbox" id="attackerAMinus" class="nature-minus-checkbox" data-stat="a" data-side="attacker" onclick="handleNatureCheckbox('attacker', 'a', 'minus')"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-stat-row">
+                        <label class="stat-label">B:</label>
+                        <input type="number" class="stat-input" id="attackerDetailRealB">
+                        <input type="number" class="iv-input" id="attackerDetailIvB" value="31" min="0" max="31" onchange="updateStats('attacker')">
+                        <button class="iv-quick-btn" onclick="setDetailIV('attacker', 'b', 30)">30</button>
+                        <input type="number" class="ev-input" id="attackerDetailEvB" value="0" min="0" max="252" onchange="updateStats('attacker')">
+                        <button class="ev-quick-btn" onclick="setDetailEV('attacker', 'b', 252)">252</button>
+                        <div class="nature-checkbox-container">
+                            <span><input type="checkbox" id="attackerBPlus" class="nature-plus-checkbox" data-stat="b" data-side="attacker" onclick="handleNatureCheckbox('attacker', 'b', 'plus')"></span>
+                            <span><input type="checkbox" id="attackerBMinus" class="nature-minus-checkbox" data-stat="b" data-side="attacker" onclick="handleNatureCheckbox('attacker', 'b', 'minus')"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-stat-row">
+                        <label class="stat-label">C:</label>
+                        <input type="number" class="stat-input" id="attackerDetailRealC">
+                        <input type="number" class="iv-input" id="attackerDetailIvC" value="31" min="0" max="31" onchange="updateStats('attacker')">
+                        <button class="iv-quick-btn" onclick="setDetailIV('attacker', 'c', 30)">30</button>
+                        <input type="number" class="ev-input" id="attackerDetailEvC" value="0" min="0" max="252" onchange="updateStats('attacker')">
+                        <button class="ev-quick-btn" onclick="setDetailEV('attacker', 'c', 252)">252</button>
+                        <div class="nature-checkbox-container">
+                            <span><input type="checkbox" id="attackerCPlus" class="nature-plus-checkbox" data-stat="c" data-side="attacker" onclick="handleNatureCheckbox('attacker', 'c', 'plus')"></span>
+                            <span><input type="checkbox" id="attackerCMinus" class="nature-minus-checkbox" data-stat="c" data-side="attacker" onclick="handleNatureCheckbox('attacker', 'c', 'minus')"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-stat-row">
+                        <label class="stat-label">D:</label>
+                        <input type="number" class="stat-input" id="attackerDetailRealD">
+                        <input type="number" class="iv-input" id="attackerDetailIvD" value="31" min="0" max="31" onchange="updateStats('attacker')">
+                        <button class="iv-quick-btn" onclick="setDetailIV('attacker', 'd', 30)">30</button>
+                        <input type="number" class="ev-input" id="attackerDetailEvD" value="0" min="0" max="252" onchange="updateStats('attacker')">
+                        <button class="ev-quick-btn" onclick="setDetailEV('attacker', 'd', 252)">252</button>
+                        <div class="nature-checkbox-container">
+                            <span><input type="checkbox" id="attackerDPlus" class="nature-plus-checkbox" data-stat="d" data-side="attacker" onclick="handleNatureCheckbox('attacker', 'd', 'plus')"></span>
+                            <span><input type="checkbox" id="attackerDMinus" class="nature-minus-checkbox" data-stat="d" data-side="attacker" onclick="handleNatureCheckbox('attacker', 'd', 'minus')"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-stat-row">
+                        <label class="stat-label">S:</label>
+                        <input type="number" class="stat-input" id="attackerDetailRealS">
+                        <input type="number" class="iv-input" id="attackerDetailIvS" value="31" min="0" max="31" onchange="updateStats('attacker')">
+                        <button class="iv-quick-btn" onclick="setDetailIV('attacker', 's', 30)">30</button>
+                        <input type="number" class="ev-input" id="attackerDetailEvS" value="0" min="0" max="252" onchange="updateStats('attacker')">
+                        <button class="ev-quick-btn" onclick="setDetailEV('attacker', 's', 252)">252</button>
+                        <div class="nature-checkbox-container">
+                            <span><input type="checkbox" id="attackerSPlus" class="nature-plus-checkbox" data-stat="s" data-side="attacker" onclick="handleNatureCheckbox('attacker', 's', 'plus')"></span>
+                            <span><input type="checkbox" id="attackerSMinus" class="nature-minus-checkbox" data-stat="s" data-side="attacker" onclick="handleNatureCheckbox('attacker', 's', 'minus')"></span>
+                        </div>
+                    </div>
+
+                    <!-- めざパ・合計努力値表示 -->
+                    <div class="detail-summary">
+                        <div class="hidden-power-info">
+                            <span>めざパ:</span>
+                            <span id="attackerHiddenPowerDisplay">ノーマル 30</span>
+                        </div>
+                        <div class="total-ev-info">
+                            <span>合計努力値:</span>
+                            <span id="attackerTotalEVDisplay">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 技選択 -->
+            <div class="input-row">
+                <label for="attackMove" class="inline-label">技:</label>
+                <input type="text" id="attackMove" placeholder="技を検索">
+            </div>
+            <div id="moveDescription" class="move-description" aria-live="polite">
+                <div id="moveSummary" class="move-summary">技情報</div>
+                <div id="moveDescriptionText">-</div>
+            </div>
+            <div class="input-row">
+                <label for="attackerAbility" class="inline-label">特性:</label>
+                <select id="attackerAbility">
+                    <option value="">なし</option>
+                </select>
+            </div>
+            <!-- 連続技設定 -->
+            <div class="multi-hit-settings" id="multiHitContainer" style="display: none;">
+                <div class="input-row">
+                    <label for="multiHitCount" class="inline-label">連続技回数:</label>
+                    <select id="multiHitCount">
+                        <option value="2">2回</option>
+                        <option value="3">3回</option>
+                        <option value="4">4回</option>
+                        <option value="5">5回</option>
+                        <option value="2-5" selected>2-5回</option>
+                    </select>
+                </div>
+            </div>
+            <!-- 複数ターン技設定 -->
+            <div class="multi-turn-settings">
+                <div id="multiTurnMovesContainer"></div>
+                <button type="button" id="addMoveButton" class="add-move-button" onclick="addMultiTurnMove()">
+                    ＋技を追加する
+                </button>
+            </div>
+            <!-- きしかいせい・じたばた用HP入力 -->
+            <div class="pinchUpContainer" style="display: none;">
+              <div class="hp-input-group">
+                <label for="pinchUp_currentHP">現在HP:</label>
+                <input type="number" id="pinchUp_currentHP" min="1" value="1">
+              </div>
+              <div class="hp-input-group">
+                <label for="pinchUp_maxHP">最大HP:</label>
+                <input type="number" id="pinchUp_maxHP" min="1" value="100">
+              </div>
+            </div>
+            <!-- しおふき・ふんか用HP入力 -->
+            <div class="pinchDownContainer" style="display: none;">
+              <div class="hp-input-group">
+                <label for="pinchDown_currentHP">現在HP:</label>
+                <input type="number" id="pinchDown_currentHP" min="1" value="1">
+              </div>
+              <div class="hp-input-group">
+                <label for="pinchDown_maxHP">最大HP:</label>
+                <input type="number" id="pinchDown_maxHP" min="1" value="100">
+              </div>
+            </div>
+            <!-- アイスボール設定 -->
+            <div class="move-special-setting" id="iceBallSettings" style="display: none;">
+                <label for="iceBallTurn">連続ターン:</label>
+                <select id="iceBallTurn">
+                    <option value="1" selected>1ターン目</option>
+                    <option value="2">2ターン目</option>
+                    <option value="3">3ターン目</option>
+                    <option value="4">4ターン目</option>
+                    <option value="5">5ターン目</option>
+                </select>
+                <label><input type="checkbox" id="defenseCurlCheck"> まるくなる済み</label>
+            </div>
+            <!-- いかり設定 -->
+            <div class="move-special-setting" id="rageSettings" style="display: none;">
+                <label for="rageHitCount">被弾回数:</label>
+                <select id="rageHitCount">
+                    <option value="0" selected>0回</option>
+                    <option value="1">1回</option>
+                    <option value="2">2回</option>
+                    <option value="3">3回</option>
+                    <option value="4">4回</option>
+                    <option value="5">5回</option>
+                    <option value="6">6回</option>
+                </select>
+            </div>
+            <!-- はきだす設定 -->
+            <div class="move-special-setting" id="spitUpSettings" style="display: none;">
+                <label for="stockpileCount">たくわえた回数:</label>
+                <select id="stockpileCount">
+                    <option value="1" selected>1回</option>
+                    <option value="2">2回</option>
+                    <option value="3">3回</option>
+                </select>
+            </div>
+            <!-- れんぞくぎり設定 -->
+            <div class="move-special-setting" id="furyCutterSettings" style="display: none;">
+                <label for="furyCutterCount">連続成功:</label>
+                <select id="furyCutterCount">
+                    <option value="1" selected>1回目</option>
+                    <option value="2">2回目</option>
+                    <option value="3">3回目</option>
+                    <option value="4">4回目</option>
+                    <option value="5">5回目</option>
+                </select>
+            </div>
+            <!-- プレゼント設定 -->
+            <div class="move-special-setting" id="presentSettings" style="display: none;">
+                <label for="presentOutcome">結果:</label>
+                <select id="presentOutcome">
+                    <option value="40" selected>威力40 (40%)</option>
+                    <option value="80">威力80 (30%)</option>
+                    <option value="120">威力120 (10%)</option>
+                    <option value="heal">相手を1/4回復 (20%)</option>
+                </select>
+            </div>
+            <!-- トリプルキック設定 -->
+            <div class="move-special-setting" id="tripleKickSettings" style="display: none;">
+                <label for="tripleKickHits">命中段数:</label>
+                <select id="tripleKickHits">
+                    <option value="1">1段 (9%)</option>
+                    <option value="2">2段 (8.1%)</option>
+                    <option value="3" selected>3段 (72.9%)</option>
+                </select>
+            </div>
+            <!-- ふくろだたき設定 -->
+            <div class="move-special-setting" id="beatUpSettings" style="display: none;">
+                <label for="beatUpMembers">参加手持ち:</label>
+                <input type="text" id="beatUpMembers" placeholder="Lv:攻撃種族値 例 50:100, 25:80"
+                       title="状態異常・ひんし・タマゴを除く手持ちを、Lv:攻撃種族値の順で最大6体入力">
+            </div>
+            <!-- 攻撃側の特性チェックボックス -->
+            <div class="attackerAbilityContainer ability-container" style="display: none;">
+              <label id="yogaPowerContainer" class="ability-checkbox">
+                <input type="checkbox" id="yogaPowerCheck">
+                <span>ヨガパワー</span>
+              </label>
+              <label id="hugePowerContainer" class="ability-checkbox">
+                <input type="checkbox" id="hugePowerCheck">
+                <span>ちからもち</span>
+              </label>
+              <label id="harikiriContainer" class="ability-checkbox">
+                <input type="checkbox" id="harikiriCheck">
+                <span>はりきり</span>
+              </label>
+              <label id="plusContainer" class="ability-checkbox">
+                <input type="checkbox" id="plusCheck">
+                <span>プラス</span>
+              </label>
+              <label id="minusContainer" class="ability-checkbox">
+                <input type="checkbox" id="minusCheck">
+                <span>マイナス</span>
+              </label>
+              <label id="gutsContainer" class="ability-checkbox">
+                <input type="checkbox" id="gutsCheck">
+                <span>こんじょう</span>
+              </label>
+              <label id="shinryokuContainer" class="ability-checkbox">
+                <input type="checkbox" id="shinryokuCheck">
+                <span>しんりょく</span>
+              </label>
+              <label id="moukaContainer" class="ability-checkbox">
+                <input type="checkbox" id="moukaCheck">
+                <span>もうか</span>
+              </label>
+              <label id="gekiryuuContainer" class="ability-checkbox">
+                <input type="checkbox" id="gekiryuuCheck">
+                <span>げきりゅう</span>
+              </label>
+              <label id="mushiNoShiraseContainer" class="ability-checkbox">
+                <input type="checkbox" id="mushiNoShiraseCheck">
+                <span>むしのしらせ</span>
+              </label>
+              <label id="moraibiContainer" class="ability-checkbox">
+                <input type="checkbox" id="moraibiCheck">
+                <span>もらいび</span>
+              </label>
+            </div>
+            <!-- まひ・こんらん設定 -->
+            <div class="status-conditions">
+                <div class="input-row">
+                    <label for="paralysisSelect" class="inline-label">まひ:</label>
+                    <select id="paralysisSelect">
+                        <option value="none">なし</option>
+                        <option value="1">1ターン目から</option>
+                        <option value="2">2ターン目から</option>
+                        <option value="3">3ターン目から</option>
+                        <option value="4">4ターン目から</option>
+                        <option value="5">5ターン目から</option>
+                    </select>
+                </div>
+                <div class="input-row">
+                    <label for="confusionSelect" class="inline-label">こんらん:</label>
+                    <select id="confusionSelect">
+                        <option value="none">なし</option>
+                        <option value="1">1ターン目から</option>
+                        <option value="2">2ターン目から</option>
+                        <option value="3">3ターン目から</option>
+                        <option value="4">4ターン目から</option>
+                        <option value="5">5ターン目から</option>
+                    </select>
+                </div>
+            </div>
+            <!-- 持ち物選択 -->
+            <div class="input-row">
+                <label for="attackerItem" class="inline-label">持ち物:</label>
+                <input type="text" id="attackerItem" placeholder="持ち物を検索">
+            </div>
+            
+            <!-- 戦闘条件 -->
+            <div class="battle-conditions">
+                <h3>戦闘条件</h3>
+                
+                <!-- 天候選択 -->
+                <div class="input-row">
+                    <label for="weatherSelect" class="inline-label">天候:</label>
+                    <select id="weatherSelect">
+                        <option value="none">なし</option>
+                        <option value="sunny">ひざしがつよい</option>
+                        <option value="rain">あめがふりつづいている</option>
+                        <option value="sandstorm">すなあらしがふきあれる</option>
+                        <option value="hail">あられがふりつづいている</option>
+                    </select>
+                </div>
+                
+                <!-- チェックボックス群 -->
+                <div class="checkbox-group">
+                    <label><input type="checkbox" id="wallCheck"> 壁</label>
+                    <label><input type="checkbox" id="criticalCheck"> 急所</label>
+                    <label><input type="checkbox" id="burnCheck"> 火傷</label>
+                    <label><input type="checkbox" id="doubleCheck"> ダブル</label>
+                    <label><input type="checkbox" id="chargingCheck"> じゅうでん</label>
+                    <label><input type="checkbox" id="helpCheck"> てだすけ</label>
+                    <label><input type="checkbox" id="doroasobiCheck"> どろあそび</label>
+                    <label><input type="checkbox" id="mizuasobiCheck"> みずあそび</label>
+                    <label><input type="checkbox" id="attackerBadgeCheck"> バッジ攻撃1.1倍</label>
+                    <label id="twofoldContainer"><input type="checkbox" id="twofoldCheck"> 2倍条件を満たしたとき</label>
+                </div>
+                
+                <!-- ランク補正 -->
+                <div class="rank-correction">
+                    <div class="rank-row">
+                        <label for="attackerAtkRank" class="rank-label">攻撃ランク:</label>
+                        <select id="attackerAtkRank" class="rank-select">
+                            <option value="+6">+6</option>
+                            <option value="+5">+5</option>
+                            <option value="+4">+4</option>
+                            <option value="+3">+3</option>
+                            <option value="+2">+2</option>
+                            <option value="+1">+1</option>
+                            <option value="±0" selected>±0</option>
+                            <option value="-1">-1</option>
+                            <option value="-2">-2</option>
+                            <option value="-3">-3</option>
+                            <option value="-4">-4</option>
+                            <option value="-5">-5</option>
+                            <option value="-6">-6</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <datalist id="natureList"></datalist>
+
+        <!-- 中央セクション: 防御側ポケモン -->
+        <div class="section defender-section" id="defender-section">
+            <h2>防御側</h2>
+            
+            <!-- ポケモン選択 -->
+            <div class="input-row">
+                <label class="inline-label">ポケモン:</label>
+                <input type="text" id="defenderPokemon" placeholder="ポケモン名を検索">
+            </div>
+            <div id="defenderPokemonInfo" class="pokemon-info" style="display: none;"></div>
+            <!-- レベル -->
+            <div class="input-row">
+                <label class="inline-label">レベル:</label>
+                <input type="number" class="level-input" id="defenderLevel" value="50" min="1" max="100">
+                <select class="level-preset" id="defenderLevelPreset"
+                        aria-label="防御側レベルプリセット"
+                        onchange="setLevelPreset('defender', this.value)">
+                    <option value="">任意</option>
+                    <option value="5">Lv5</option>
+                    <option value="15">Lv15</option>
+                    <option value="20">Lv20</option>
+                    <option value="30">Lv30</option>
+                    <option value="50" selected>Lv50</option>
+                    <option value="55">Lv55</option>
+                    <option value="100">Lv100</option>
+                </select>
+            </div>
+            
+            <!-- H実数値・個体値・努力値 -->
+            <div class="stat-row">
+                <label class="stat-label">H:</label>
+                <input type="number" class="stat-input" id="defenderRealHP" min="1" max="714">
+                <input type="number" class="iv-input" id="defenderIvHP" value="31" min="0" max="31">
+                <button class="iv-quick-btn" onclick="setIV('defender', 'hp', 30)">30</button>
+                <input type="number" class="ev-input" id="defenderEvHP" value="0" min="0" max="252" onchange="updateStats('defender')">
+                <button class="ev-quick-btn" onclick="setEV('defender', 'hp', 252)">252</button>
+                <label class="current-hp-label">現在HP:</label>
+                <input type="number" class="current-hp-input" id="defenderCurrentHP" min="1" max="999">
+            </div>
+            
+            <!-- B実数値・個体値・努力値・性格補正 -->
+            <div class="stat-row">
+                <label class="stat-label">B:</label>
+                <input type="number" class="stat-input" id="defenderRealB">
+                <input type="number" class="iv-input" id="defenderIvB" value="31" min="0" max="31">
+                <button class="iv-quick-btn" onclick="setIV('defender', 'b', 30)">30</button>
+                <input type="number" class="ev-input" id="defenderEvB" value="0" min="0" max="252" onchange="updateStats('defender')">
+                <button class="ev-quick-btn" onclick="setEV('defender', 'b', 252)">252</button>
+                <span class="stat-separator">|</span>
+                <button class="nature-btn" data-side="defender" data-stat="b" data-value="0.9" onclick="setNatureModifier('defender', 'b', 0.9, this)">0.9</button>
+                <button class="nature-btn selected" data-side="defender" data-stat="b" data-value="1.0" onclick="setNatureModifier('defender', 'b', 1.0, this)">1.0</button>
+                <button class="nature-btn" data-side="defender" data-stat="b" data-value="1.1" onclick="setNatureModifier('defender', 'b', 1.1, this)">1.1</button>
+            </div>
+            
+            <!-- D実数値・個体値・努力値・性格補正 -->
+            <div class="stat-row">
+                <label class="stat-label">D:</label>
+                <input type="number" class="stat-input" id="defenderRealD">
+                <input type="number" class="iv-input" id="defenderIvD" value="31" min="0" max="31">
+                <button class="iv-quick-btn" onclick="setIV('defender', 'd', 30)">30</button>
+                <input type="number" class="ev-input" id="defenderEvD" value="0" min="0" max="252" onchange="updateStats('defender')">
+                <button class="ev-quick-btn" onclick="setEV('defender', 'd', 252)">252</button>
+                <span class="stat-separator">|</span>
+                <button class="nature-btn" data-side="defender" data-stat="d" data-value="0.9" onclick="setNatureModifier('defender', 'd', 0.9, this)">0.9</button>
+                <button class="nature-btn selected" data-side="defender" data-stat="d" data-value="1.0" onclick="setNatureModifier('defender', 'd', 1.0, this)">1.0</button>
+                <button class="nature-btn" data-side="defender" data-stat="d" data-value="1.1" onclick="setNatureModifier('defender', 'd', 1.1, this)">1.1</button>
+            </div>
+            
+            <!-- 詳細設定 -->
+            <div class="detail-settings">
+                <div class="detail-header" onclick="toggleDetail('defender')">
+                    ▶ 詳細設定を開く
+                </div>
+                <div class="detail-content" id="defenderDetail" style="display: none;">
+                    <!-- 性格選択 -->
+                    <div class="input-row">
+                        <label class="inline-label">性格:</label>
+                        <input type="text" id="defenderNature" list="natureList" value="まじめ" placeholder="性格を選択">
+                    </div>
+                    
+                    <!-- 各ステータスの詳細設定 -->
+                    <div class="detail-stat-row">
+                        <label class="stat-label">H:</label>
+                        <input type="number" class="stat-input" id="defenderDetailRealHP">
+                        <input type="number" class="iv-input" id="defenderDetailIvHP" value="31" min="0" max="31" onchange="updateStats('defender')">
+                        <button class="iv-quick-btn" onclick="setDetailIV('defender', 'hp', 30)">30</button>
+                        <input type="number" class="ev-input" id="defenderDetailEvHP" value="0" min="0" max="252" onchange="updateStats('defender')">
+                        <button class="ev-quick-btn" onclick="setDetailEV('defender', 'hp', 252)">252</button>
+                        <div class="nature-plus-minus-heading">
+                            <span>+</span>
+                            <span>-</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-stat-row">
+                        <label class="stat-label">A:</label>
+                        <input type="number" class="stat-input" id="defenderDetailRealA">
+                        <input type="number" class="iv-input" id="defenderDetailIvA" value="31" min="0" max="31" onchange="updateStats('defender')">
+                        <button class="iv-quick-btn" onclick="setDetailIV('defender', 'a', 30)">30</button>
+                        <input type="number" class="ev-input" id="defenderDetailEvA" value="0" min="0" max="252" onchange="updateStats('defender')">
+                        <button class="ev-quick-btn" onclick="setDetailEV('defender', 'a', 252)">252</button>
+                        <div class="nature-checkbox-container">
+                            <span><input type="checkbox" id="defenderAPlus" class="nature-plus-checkbox" data-stat="a" data-side="defender" onclick="handleNatureCheckbox('defender', 'a', 'plus')"></span>
+                            <span><input type="checkbox" id="defenderAMinus" class="nature-minus-checkbox" data-stat="a" data-side="defender" onclick="handleNatureCheckbox('defender', 'a', 'minus')"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-stat-row">
+                        <label class="stat-label">B:</label>
+                        <input type="number" class="stat-input" id="defenderDetailRealB">
+                        <input type="number" class="iv-input" id="defenderDetailIvB" value="31" min="0" max="31" onchange="updateStats('defender')">
+                        <button class="iv-quick-btn" onclick="setDetailIV('defender', 'b', 30)">30</button>
+                        <input type="number" class="ev-input" id="defenderDetailEvB" value="0" min="0" max="252" onchange="updateStats('defender')">
+                        <button class="ev-quick-btn" onclick="setDetailEV('defender', 'b', 252)">252</button>
+                        <div class="nature-checkbox-container">
+                            <span><input type="checkbox" id="defenderBPlus" class="nature-plus-checkbox" data-stat="b" data-side="defender" onclick="handleNatureCheckbox('defender', 'b', 'plus')"></span>
+                            <span><input type="checkbox" id="defenderBMinus" class="nature-minus-checkbox" data-stat="b" data-side="defender" onclick="handleNatureCheckbox('defender', 'b', 'minus')"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-stat-row">
+                        <label class="stat-label">C:</label>
+                        <input type="number" class="stat-input" id="defenderDetailRealC">
+                        <input type="number" class="iv-input" id="defenderDetailIvC" value="31" min="0" max="31" onchange="updateStats('defender')">
+                        <button class="iv-quick-btn" onclick="setDetailIV('defender', 'c', 30)">30</button>
+                        <input type="number" class="ev-input" id="defenderDetailEvC" value="0" min="0" max="252" onchange="updateStats('defender')">
+                        <button class="ev-quick-btn" onclick="setDetailEV('defender', 'c', 252)">252</button>
+                        <div class="nature-checkbox-container">
+                            <span><input type="checkbox" id="defenderCPlus" class="nature-plus-checkbox" data-stat="c" data-side="defender" onclick="handleNatureCheckbox('defender', 'c', 'plus')"></span>
+                            <span><input type="checkbox" id="defenderCMinus" class="nature-minus-checkbox" data-stat="c" data-side="defender" onclick="handleNatureCheckbox('defender', 'c', 'minus')"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-stat-row">
+                        <label class="stat-label">D:</label>
+                        <input type="number" class="stat-input" id="defenderDetailRealD">
+                        <input type="number" class="iv-input" id="defenderDetailIvD" value="31" min="0" max="31" onchange="updateStats('defender')">
+                        <button class="iv-quick-btn" onclick="setDetailIV('defender', 'd', 30)">30</button>
+                        <input type="number" class="ev-input" id="defenderDetailEvD" value="0" min="0" max="252" onchange="updateStats('defender')">
+                        <button class="ev-quick-btn" onclick="setDetailEV('defender', 'd', 252)">252</button>
+                        <div class="nature-checkbox-container">
+                            <span><input type="checkbox" id="defenderDPlus" class="nature-plus-checkbox" data-stat="d" data-side="defender" onclick="handleNatureCheckbox('defender', 'd', 'plus')"></span>
+                            <span><input type="checkbox" id="defenderDMinus" class="nature-minus-checkbox" data-stat="d" data-side="defender" onclick="handleNatureCheckbox('defender', 'd', 'minus')"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-stat-row">
+                        <label class="stat-label">S:</label>
+                        <input type="number" class="stat-input" id="defenderDetailRealS">
+                        <input type="number" class="iv-input" id="defenderDetailIvS" value="31" min="0" max="31" onchange="updateStats('defender')">
+                        <button class="iv-quick-btn" onclick="setDetailIV('defender', 's', 30)">30</button>
+                        <input type="number" class="ev-input" id="defenderDetailEvS" value="0" min="0" max="252" onchange="updateStats('defender')">
+                        <button class="ev-quick-btn" onclick="setDetailEV('defender', 's', 252)">252</button>
+                        <div class="nature-checkbox-container">
+                            <span><input type="checkbox" id="defenderSPlus" class="nature-plus-checkbox" data-stat="s" data-side="defender" onclick="handleNatureCheckbox('defender', 's', 'plus')"></span>
+                            <span><input type="checkbox" id="defenderSMinus" class="nature-minus-checkbox" data-stat="s" data-side="defender" onclick="handleNatureCheckbox('defender', 's', 'minus')"></span>
+                        </div>
+                    </div>
+
+                    <!-- めざパ・合計努力値表示 -->
+                    <div class="detail-summary">
+                        <div class="hidden-power-info">
+                            <span>めざパ:</span>
+                            <span id="defenderHiddenPowerDisplay">ノーマル 30</span>
+                        </div>
+                        <div class="total-ev-info">
+                            <span>合計努力値:</span>
+                            <span id="defenderTotalEVDisplay">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 防御側の特性チェックボックス -->
+            <div class="input-row">
+                <label for="defenderAbility" class="inline-label">特性:</label>
+                <select id="defenderAbility">
+                    <option value="">なし</option>
+                </select>
+            </div>
+            <div class="defenderAbilityContainer ability-container" style="display: none;">
+              <label id="atsuishibouContainer" class="ability-checkbox">
+                <input type="checkbox" id="atsuishibouCheck">
+                <span>あついしぼう</span>
+              </label>
+              <label id="fushiginaurokoContainer" class="ability-checkbox">
+                <input type="checkbox" id="fushiginaurokoCheck">
+                <span>ふしぎなうろこ</span>
+              </label>
+            </div>
+            <!-- 持ち物選択 -->
+            <div class="input-row">
+                <label for="defenderItem" class="inline-label">持ち物:</label>
+                <input type="text" id="defenderItem" placeholder="持ち物を検索">
+            </div>
+            
+            <!-- 防御側戦闘条件 -->
+            <div class="defense-conditions">
+                <h3>防御側条件</h3>
+
+                <div class="checkbox-group">
+                    <label><input type="checkbox" id="defenderBadgeCheck"> バッジ防御1.1倍</label>
+                </div>
+
+                <!-- ランク補正 -->
+                <div class="rank-correction">
+                    <div class="rank-row">
+                        <label for="defenderDefRank" class="rank-label">防御ランク:</label>
+                        <select id="defenderDefRank" class="rank-select">
+                            <option value="+6">+6</option>
+                            <option value="+5">+5</option>
+                            <option value="+4">+4</option>
+                            <option value="+3">+3</option>
+                            <option value="+2">+2</option>
+                            <option value="+1">+1</option>
+                            <option value="±0" selected>±0</option>
+                            <option value="-1">-1</option>
+                            <option value="-2">-2</option>
+                            <option value="-3">-3</option>
+                            <option value="-4">-4</option>
+                            <option value="-5">-5</option>
+                            <option value="-6">-6</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="rank-correction">
+                    <div class="rank-row">
+                        <label for="defenderEvasionRank" class="rank-label">回避ランク:</label>
+                        <select id="defenderEvasionRank" class="rank-select">
+                            <option value="+6">+6</option>
+                            <option value="+5">+5</option>
+                            <option value="+4">+4</option>
+                            <option value="+3">+3</option>
+                            <option value="+2">+2</option>
+                            <option value="+1">+1</option>
+                            <option value="±0" selected>±0</option>
+                            <option value="-1">-1</option>
+                            <option value="-2">-2</option>
+                            <option value="-3">-3</option>
+                            <option value="-4">-4</option>
+                            <option value="-5">-5</option>
+                            <option value="-6">-6</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- 定数ダメージ設定 -->
+                <div class="status-damage-section">
+                <h4>定数ダメージ</h4>
+                <div class="input-row">
+                    <label for="statusDamageSelect" class="inline-label">状態異常:</label>
+                    <select id="statusDamageSelect">
+                        <option value="none">なし</option>
+                        <option value="burn">やけど</option>
+                        <option value="poison">どく</option>
+                        <option value="badlypoison">もうどく</option>
+                    </select>
+                    <select id="statusDamageStartTurn" style="margin-left: 5px;">
+                        <option value="1" selected>1ターン目から</option>
+                        <option value="2">2ターン目から</option>
+                        <option value="3">3ターン目から</option>
+                        <option value="4">4ターン目から</option>
+                        <option value="5">5ターン目から</option>
+                    </select>
+                </div>
+                <div class="input-row">
+                    <label for="spikesLevel" class="inline-label">まきびし:</label>
+                    <input type="number" id="spikesLevel" min="0" max="3" value="0">
+                </div>
+                <div class="input-row">
+                    <label for="curseSelect" class="inline-label">のろい:</label>
+                    <select id="curseSelect">
+                        <option value="none">なし</option>
+                        <option value="1">1ターン目から</option>
+                        <option value="2">2ターン目から</option>
+                        <option value="3">3ターン目から</option>
+                        <option value="4">4ターン目から</option>
+                        <option value="5">5ターン目から</option>
+                    </select>
+                </div>
+                <div class="input-row">
+                    <label for="nightmareSelect" class="inline-label">あくむ:</label>
+                    <select id="nightmareSelect">
+                        <option value="none">なし</option>
+                        <option value="1">1ターン目から</option>
+                        <option value="2">2ターン目から</option>
+                        <option value="3">3ターン目から</option>
+                        <option value="4">4ターン目から</option>
+                        <option value="5">5ターン目から</option>
+                    </select>
+                </div>
+                <div class="input-row">
+                    <label for="leechSeedSelect" class="inline-label">やどりぎ(ダメ):</label>
+                    <select id="leechSeedSelect">
+                        <option value="none">なし</option>
+                        <option value="1">1ターン目から</option>
+                        <option value="2">2ターン目から</option>
+                        <option value="3">3ターン目から</option>
+                        <option value="4">4ターン目から</option>
+                        <option value="5">5ターン目から</option>
+                    </select>
+                </div>
+                <div class="input-row">
+                    <label for="leechSeed2Select" class="inline-label">やどりぎ(回復):</label>
+                    <select id="leechSeed2Select">
+                        <option value="none">なし</option>
+                        <option value="1">1ターン目から</option>
+                        <option value="2">2ターン目から</option>
+                        <option value="3">3ターン目から</option>
+                        <option value="4">4ターン目から</option>
+                        <option value="5">5ターン目から</option>
+                    </select>
+                </div>
+            </div>
+            <!-- みがわり仮定チェックボックス -->
+            <div class="substitute-section">
+                <label class="substitute-checkbox">
+                    <input type="checkbox" id="substituteCheck">
+                    <span>みがわり仮定</span>
+                </label>
+            </div>
+
+            <!-- ダメージ計算ボタン -->
+            <button class="damage-calc-button" onclick="performDamageCalculationEnhanced()">ダメージ計算</button>
+            </div>
+        </div>
+        
+        <!-- 右側セクション: 計算結果 -->
+        <div class="section results-section" id="results-section">
+            <h2>計算結果</h2>
+            <div id="calculationResult"></div>
+            
+            <!-- 使い方説明 -->
+            <div class="tool-info">
+                <div class="tips-title">使い方</div>
+                <div class="tips-content">
+                    <p><strong>概要:</strong> プロキオン・デネブ 第7世代準拠ダメージ計算</p>
+                    <p><strong>ステータス計算:</strong> 努力値->実数値、実数値->必要努力値算出</p>
+                    <p><strong>攻守交代ボタン:</strong> 攻撃側と防御側の実数値･個体値･努力値を入れ替える</p>
+                    <p><strong>HPバー:</strong> ダメージ量を視覚的に確認</p>
+                    <p><strong>簡易瀕死率:</strong> 複数技入力による簡易的な瀕死率の算出(連続技も対応)</p>
+                    <p><strong>製作者:</strong> <a href="https://x.com/kirisanpo_ch" target="_blank" rel="noopener noreferrer">旧Twitter</a> <a href="https://xdpoke.hatenablog.com" target="_blank" rel="noopener noreferrer">はてな</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- モバイル数値コントロールバー -->
+    <div class="mobile-control-bar" id="mobileControlBar">
+        <div class="mobile-control-content">
+            <div class="mobile-control-info">
+                <span class="field-name" id="mobileFieldName">-</span>
+                <span class="current-value" id="mobileCurrentValue">-</span>
+            </div>
+            
+            <button class="mobile-minus-btn" id="mobileMinus">−</button>
+            
+            <div class="mobile-slider-container">
+                <input type="range" class="mobile-slider" id="mobileSlider" 
+                       min="0" max="100" value="50" step="1">
+                <div class="mobile-slider-labels">
+                    <span id="mobileMinLabel">0</span>
+                    <span id="mobileMaxLabel">100</span>
+                </div>
+            </div>
+            
+            <button class="mobile-plus-btn" id="mobilePlus">+</button>
+        </div>
+    </div>
+</body>
+</html>
