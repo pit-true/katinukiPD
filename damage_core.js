@@ -162,7 +162,10 @@
     }, 1);
   }
 
-  function resolveMoveType(moveType, ability) {
+  function resolveMoveType(moveType, ability, moveClass = "", attackerTypes = []) {
+    if (moveClass === "user_type" && attackerTypes.length > 0) {
+      return attackerTypes[0];
+    }
     if (moveType !== "ノーマル") return moveType;
     const conversions = {
       "エレキスキン": "でんき",
@@ -172,6 +175,60 @@
     };
     if (ability === "ノーマルスキン") return "ノーマル";
     return conversions[ability] || moveType;
+  }
+
+  function resolveMovePower(options) {
+    const power = options.power || 0;
+    const currentHp = options.currentHp ?? options.maxHp ?? 1;
+    const maxHp = Math.max(1, options.maxHp || 1);
+    const attackerCurrentHp =
+      options.attackerCurrentHp ?? options.attackerMaxHp ?? 1;
+    const attackerMaxHp = Math.max(1, options.attackerMaxHp || 1);
+
+    if (options.moveClass === "gyro_ball") {
+      const attackerSpeed = Math.max(1, options.attackerSpeed || 1);
+      const defenderSpeed = Math.max(1, options.defenderSpeed || 1);
+      return Math.min(150, Math.floor(25 * defenderSpeed / attackerSpeed) + 1);
+    }
+    if (options.moveClass === "itemless_boost" && !options.attackerItem) {
+      return power * 2;
+    }
+    if (options.moveClass === "target_half_hp" && currentHp * 2 <= maxHp) {
+      return power * 2;
+    }
+    if (
+      options.moveClass === "attacker_half_hp"
+      && attackerCurrentHp * 2 <= attackerMaxHp
+    ) {
+      return power * 2;
+    }
+    if (options.moveClass === "target_hp_scale") {
+      return Math.max(1, Math.floor(power * currentHp / maxHp));
+    }
+    return power;
+  }
+
+  function resolveOffensiveStat(options) {
+    if (options.moveClass === "target_attack") {
+      return options.defenderAttack || options.attack;
+    }
+    if (options.moveClass === "target_special_attack") {
+      return options.defenderSpecialAttack || options.attack;
+    }
+    if (options.moveClass === "user_defense") {
+      return options.attackerDefense || options.attack;
+    }
+    return options.attack;
+  }
+
+  function resolveDefensiveStat(options) {
+    if (options.moveClass === "physical_defense") {
+      return options.defenderDefense || options.defense;
+    }
+    if (options.moveClass === "special_defense") {
+      return options.defenderSpecialDefense || options.defense;
+    }
+    return options.defense;
   }
 
   function applyRatio(value, numerator, denominator = 1) {
@@ -333,10 +390,15 @@
       ...input,
     };
 
-    const moveType = resolveMoveType(options.moveType, options.attackerAbility);
-    let attack = applyAttackModifiers(options.attack, options, moveType);
-    let defense = applyDefenseModifiers(options.defense, options, moveType);
-    let power = applyPowerModifiers(options.power, options, moveType);
+    const moveType = resolveMoveType(
+      options.moveType,
+      options.attackerAbility,
+      options.moveClass,
+      options.attackerTypes,
+    );
+    let attack = applyAttackModifiers(resolveOffensiveStat(options), options, moveType);
+    let defense = applyDefenseModifiers(resolveDefensiveStat(options), options, moveType);
+    let power = applyPowerModifiers(resolveMovePower(options), options, moveType);
 
     if (
       options.defenderAbility === "あついしぼう"
@@ -352,7 +414,11 @@
     let damage = Math.floor(levelFactor * power * attack / defense);
     damage = Math.floor(damage / 50) + 2;
 
-    if (options.screen && !options.critical) {
+    if (
+      options.screen
+      && !options.critical
+      && options.moveClass !== "ignore_screen"
+    ) {
       damage = options.doubleBattle
         ? applyRatio(damage, 2, 3)
         : applyRatio(damage, 1, 2);
@@ -458,6 +524,7 @@
     formatMoveDetails,
     getMoveTypeEffectiveness,
     getTypeEffectiveness,
+    resolveMovePower,
     resolveMoveType,
   };
 });

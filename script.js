@@ -2120,6 +2120,9 @@ function selectPokemon(side, pokemonName) {
         }
     }
     updateAllRealStatInputLimits(side);
+    if (side === 'attacker' && currentMove) {
+        updateMoveDescription(currentMove);
+    }
 }
 
 // ポケモン情報を入れ替える関数
@@ -2568,6 +2571,12 @@ function selectMove(moveName) {
     currentMove = moveData.find(m => m.name === moveName);
     updateMoveDescription(currentMove);
     if (!currentMove) return;
+    const twofoldLabel = document.getElementById('twofoldLabel');
+    if (twofoldLabel) {
+        twofoldLabel.textContent = currentMove.name === 'ダイナソード'
+            ? 'つめとぎ使用後'
+            : '2倍条件を満たしたとき';
+    }
 
     // 技のクラスに応じて表示
     switch (currentMove.class) {
@@ -2644,7 +2653,16 @@ function updateMoveDescription(move) {
         description.textContent = '-';
         return;
     }
-    const details = KatinukiDamageCore.formatMoveDetails(move);
+    const displayMove = {
+        ...move,
+        type: KatinukiDamageCore.resolveMoveType(
+            move.type,
+            attackerPokemon.ability,
+            move.class,
+            attackerPokemon.types,
+        ),
+    };
+    const details = KatinukiDamageCore.formatMoveDetails(displayMove);
     summary.textContent = details.summary;
     description.textContent = details.description || '-';
 }
@@ -5842,7 +5860,10 @@ function calculateDamage(attack, defense, level, power, category, moveType, atta
   if (weather === 'rain' && move?.class === 'solarbeam') {
       finalPower = Math.floor(finalPower / 2);
   }
-  if (document.getElementById('twofoldCheck')?.checked) {
+  if (
+      move?.class === 'two_fold'
+      && document.getElementById('twofoldCheck')?.checked
+  ) {
       finalPower *= 2;
   }
   if (move?.class === 'weather_ball' && weather !== 'none') {
@@ -5888,6 +5909,13 @@ function calculateDamage(attack, defense, level, power, category, moveType, atta
       defenderTypes,
       attackerName: attackerPokemon.name,
       defenderName: defenderPokemon.name,
+      attackerDefense: attackerStats.b,
+      attackerSpeed: attackerStats.s,
+      defenderAttack: defenderStats.a,
+      defenderSpecialAttack: defenderStats.c,
+      defenderDefense: defenderStats.b,
+      defenderSpecialDefense: defenderStats.d,
+      defenderSpeed: defenderStats.s,
       attackerAbility: attackerPokemon.ability,
       defenderAbility: defenderPokemon.ability,
       attackerItem: attackerPokemon.item?.name || '',

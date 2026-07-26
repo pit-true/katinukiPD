@@ -5,6 +5,8 @@ const {
   calculateDamageRange,
   formatMoveDetails,
   getTypeEffectiveness,
+  resolveMovePower,
+  resolveMoveType,
 } = require("../damage_core.js");
 
 const base = {
@@ -264,4 +266,124 @@ test("グラベルブレスはいわ技本来の耐性を上書きしてはが�
   assert.equal(ordinaryRockMove.effectiveness, 0.5);
   assert.equal(gravelBreath.effectiveness, 2);
   assert.ok(gravelBreath.max > ordinaryRockMove.max);
+});
+
+test("グラベルブレスは素早さ比で威力を求め150で打ち止めにする", () => {
+  assert.equal(resolveMovePower({
+    moveClass: "gyro_ball",
+    power: 70,
+    attackerSpeed: 100,
+    defenderSpeed: 200,
+  }), 51);
+  assert.equal(resolveMovePower({
+    moveClass: "gyro_ball",
+    power: 70,
+    attackerSpeed: 40,
+    defenderSpeed: 400,
+  }), 150);
+});
+
+test("道具なし・HP半分・相手HP比例の技威力を自動計算する", () => {
+  assert.equal(resolveMovePower({
+    moveClass: "itemless_boost",
+    power: 55,
+    attackerItem: "",
+  }), 110);
+  assert.equal(resolveMovePower({
+    moveClass: "itemless_boost",
+    power: 55,
+    attackerItem: "するどいくちばし",
+  }), 55);
+  assert.equal(resolveMovePower({
+    moveClass: "target_half_hp",
+    power: 65,
+    currentHp: 50,
+    maxHp: 100,
+  }), 130);
+  assert.equal(resolveMovePower({
+    moveClass: "target_half_hp",
+    power: 65,
+    currentHp: 51,
+    maxHp: 100,
+  }), 65);
+  assert.equal(resolveMovePower({
+    moveClass: "attacker_half_hp",
+    power: 65,
+    attackerCurrentHp: 50,
+    attackerMaxHp: 100,
+  }), 130);
+  assert.equal(resolveMovePower({
+    moveClass: "target_hp_scale",
+    power: 120,
+    currentHp: 75,
+    maxHp: 100,
+  }), 90);
+});
+
+test("カラフルアタックは使用者の第一タイプになる", () => {
+  assert.equal(
+    resolveMoveType("ノーマル", "", "user_type", ["どく", "エスパー"]),
+    "どく",
+  );
+  assert.equal(
+    resolveMoveType("ノーマル", "", "user_type", ["ノーマル"]),
+    "ノーマル",
+  );
+});
+
+test("相手能力・自分の防御・物理防御を参照する技を計算する", () => {
+  const common = {
+    ...base,
+    power: 95,
+    attack: 40,
+    defense: 200,
+    attackerDefense: 180,
+    defenderAttack: 160,
+    defenderSpecialAttack: 220,
+    defenderDefense: 100,
+    defenderSpecialDefense: 200,
+  };
+  const standard = calculateDamageRange(common);
+  const foulPlay = calculateDamageRange({ ...common, moveClass: "target_attack" });
+  const wildCard = calculateDamageRange({
+    ...common,
+    category: "Special",
+    moveClass: "target_special_attack",
+  });
+  const bodyPress = calculateDamageRange({ ...common, moveClass: "user_defense" });
+  const psyshock = calculateDamageRange({
+    ...common,
+    category: "Special",
+    moveClass: "physical_defense",
+  });
+  const yogaSmash = calculateDamageRange({
+    ...common,
+    attack: 180,
+    defense: 100,
+    moveClass: "special_defense",
+  });
+  const physicalControl = calculateDamageRange({
+    ...common,
+    attack: 180,
+    defense: 100,
+  });
+
+  assert.ok(foulPlay.max > standard.max);
+  assert.ok(wildCard.max > standard.max);
+  assert.ok(bodyPress.max > standard.max);
+  assert.ok(psyshock.max > standard.max);
+  assert.ok(yogaSmash.max < physicalControl.max);
+});
+
+test("ソウルブレイクは壁によるダメージ軽減を無視する", () => {
+  const normal = calculateDamageRange({ ...base, screen: true });
+  const soulBreak = calculateDamageRange({
+    ...base,
+    moveClass: "ignore_screen",
+    screen: true,
+  });
+  const noScreen = calculateDamageRange({ ...base, screen: false });
+
+  assert.ok(soulBreak.max > normal.max);
+  assert.deepEqual(soulBreak, noScreen);
 });

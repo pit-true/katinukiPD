@@ -44,6 +44,50 @@ test("説明文で明示されたタイプ相性の例外は4技", () => {
   ].sort());
 });
 
+test("説明文から確定できる特殊ダメージ技を専用クラスへ分類する", () => {
+  const moves = readJson("pokemon_moves.json");
+  const expected = {
+    "グラベルブレス": "gyro_ball",
+    "カラフルアタック": "user_type",
+    "アクロバット": "itemless_boost",
+    "ソウルシェイプ": "target_half_hp",
+    "ダイナソード": "two_fold",
+    "ライフエナジー": "target_hp_scale",
+    "ワイルドカード": "target_special_attack",
+    "しおみず": "target_half_hp",
+    "かじばのいちげき": "attacker_half_hp",
+    "しぼりとる": "target_hp_scale",
+    "イカサマ": "target_attack",
+    "バリアアタック": "user_defense",
+    "ソウルブレイク": "ignore_screen",
+  };
+
+  for (const [name, moveClass] of Object.entries(expected)) {
+    assert.equal(moves.find((move) => move.name === name)?.class, moveClass, name);
+  }
+  for (const name of [
+    "スターダスト",
+    "だいちのいかり",
+    "サイコショック",
+    "こおりのキッス",
+  ]) {
+    assert.equal(moves.find((move) => move.name === name)?.class, "physical_defense", name);
+  }
+  for (const name of ["バッドポイズン", "ヨガスマッシュ"]) {
+    assert.equal(moves.find((move) => move.name === name)?.class, "special_defense", name);
+  }
+});
+
+test("カラフルアタックの習得者はギャラクシアとカクレオン", () => {
+  const pokemon = readJson("all_pokemon_data.json");
+  const users = pokemon
+    .filter((entry) => entry.moves.includes("カラフルアタック"))
+    .map((entry) => entry.name)
+    .sort();
+
+  assert.deepEqual(users, ["カクレオン", "ギャラクシア"].sort());
+});
+
 test("主要な第7世代向け持ち物を重複なく収録する", () => {
   const items = readJson("item.json");
   const names = items.map((item) => item.name);

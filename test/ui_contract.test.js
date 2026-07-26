@@ -49,3 +49,9 @@ test("技詳細は初期状態で閉じた控えめな開閉表示にする", ()
   assert.doesNotMatch(descriptionStyle[1], /min-height/);
   assert.doesNotMatch(descriptionStyle[1], /border-left/);
 });
+
+test("ダイナソードは既存の2倍条件欄をつめとぎ使用後として表示する", () => {
+  assert.match(html, /id="twofoldLabel"/);
+  assert.match(script, /currentMove\.name === ['"]ダイナソード['"]/);
+  assert.match(script, /move\?\.class === ['"]two_fold['"][\s\S]*twofoldCheck/);
+});
