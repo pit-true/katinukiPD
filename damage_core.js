@@ -140,12 +140,25 @@
     "バレットパンチ", "ドレインパンチ", "グロウパンチ",
   ]);
 
+  const MOVE_TYPE_EFFECTIVENESS_OVERRIDES = {
+    "じゅうおうのキバ": { "ひこう": 1 },
+    "フリーズドライ": { "みず": 2 },
+    "ポイズンリーフ": { "みず": 2 },
+  };
+
   function getTypeEffectiveness(moveType, defenderTypes) {
+    return getMoveTypeEffectiveness("", moveType, defenderTypes);
+  }
+
+  function getMoveTypeEffectiveness(moveName, moveType, defenderTypes) {
     const row = TYPE_CHART[moveType] || {};
-    return (defenderTypes || []).reduce(
-      (total, type) => total * (Object.hasOwn(row, type) ? row[type] : 1),
-      1,
-    );
+    const overrides = MOVE_TYPE_EFFECTIVENESS_OVERRIDES[moveName] || {};
+    return (defenderTypes || []).reduce((total, type) => {
+      if (Object.hasOwn(overrides, type)) {
+        return total * overrides[type];
+      }
+      return total * (Object.hasOwn(row, type) ? row[type] : 1);
+    }, 1);
   }
 
   function resolveMoveType(moveType, ability) {
@@ -374,7 +387,11 @@
         : applyRatio(damage, 3, 2);
     }
 
-    const effectiveness = getTypeEffectiveness(moveType, options.defenderTypes);
+    const effectiveness = getMoveTypeEffectiveness(
+      options.moveName,
+      moveType,
+      options.defenderTypes,
+    );
     damage = Math.floor(damage * effectiveness);
 
     if (effectiveness < 1 && effectiveness > 0 && options.attackerAbility === "いろめがね") {
@@ -438,6 +455,7 @@
     TYPE_CHART,
     calculateDamageRange,
     formatMoveDetails,
+    getMoveTypeEffectiveness,
     getTypeEffectiveness,
     resolveMoveType,
   };

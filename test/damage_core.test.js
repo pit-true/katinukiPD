@@ -203,3 +203,44 @@ test("攻撃側HPと防御側HPを混同せず、よわきとしんりょくを�
   assert.ok(attackerDamaged.max < normal.max);
   assert.ok(overgrow.max > normal.max);
 });
+
+test("じゅうおうのキバはひこう複合の相性無効を取り除く", () => {
+  const target = {
+    ...base,
+    moveType: "じめん",
+    attackerTypes: ["じめん"],
+    defenderTypes: ["はがね", "ひこう"],
+  };
+  const ordinaryGroundMove = calculateDamageRange({
+    ...target,
+    moveName: "じしん",
+  });
+  const beastKingFang = calculateDamageRange({
+    ...target,
+    moveName: "じゅうおうのキバ",
+  });
+
+  assert.equal(ordinaryGroundMove.effectiveness, 0);
+  assert.equal(beastKingFang.effectiveness, 2);
+  assert.ok(beastKingFang.max > 0);
+});
+
+test("みずに抜群と明記された技は複合タイプを含めて相性を上書きする", () => {
+  const freezeDry = calculateDamageRange({
+    ...base,
+    moveName: "フリーズドライ",
+    moveType: "こおり",
+    attackerTypes: ["こおり"],
+    defenderTypes: ["みず", "じめん"],
+  });
+  const poisonLeaf = calculateDamageRange({
+    ...base,
+    moveName: "ポイズンリーフ",
+    moveType: "どく",
+    attackerTypes: ["どく"],
+    defenderTypes: ["みず", "じめん"],
+  });
+
+  assert.equal(freezeDry.effectiveness, 4);
+  assert.equal(poisonLeaf.effectiveness, 1);
+});
