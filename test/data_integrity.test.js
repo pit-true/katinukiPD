@@ -27,6 +27,23 @@ test("習得可能な652技すべてにROM内説明文がある", () => {
   assert.ok(moves.every((move) => typeof move.contact === "boolean"));
 });
 
+test("説明文で明示されたタイプ相性の例外は4技", () => {
+  const moves = readJson("pokemon_moves.json");
+  const matchupDescription =
+    /タイプ(?:に|や)[\s\S]*(?:ばつぐん|つよい|こうげきが あたる)/;
+  const names = moves
+    .filter((move) => move.power > 0 && matchupDescription.test(move.description))
+    .map((move) => move.name)
+    .sort();
+
+  assert.deepEqual(names, [
+    "じゅうおうのキバ",
+    "グラベルブレス",
+    "フリーズドライ",
+    "ポイズンリーフ",
+  ].sort());
+});
+
 test("主要な第7世代向け持ち物を重複なく収録する", () => {
   const items = readJson("item.json");
   const names = items.map((item) => item.name);

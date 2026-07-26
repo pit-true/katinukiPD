@@ -244,3 +244,24 @@ test("みずに抜群と明記された技は複合タイプを含めて相性�
   assert.equal(freezeDry.effectiveness, 4);
   assert.equal(poisonLeaf.effectiveness, 1);
 });
+
+test("グラベルブレスはいわ技本来の耐性を上書きしてはがねに抜群となる", () => {
+  const target = {
+    ...base,
+    moveType: "いわ",
+    attackerTypes: ["いわ"],
+    defenderTypes: ["はがね"],
+  };
+  const ordinaryRockMove = calculateDamageRange({
+    ...target,
+    moveName: "いわなだれ",
+  });
+  const gravelBreath = calculateDamageRange({
+    ...target,
+    moveName: "グラベルブレス",
+  });
+
+  assert.equal(ordinaryRockMove.effectiveness, 0.5);
+  assert.equal(gravelBreath.effectiveness, 2);
+  assert.ok(gravelBreath.max > ordinaryRockMove.max);
+});
