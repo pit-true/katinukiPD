@@ -199,10 +199,13 @@
                 <label for="attackMove" class="inline-label">技:</label>
                 <input type="text" id="attackMove" placeholder="技を検索">
             </div>
-            <div id="moveDescription" class="move-description" aria-live="polite">
-                <div id="moveSummary" class="move-summary">技情報</div>
-                <div id="moveDescriptionText">-</div>
-            </div>
+            <details id="moveDetails" class="move-details">
+                <summary><span aria-hidden="true">ⓘ</span> 技詳細</summary>
+                <div id="moveDescription" class="move-description" aria-live="polite">
+                    <div id="moveSummary" class="move-summary">技情報</div>
+                    <div id="moveDescriptionText">-</div>
+                </div>
+            </details>
             <div class="input-row">
                 <label for="attackerAbility" class="inline-label">特性:</label>
                 <select id="attackerAbility">

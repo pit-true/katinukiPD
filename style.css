@@ -260,25 +260,47 @@ button:hover {
     min-width: 300px;
 }
 
-.move-description {
-    min-height: 70px;
+.move-details {
     margin: -2px 0 10px 52px;
-    padding: 8px 10px;
-    border: 1px solid #d8dde3;
-    border-left: 3px solid #2f6f5e;
-    border-radius: 4px;
-    background: #f8faf9;
-    color: #30363b;
-    font-size: 13px;
+    color: #5a6570;
+    font-size: 12px;
+}
+
+.move-details summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 0;
+    color: #66727d;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+}
+
+.move-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.move-details summary:hover,
+.move-details[open] summary {
+    color: #245448;
+}
+
+.move-description {
+    margin-top: 6px;
+    padding: 7px 4px 4px;
+    border-top: 1px solid #e1e5e8;
+    color: #3f474d;
+    font-size: 12px;
     line-height: 1.55;
     white-space: pre-line;
     box-sizing: border-box;
 }
 
 .move-summary {
-    margin-bottom: 4px;
-    color: #245448;
-    font-weight: bold;
+    margin-bottom: 3px;
+    color: #58636c;
+    font-weight: 600;
 }
 
 .attackerAbilityContainer,
@@ -1457,7 +1479,7 @@ input[type="number"]::-webkit-inner-spin-button {
         font-size: 18px;
     }
 
-    .move-description {
+    .move-details {
         margin-left: 0;
     }
 

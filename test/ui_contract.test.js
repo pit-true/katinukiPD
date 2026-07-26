@@ -6,6 +6,7 @@ const path = require("node:path");
 const root = path.join(__dirname, "..");
 const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const script = fs.readFileSync(path.join(root, "script.js"), "utf8");
+const style = fs.readFileSync(path.join(root, "style.css"), "utf8");
 
 test("作品選択とバッジ補正を公開UI・計算処理に残さない", () => {
   assert.equal(html.includes("editionSelect"), false);
@@ -33,4 +34,18 @@ test("概要に用途だけを簡潔に表示する", () => {
     html,
     /<strong>概要:<\/strong> プロキオン・デネブ用カチヌキシミュレーター/,
   );
+});
+
+test("技詳細は初期状態で閉じた控えめな開閉表示にする", () => {
+  const details = html.match(
+    /<details id="moveDetails"([^>]*)>([\s\S]*?)<\/details>/,
+  );
+  assert.ok(details);
+  assert.equal(/\bopen\b/.test(details[1]), false);
+  assert.match(details[2], /<summary><span aria-hidden="true">ⓘ<\/span> 技詳細<\/summary>/);
+  assert.match(details[2], /id="moveDescription"/);
+  const descriptionStyle = style.match(/\.move-description\s*\{([^}]*)\}/);
+  assert.ok(descriptionStyle);
+  assert.doesNotMatch(descriptionStyle[1], /min-height/);
+  assert.doesNotMatch(descriptionStyle[1], /border-left/);
 });
