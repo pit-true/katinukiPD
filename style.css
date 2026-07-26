@@ -33,19 +33,6 @@ body {
     margin: 0;
 }
 
-.edition-control {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: #444;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-.edition-control select {
-    min-width: 112px;
-}
-
 h1 {
     font-size: 20px;
     text-align: center;
@@ -1464,15 +1451,10 @@ input[type="number"]::-webkit-inner-spin-button {
     .app-header {
         margin-top: 52px;
         padding: 0 8px;
-        justify-content: space-between;
     }
 
     .app-header h1 {
         font-size: 18px;
-    }
-
-    .edition-control {
-        flex: 0 0 auto;
     }
 
     .move-description {

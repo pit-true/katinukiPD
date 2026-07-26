@@ -7,15 +7,16 @@ function readJson(name) {
   return JSON.parse(fs.readFileSync(path.join(__dirname, "..", name), "utf8"));
 }
 
-test("プロキオン・デネブの有効313体を収録する", () => {
-  const procyon = readJson("all_pokemon_data.json");
-  const deneb = readJson("all_pokemon_data_deneb.json");
-  assert.equal(procyon.length, 313);
-  assert.equal(deneb.length, 313);
-  assert.ok(procyon.every((pokemon) => typeof pokemon.can_evolve === "boolean"));
-  assert.notDeepEqual(
-    procyon.map((pokemon) => pokemon.moves),
-    deneb.map((pokemon) => pokemon.moves),
+test("プロキオン・デネブの習得技を1つの313体データへ統合する", () => {
+  const pokemon = readJson("all_pokemon_data.json");
+  assert.equal(pokemon.length, 313);
+  assert.ok(pokemon.every((entry) => typeof entry.can_evolve === "boolean"));
+  const basil = pokemon.find((entry) => entry.name === "バジール");
+  assert.ok(basil.moves.includes("めざめるパワー"));
+  assert.ok(basil.moves.includes("エナジーボール"));
+  assert.equal(
+    fs.existsSync(path.join(__dirname, "..", "all_pokemon_data_deneb.json")),
+    false,
   );
 });
 

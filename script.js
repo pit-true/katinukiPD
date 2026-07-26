@@ -630,7 +630,6 @@ function initializePageWithRestore() {
         updateDetailSummary('defender');
         setupHPSyncListeners();
         initializeMobileControls();
-        document.getElementById('editionSelect')?.addEventListener('change', changeEdition);
         document.getElementById('attackerAbility')?.addEventListener('change', function() {
             attackerPokemon.ability = this.value;
         });
@@ -673,11 +672,7 @@ function initializePageWithRestore() {
 async function loadAllData() {
     try {
         // 全ポケモンデータ
-        const edition = document.getElementById('editionSelect')?.value || 'procyon';
-        const pokemonFile = edition === 'deneb'
-            ? 'all_pokemon_data_deneb.json'
-            : 'all_pokemon_data.json';
-        const pokemonResponse = await fetch(pokemonFile);
+        const pokemonResponse = await fetch('all_pokemon_data.json');
         allPokemonData = await pokemonResponse.json();
         
         // 技データ
@@ -713,7 +708,7 @@ function initializeNatureButtons() {
 }
 
 function getLevelPresets() {
-    return [5, 15, 20, 30, 50, 55, 100];
+    return [50, 100];
 }
 
 function normalizeLevel(value) {
@@ -2652,24 +2647,6 @@ function updateMoveDescription(move) {
     const details = KatinukiDamageCore.formatMoveDetails(move);
     summary.textContent = details.summary;
     description.textContent = details.description || '-';
-}
-
-async function changeEdition() {
-    const edition = document.getElementById('editionSelect')?.value || 'procyon';
-    const pokemonFile = edition === 'deneb'
-        ? 'all_pokemon_data_deneb.json'
-        : 'all_pokemon_data.json';
-    try {
-        const response = await fetch(pokemonFile);
-        allPokemonData = await response.json();
-        for (const side of ['attacker', 'defender']) {
-            const input = document.getElementById(`${side}Pokemon`);
-            if (input) input.value = '';
-            selectPokemon(side, '');
-        }
-    } catch (error) {
-        console.error('作品データの切替エラー:', error);
-    }
 }
 
 // 連続技の表示情報を取得する関数
@@ -5770,10 +5747,6 @@ function getRankMultiplier(rankValue) {
     return mult ? mult.numerator / mult.denominator : 1.0;
 }
 
-function applyBadgeModifier(stat, enabled) {
-    return enabled ? Math.floor(stat * 110 / 100) : stat;
-}
-
 // ダメージ計算本体
 function calculateDamage(attack, defense, level, power, category, moveType, attackerTypes, defenderTypes, atkRank, defRank, move = currentMove) {
   let finalAttack = attack;
@@ -5852,15 +5825,7 @@ function calculateDamage(attack, defense, level, power, category, moveType, atta
     effectiveAtkRank = calculateRageAttackRank(atkRank, rageHitCount);
   }
 
-  // バッジ・ランク補正は実数値に反映し、以降は第7世代準拠コアで計算する。
-  finalAttack = applyBadgeModifier(
-      finalAttack,
-      document.getElementById('attackerBadgeCheck')?.checked || false
-  );
-  finalDefense = applyBadgeModifier(
-      finalDefense,
-      document.getElementById('defenderBadgeCheck')?.checked || false
-  );
+  // ランク補正を実数値に反映し、以降は第7世代準拠コアで計算する。
   const atkRankMultiplier = getRankMultiplier(effectiveAtkRank);
   const defRankMultiplier = getRankMultiplier(defRank);
   finalAttack = Math.floor(finalAttack * atkRankMultiplier);

@@ -30,13 +30,6 @@
 
     <header class="app-header">
         <h1>カチヌキPD</h1>
-        <label class="edition-control" for="editionSelect">
-            作品
-            <select id="editionSelect">
-                <option value="procyon">プロキオン</option>
-                <option value="deneb">デネブ</option>
-            </select>
-        </label>
     </header>
     
     <div class="battle-container">
@@ -63,13 +56,7 @@
                 <select class="level-preset" id="attackerLevelPreset"
                         aria-label="攻撃側レベルプリセット"
                         onchange="setLevelPreset('attacker', this.value)">
-                    <option value="">任意</option>
-                    <option value="5">Lv5</option>
-                    <option value="15">Lv15</option>
-                    <option value="20">Lv20</option>
-                    <option value="30">Lv30</option>
                     <option value="50" selected>Lv50</option>
-                    <option value="55">Lv55</option>
                     <option value="100">Lv100</option>
                 </select>
             </div>
@@ -442,7 +429,6 @@
                     <label><input type="checkbox" id="helpCheck"> てだすけ</label>
                     <label><input type="checkbox" id="doroasobiCheck"> どろあそび</label>
                     <label><input type="checkbox" id="mizuasobiCheck"> みずあそび</label>
-                    <label><input type="checkbox" id="attackerBadgeCheck"> バッジ攻撃1.1倍</label>
                     <label id="twofoldContainer"><input type="checkbox" id="twofoldCheck"> 2倍条件を満たしたとき</label>
                 </div>
                 
@@ -489,13 +475,7 @@
                 <select class="level-preset" id="defenderLevelPreset"
                         aria-label="防御側レベルプリセット"
                         onchange="setLevelPreset('defender', this.value)">
-                    <option value="">任意</option>
-                    <option value="5">Lv5</option>
-                    <option value="15">Lv15</option>
-                    <option value="20">Lv20</option>
-                    <option value="30">Lv30</option>
                     <option value="50" selected>Lv50</option>
-                    <option value="55">Lv55</option>
                     <option value="100">Lv100</option>
                 </select>
             </div>
@@ -671,10 +651,6 @@
             <div class="defense-conditions">
                 <h3>防御側条件</h3>
 
-                <div class="checkbox-group">
-                    <label><input type="checkbox" id="defenderBadgeCheck"> バッジ防御1.1倍</label>
-                </div>
-
                 <!-- ランク補正 -->
                 <div class="rank-correction">
                     <div class="rank-row">
@@ -806,7 +782,7 @@
             <div class="tool-info">
                 <div class="tips-title">使い方</div>
                 <div class="tips-content">
-                    <p><strong>概要:</strong> プロキオン・デネブ 第7世代準拠ダメージ計算</p>
+                    <p><strong>概要:</strong> プロキオン・デネブ用カチヌキシミュレーター</p>
                     <p><strong>ステータス計算:</strong> 努力値->実数値、実数値->必要努力値算出</p>
                     <p><strong>攻守交代ボタン:</strong> 攻撃側と防御側の実数値･個体値･努力値を入れ替える</p>
                     <p><strong>HPバー:</strong> ダメージ量を視覚的に確認</p>
