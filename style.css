@@ -453,6 +453,40 @@ input[type="number"]::-webkit-inner-spin-button {
     font-size: 13px;
 }
 
+.rom-move-settings {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.rom-move-settings-title {
+    color: #495057;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.rom-move-settings-fields {
+    display: grid;
+    gap: 6px;
+    grid-template-columns: repeat(auto-fit, minmax(74px, 1fr));
+}
+
+.rom-rank-field {
+    align-items: center;
+    display: flex;
+    gap: 4px;
+}
+
+.rom-rank-field select {
+    min-width: 48px;
+}
+
+.rom-condition-field {
+    align-items: center;
+    display: flex;
+    min-height: 28px;
+}
+
 .hp-input-group {
     display: flex;
     align-items: center;

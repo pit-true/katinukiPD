@@ -60,6 +60,12 @@ test("説明文から確定できる特殊ダメージ技を専用クラスへ�
     "イカサマ": "target_attack",
     "バリアアタック": "user_defense",
     "ソウルブレイク": "ignore_screen",
+    "クイックターン": "quick_turn",
+    "バリアブラスト": "barrier_blast",
+    "アシストパワー": "stored_power",
+    "おしおき": "punishment",
+    "しっぺがえし": "payback",
+    "デッドリーボーン": "deadly_bone",
   };
 
   for (const [name, moveClass] of Object.entries(expected)) {

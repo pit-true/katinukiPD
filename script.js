@@ -2571,6 +2571,7 @@ function selectMove(moveName) {
     currentMove = moveData.find(m => m.name === moveName);
     updateMoveDescription(currentMove);
     if (!currentMove) return;
+    renderRomMoveSettings(currentMove.class);
     const twofoldLabel = document.getElementById('twofoldLabel');
     if (twofoldLabel) {
         twofoldLabel.textContent = currentMove.name === 'ダイナソード'
@@ -2642,6 +2643,126 @@ function selectMove(moveName) {
             document.getElementById('beatUpSettings').style.display = 'flex';
             break;
     }
+}
+
+const ROM_MOVE_SETTING_SCHEMAS = {
+    'quick_turn': {
+        title: '相手の素早さランク',
+        rankSide: 'defender',
+        stats: ['speed'],
+    },
+    'barrier_blast': {
+        title: '自分の場',
+        condition: {
+            id: 'romAttackerScreen',
+            label: 'リフレクター・ひかりのかべあり',
+        },
+    },
+    'stored_power': {
+        title: '自分の能力ランク',
+        rankSide: 'attacker',
+        stats: [
+            'attack', 'defense', 'speed', 'specialAttack',
+            'specialDefense', 'accuracy', 'evasion',
+        ],
+    },
+    'punishment': {
+        title: '相手の能力ランク',
+        rankSide: 'defender',
+        stats: [
+            'attack', 'defense', 'speed', 'specialAttack',
+            'specialDefense', 'accuracy', 'evasion',
+        ],
+    },
+    'payback': {
+        title: '行動順',
+        condition: {
+            id: 'romActsAfterTarget',
+            label: '相手より後に行動',
+        },
+    },
+    'deadly_bone': {
+        title: '自分の素早さランク',
+        rankSide: 'attacker',
+        stats: ['speed'],
+    },
+};
+
+const ROM_RANK_LABELS = {
+    attack: '攻撃',
+    defense: '防御',
+    speed: '素早さ',
+    specialAttack: '特攻',
+    specialDefense: '特防',
+    accuracy: '命中',
+    evasion: '回避',
+};
+
+function createRomRankOptions() {
+    const options = [];
+    for (let rank = 6; rank >= -6; rank--) {
+        const label = rank > 0 ? `+${rank}` : rank === 0 ? '±0' : `${rank}`;
+        options.push(
+            `<option value="${rank}"${rank === 0 ? ' selected' : ''}>${label}</option>`
+        );
+    }
+    return options.join('');
+}
+
+function renderRomMoveSettings(moveClass) {
+    const container = document.getElementById('romMoveSettings');
+    const title = document.getElementById('romMoveSettingsTitle');
+    const fields = document.getElementById('romMoveSettingsFields');
+    if (!container || !title || !fields) return;
+
+    const schema = ROM_MOVE_SETTING_SCHEMAS[moveClass];
+    if (!schema) {
+        container.style.display = 'none';
+        fields.replaceChildren();
+        return;
+    }
+
+    title.textContent = schema.title;
+    if (schema.condition) {
+        fields.innerHTML = `
+            <label class="rom-condition-field">
+                <input type="checkbox" id="${schema.condition.id}">
+                <span>${schema.condition.label}</span>
+            </label>
+        `;
+    } else {
+        const rankOptions = createRomRankOptions();
+        fields.innerHTML = schema.stats.map(stat => `
+            <label class="rom-rank-field">
+                <span>${ROM_RANK_LABELS[stat]}</span>
+                <select
+                    aria-label="${schema.title} ${ROM_RANK_LABELS[stat]}"
+                    data-rom-rank-side="${schema.rankSide}"
+                    data-rom-rank-stat="${stat}"
+                >${rankOptions}</select>
+            </label>
+        `).join('');
+    }
+    container.style.display = 'flex';
+}
+
+function getRomMoveConditions() {
+    const conditions = {
+        attackerRanks: {},
+        defenderRanks: {},
+        attackerScreen:
+            document.getElementById('romAttackerScreen')?.checked || false,
+        actsAfterTarget:
+            document.getElementById('romActsAfterTarget')?.checked || false,
+    };
+    document.querySelectorAll('#romMoveSettingsFields [data-rom-rank-side]')
+        .forEach(select => {
+            const side = select.dataset.romRankSide;
+            const stat = select.dataset.romRankStat;
+            const rank = parseInt(select.value, 10) || 0;
+            conditions[`${side}Ranks`][stat] = rank;
+        });
+    return conditions;
 }
 
 function updateMoveDescription(move) {
@@ -5896,6 +6017,7 @@ function calculateDamage(attack, defense, level, power, category, moveType, atta
           || defenderMaxHp
   );
   const isDouble = document.getElementById('doubleCheck')?.checked || false;
+  const romMoveConditions = getRomMoveConditions();
   const damage = KatinukiDamageCore.calculateDamageRange({
       level,
       power: finalPower,
@@ -5939,6 +6061,7 @@ function calculateDamage(attack, defense, level, power, category, moveType, atta
       biting: move?.biting || false,
       punching: move?.punching || false,
       recoil: move?.recoil || false,
+      ...romMoveConditions,
   });
 
   if (move?.class === 'spit_up') {

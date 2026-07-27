@@ -140,6 +140,11 @@
     "バレットパンチ", "ドレインパンチ", "グロウパンチ",
   ]);
 
+  const BATTLE_RANK_STATS = [
+    "attack", "defense", "speed", "specialAttack",
+    "specialDefense", "accuracy", "evasion",
+  ];
+
   const MOVE_TYPE_EFFECTIVENESS_OVERRIDES = {
     "じゅうおうのキバ": { "ひこう": 1 },
     "グラベルブレス": { "はがね": 2 },
@@ -205,7 +210,50 @@
     if (options.moveClass === "target_hp_scale") {
       return Math.max(1, Math.floor(power * currentHp / maxHp));
     }
+    if (options.moveClass === "stored_power") {
+      const rankTotal = getBattleRanks(options.attackerRanks)
+        .reduce((total, rank) => total + Math.max(0, rank), 0);
+      return power + rankTotal * 20;
+    }
+    if (options.moveClass === "punishment") {
+      const raisedStatCount = getBattleRanks(options.defenderRanks)
+        .filter((rank) => rank > 0)
+        .length;
+      return power + raisedStatCount * 20;
+    }
+    if (options.moveClass === "deadly_bone") {
+      const speedRank = Math.max(
+        0,
+        normalizeRank(options.attackerRanks?.speed),
+      );
+      return power + Math.floor(speedRank / 2) * 10;
+    }
     return power;
+  }
+
+  function normalizeRank(rank) {
+    const value = Number(rank);
+    if (!Number.isFinite(value)) return 0;
+    return Math.max(-6, Math.min(6, Math.trunc(value)));
+  }
+
+  function getBattleRanks(ranks = {}) {
+    return BATTLE_RANK_STATS.map((stat) => normalizeRank(ranks[stat]));
+  }
+
+  function resolveMoveDamageMultiplier(options) {
+    if (options.moveClass === "quick_turn") {
+      const targetSpeedRank = normalizeRank(options.defenderRanks?.speed);
+      if (targetSpeedRank < 0) return 0;
+      if (targetSpeedRank > 0) return 2;
+    }
+    if (options.moveClass === "barrier_blast" && options.attackerScreen) {
+      return 2;
+    }
+    if (options.moveClass === "payback" && options.actsAfterTarget) {
+      return 2;
+    }
+    return 1;
   }
 
   function resolveOffensiveStat(options) {
@@ -413,6 +461,7 @@
     const levelFactor = Math.floor(options.level * 2 / 5) + 2;
     let damage = Math.floor(levelFactor * power * attack / defense);
     damage = Math.floor(damage / 50) + 2;
+    damage *= resolveMoveDamageMultiplier(options);
 
     if (
       options.screen
@@ -492,7 +541,7 @@
       damage = applyRatio(damage, 3, 4);
     }
 
-    if (effectiveness === 0) {
+    if (damage <= 0 || effectiveness === 0) {
       return { min: 0, max: 0, effectiveness, moveType };
     }
     const max = Math.max(1, damage);
@@ -524,6 +573,7 @@
     formatMoveDetails,
     getMoveTypeEffectiveness,
     getTypeEffectiveness,
+    resolveMoveDamageMultiplier,
     resolveMovePower,
     resolveMoveType,
   };

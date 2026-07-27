@@ -55,3 +55,23 @@ test("ダイナソードは既存の2倍条件欄をつめとぎ使用後とし�
   assert.match(script, /currentMove\.name === ['"]ダイナソード['"]/);
   assert.match(script, /move\?\.class === ['"]two_fold['"][\s\S]*twofoldCheck/);
 });
+
+test("ROM固有技は選択時だけ専用条件を入力できる", () => {
+  assert.match(html, /id="romMoveSettings"/);
+  assert.match(html, /id="romMoveSettingsTitle"/);
+  assert.match(html, /id="romMoveSettingsFields"/);
+  for (const moveClass of [
+    "quick_turn",
+    "barrier_blast",
+    "stored_power",
+    "punishment",
+    "payback",
+    "deadly_bone",
+  ]) {
+    assert.match(script, new RegExp(`['"]${moveClass}['"]`));
+  }
+  assert.match(script, /attackerScreen/);
+  assert.match(script, /actsAfterTarget/);
+  assert.match(script, /attackerRanks/);
+  assert.match(script, /defenderRanks/);
+});

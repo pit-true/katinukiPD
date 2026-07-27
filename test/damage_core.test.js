@@ -5,6 +5,7 @@ const {
   calculateDamageRange,
   formatMoveDetails,
   getTypeEffectiveness,
+  resolveMoveDamageMultiplier,
   resolveMovePower,
   resolveMoveType,
 } = require("../damage_core.js");
@@ -386,4 +387,131 @@ test("ソウルブレイクは壁によるダメージ軽減を無視する", ()
 
   assert.ok(soulBreak.max > normal.max);
   assert.deepEqual(soulBreak, noScreen);
+});
+
+test("アシストパワーは使用者の上昇ランク合計だけ威力を加算する", () => {
+  assert.equal(resolveMovePower({
+    moveClass: "stored_power",
+    power: 20,
+    attackerRanks: {
+      attack: 2,
+      defense: -3,
+      speed: 1,
+      specialAttack: 4,
+      specialDefense: 0,
+      accuracy: 1,
+      evasion: -1,
+    },
+  }), 180);
+  assert.equal(resolveMovePower({
+    moveClass: "stored_power",
+    power: 20,
+    attackerRanks: {
+      attack: 6,
+      defense: 6,
+      speed: 6,
+      specialAttack: 6,
+      specialDefense: 6,
+      accuracy: 6,
+      evasion: 6,
+    },
+  }), 860);
+});
+
+test("おしおきは相手の上昇した能力の種類数だけ威力を加算する", () => {
+  assert.equal(resolveMovePower({
+    moveClass: "punishment",
+    power: 60,
+    defenderRanks: {
+      attack: 6,
+      defense: -2,
+      speed: 1,
+      specialAttack: 0,
+      specialDefense: 4,
+      accuracy: -1,
+      evasion: 3,
+    },
+  }), 140);
+  assert.equal(resolveMovePower({
+    moveClass: "punishment",
+    power: 60,
+    defenderRanks: {
+      attack: 1,
+      defense: 1,
+      speed: 1,
+      specialAttack: 1,
+      specialDefense: 1,
+      accuracy: 1,
+      evasion: 1,
+    },
+  }), 200);
+});
+
+test("デッドリーボーンは使用者の素早さランクを2段階ごとに威力へ反映する", () => {
+  const expected = new Map([
+    [-6, 80], [0, 80], [1, 80],
+    [2, 90], [3, 90],
+    [4, 100], [5, 100],
+    [6, 110],
+  ]);
+  for (const [speed, power] of expected) {
+    assert.equal(resolveMovePower({
+      moveClass: "deadly_bone",
+      power: 80,
+      attackerRanks: { speed },
+    }), power, `speed rank ${speed}`);
+  }
+});
+
+test("クイックターンは相手の素早さランクだけで失敗・通常・2倍を決める", () => {
+  assert.equal(resolveMoveDamageMultiplier({
+    moveClass: "quick_turn",
+    defenderRanks: { speed: -1 },
+  }), 0);
+  assert.equal(resolveMoveDamageMultiplier({
+    moveClass: "quick_turn",
+    defenderRanks: { speed: 0 },
+  }), 1);
+  assert.equal(resolveMoveDamageMultiplier({
+    moveClass: "quick_turn",
+    defenderRanks: { speed: 1 },
+  }), 2);
+
+  const failed = calculateDamageRange({
+    ...base,
+    moveClass: "quick_turn",
+    defenderRanks: { speed: -6 },
+  });
+  assert.deepEqual(failed, {
+    min: 0,
+    max: 0,
+    effectiveness: 1,
+    moveType: "ノーマル",
+  });
+});
+
+test("バリアブラストは使用者側に壁があると基礎ダメージ後に2倍になる", () => {
+  const normal = calculateDamageRange({
+    ...base,
+    moveClass: "barrier_blast",
+  });
+  const boosted = calculateDamageRange({
+    ...base,
+    moveClass: "barrier_blast",
+    attackerScreen: true,
+  });
+  assert.equal(boosted.max, normal.max * 2);
+});
+
+test("しっぺがえしは実際に相手より後に行動すると基礎ダメージ後に2倍になる", () => {
+  const normal = calculateDamageRange({
+    ...base,
+    moveClass: "payback",
+  });
+  const boosted = calculateDamageRange({
+    ...base,
+    moveClass: "payback",
+    actsAfterTarget: true,
+  });
+  assert.equal(boosted.max, normal.max * 2);
 });
