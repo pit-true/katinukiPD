@@ -101,11 +101,12 @@
     "ようせいのはね": "フェアリー",
   };
 
-  const GEM_TYPES = [
+  const GEM_TYPES = Object.fromEntries([
     "ノーマル", "ほのお", "みず", "でんき", "くさ", "こおり",
     "かくとう", "どく", "じめん", "ひこう", "エスパー", "むし",
-    "いわ", "ゴースト", "ドラゴン", "あく", "はがね", "フェアリー",
-  ];
+    "いわ", "ゴースト", "ドラゴン", "あく", "はがね",
+  ].map((type) => [`${type}のジュエル`, type]));
+  GEM_TYPES["ようせいジュエル"] = "フェアリー";
 
   const RESIST_BERRIES = {
     "ホズのみ": "ノーマル",
@@ -415,7 +416,7 @@
       result = applyRatio(result, 11, 10);
     } else if (TYPE_BOOST_ITEMS[item] === moveType) {
       result = applyRatio(result, 6, 5);
-    } else if (GEM_TYPES.some((type) => item === `${type}のジュエル` && type === moveType)) {
+    } else if (GEM_TYPES[item] === moveType) {
       result = applyRatio(result, 3, 2);
     }
     return result;

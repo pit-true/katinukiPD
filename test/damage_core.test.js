@@ -156,6 +156,28 @@ test("ジュエルはタイプ一致時に技威力を1.5倍する", () => {
   assert.deepEqual(gem, power60);
 });
 
+test("ようせいジュエルはフェアリー技の威力を1.5倍する", () => {
+  const gem = calculateDamageRange({
+    ...base,
+    power: 40,
+    attack: 100,
+    defense: 100,
+    moveType: "フェアリー",
+    attackerTypes: [],
+    attackerItem: "ようせいジュエル",
+  });
+  const power60 = calculateDamageRange({
+    ...base,
+    power: 60,
+    attack: 100,
+    defense: 100,
+    moveType: "フェアリー",
+    attackerTypes: [],
+  });
+
+  assert.deepEqual(gem, power60);
+});
+
 test("技情報を説明文つきで表示できる形に整える", () => {
   assert.deepEqual(
     formatMoveDetails({
