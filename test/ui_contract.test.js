@@ -7,6 +7,13 @@ const root = path.join(__dirname, "..");
 const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const script = fs.readFileSync(path.join(root, "script.js"), "utf8");
 const style = fs.readFileSync(path.join(root, "style.css"), "utf8");
+const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
+
+test("READMEはGitHub Pages利用者向けの案内にする", () => {
+  assert.match(readme, /https:\/\/pit-true\.github\.io\/katinukiPD\//);
+  assert.doesNotMatch(readme, /localhost|127\.0\.0\.1|python -m http\.server/);
+  assert.doesNotMatch(readme, /VPD補正位置監査/);
+});
 
 test("作品選択とバッジ補正を公開UI・計算処理に残さない", () => {
   assert.equal(html.includes("editionSelect"), false);
