@@ -109,3 +109,11 @@ test("主要な第7世代向け持ち物を重複なく収録する", () => {
     assert.ok(names.includes(required), `${required} is missing`);
   }
 });
+
+test("全タイプのジュエル説明をVPDの1.5倍仕様に合わせる", () => {
+  const items = readJson("item.json");
+  const gems = items.filter((item) => item.name.endsWith("のジュエル"));
+
+  assert.equal(gems.length, 18);
+  assert.ok(gems.every((item) => item.description.includes("1.5倍")));
+});

@@ -416,7 +416,7 @@
     } else if (TYPE_BOOST_ITEMS[item] === moveType) {
       result = applyRatio(result, 6, 5);
     } else if (GEM_TYPES.some((type) => item === `${type}のジュエル` && type === moveType)) {
-      result = applyRatio(result, 13, 10);
+      result = applyRatio(result, 3, 2);
     }
     return result;
   }
@@ -502,6 +502,9 @@
         ? damage * 2
         : applyRatio(damage, 3, 2);
     }
+    if (options.attackerItem === "いのちのたま") {
+      damage = applyRatio(damage, 13, 10);
+    }
 
     const effectiveness = getMoveTypeEffectiveness(
       options.moveName,
@@ -527,9 +530,6 @@
       && (effectiveness > 1 || moveType === "ノーマル")
     ) {
       damage = applyRatio(damage, 1, 2);
-    }
-    if (options.attackerItem === "いのちのたま") {
-      damage = applyRatio(damage, 13, 10);
     }
     if (
       options.defenderAbility === "マルチスケイル"
