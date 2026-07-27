@@ -486,6 +486,9 @@
       damage = applyRatio(damage, 1, 2);
     }
 
+    if (options.attackerItem === "いのちのたま") {
+      damage = applyRatio(damage, 13, 10);
+    }
     if (options.critical) {
       damage = applyRatio(damage, 3, 2);
       if (options.attackerAbility === "スナイパー") {
@@ -502,9 +505,6 @@
       damage = options.attackerAbility === "てきおうりょく"
         ? damage * 2
         : applyRatio(damage, 3, 2);
-    }
-    if (options.attackerItem === "いのちのたま") {
-      damage = applyRatio(damage, 13, 10);
     }
 
     const effectiveness = getMoveTypeEffectiveness(

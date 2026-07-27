@@ -119,21 +119,21 @@ test("いのちのたまとこだわりメガネを計算する", () => {
   assert.ok(choiceSpecs.max > lifeOrb.max);
 });
 
-test("いのちのたまはタイプ相性より前にダメージを1.3倍する", () => {
+test("いのちのたまは急所・タイプ一致・タイプ相性より前にダメージを1.3倍する", () => {
   const lifeOrb = calculateDamageRange({
     ...base,
-    power: 40,
+    power: 21,
     attack: 100,
     defense: 100,
-    moveType: "ほのお",
-    attackerTypes: [],
-    defenderTypes: ["ほのお"],
+    moveType: "ノーマル",
+    attackerTypes: ["ノーマル"],
+    defenderTypes: [],
     attackerItem: "いのちのたま",
   });
 
-  // 基礎ダメージ19 → 珠で24 → 半減で12。
-  // 相性の後に珠を掛けると11になるため、補正位置も検出できる。
-  assert.equal(lifeOrb.max, 12);
+  // 基礎ダメージ11 → 珠で14 → タイプ一致で21。
+  // タイプ一致後に珠を掛けると20になるため、補正位置も検出できる。
+  assert.equal(lifeOrb.max, 21);
 });
 
 test("ジュエルはタイプ一致時に技威力を1.5倍する", () => {
