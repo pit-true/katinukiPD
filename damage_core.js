@@ -84,6 +84,7 @@
     "シルクのスカーフ": "ノーマル",
     "もくたん": "ほのお",
     "しんぴのしずく": "みず",
+    "うしおのおこう": "みず",
     "じしゃく": "でんき",
     "きせきのタネ": "くさ",
     "とけないこおり": "こおり",
@@ -101,12 +102,26 @@
     "ようせいのはね": "フェアリー",
   };
 
-  const GEM_TYPES = Object.fromEntries([
-    "ノーマル", "ほのお", "みず", "でんき", "くさ", "こおり",
-    "かくとう", "どく", "じめん", "ひこう", "エスパー", "むし",
-    "いわ", "ゴースト", "ドラゴン", "あく", "はがね",
-  ].map((type) => [`${type}のジュエル`, type]));
-  GEM_TYPES["ようせいジュエル"] = "フェアリー";
+  const GEM_TYPES = {
+    "ノーマルジュエル": "ノーマル",
+    "くさのジュエル": "くさ",
+    "ほのおのジュエル": "ほのお",
+    "みずのジュエル": "みず",
+    "でんきのジュエル": "でんき",
+    "こおりのジュエル": "こおり",
+    "いわのジュエル": "いわ",
+    "じめんのジュエル": "じめん",
+    "かくとうジュエル": "かくとう",
+    "ひこうのジュエル": "ひこう",
+    "むしのジュエル": "むし",
+    "どくのジュエル": "どく",
+    "エスパージュエル": "エスパー",
+    "ゴーストジュエル": "ゴースト",
+    "ドラゴンジュエル": "ドラゴン",
+    "あくのジュエル": "あく",
+    "はがねのジュエル": "はがね",
+    "ようせいジュエル": "フェアリー",
+  };
 
   const RESIST_BERRIES = {
     "ホズのみ": "ノーマル",
@@ -238,6 +253,15 @@
     return Math.max(-6, Math.min(6, Math.trunc(value)));
   }
 
+  function applyBattleRank(value, rank) {
+    const stat = Math.max(1, Number(value) || 1);
+    const normalized = normalizeRank(rank);
+    if (normalized >= 0) {
+      return Math.floor(stat * (2 + normalized) / 2);
+    }
+    return Math.floor(stat * 2 / (2 - normalized));
+  }
+
   function getBattleRanks(ranks = {}) {
     return BATTLE_RANK_STATS.map((stat) => normalizeRank(ranks[stat]));
   }
@@ -259,23 +283,38 @@
 
   function resolveOffensiveStat(options) {
     if (options.moveClass === "target_attack") {
-      return options.defenderAttack || options.attack;
+      return applyBattleRank(
+        options.defenderAttack || options.attack,
+        options.defenderRanks?.attack,
+      );
     }
     if (options.moveClass === "target_special_attack") {
-      return options.defenderSpecialAttack || options.attack;
+      return applyBattleRank(
+        options.defenderSpecialAttack || options.attack,
+        options.defenderRanks?.specialAttack,
+      );
     }
     if (options.moveClass === "user_defense") {
-      return options.attackerDefense || options.attack;
+      return applyBattleRank(
+        options.attackerDefense || options.attack,
+        options.attackerRanks?.defense,
+      );
     }
     return options.attack;
   }
 
   function resolveDefensiveStat(options) {
     if (options.moveClass === "physical_defense") {
-      return options.defenderDefense || options.defense;
+      return applyBattleRank(
+        options.defenderDefense || options.defense,
+        options.defenderRanks?.defense,
+      );
     }
     if (options.moveClass === "special_defense") {
-      return options.defenderSpecialDefense || options.defense;
+      return applyBattleRank(
+        options.defenderSpecialDefense || options.defense,
+        options.defenderRanks?.specialDefense,
+      );
     }
     return options.defense;
   }
@@ -311,9 +350,9 @@
     } else if (item === "でんきだま" && options.attackerName === "ピカチュウ") {
       result *= 2;
     } else if (
-      item === "ふといホネ"
+      item === "ももいろシャボン"
       && category === "Physical"
-      && ["カラカラ", "ガラガラ"].includes(options.attackerName)
+      && ["リバード", "ララミンゴ"].includes(options.attackerName)
     ) {
       result *= 2;
     }
@@ -321,9 +360,9 @@
     if (
       item === "こころのしずく"
       && ["ラティアス", "ラティオス"].includes(options.attackerName)
-      && ["エスパー", "ドラゴン"].includes(moveType)
+      && category === "Special"
     ) {
-      result = applyRatio(result, 6, 5);
+      result = applyRatio(result, 3, 2);
     }
     return result;
   }
@@ -350,13 +389,19 @@
       result = applyRatio(result, 3, 2);
     } else if (item === "とつげきチョッキ" && category === "Special") {
       result = applyRatio(result, 3, 2);
+    } else if (
+      item === "メタルパウダー"
+      && category === "Physical"
+      && options.defenderName === "メタモン"
+    ) {
+      result = applyRatio(result, 3, 2);
     }
     if (
       item === "こころのしずく"
       && category === "Special"
       && ["ラティアス", "ラティオス"].includes(options.defenderName)
     ) {
-      result = applyRatio(result, 6, 5);
+      result = applyRatio(result, 3, 2);
     }
     return result;
   }

@@ -143,7 +143,7 @@ test("ジュエルはタイプ一致時に技威力を1.5倍する", () => {
     attack: 100,
     defense: 100,
     attackerTypes: [],
-    attackerItem: "ノーマルのジュエル",
+    attackerItem: "ノーマルジュエル",
   });
   const power60 = calculateDamageRange({
     ...base,
@@ -433,6 +433,151 @@ test("相手能力・自分の防御・物理防御を参照する技を計算�
   assert.ok(bodyPress.max > standard.max);
   assert.ok(psyshock.max > standard.max);
   assert.ok(yogaSmash.max < physicalControl.max);
+});
+
+test("能力参照技は置き換え先の能力ランクを参照する", () => {
+  const common = {
+    ...base,
+    attackerTypes: [],
+    defenderTypes: [],
+    attack: 50,
+    defense: 100,
+    attackerDefense: 100,
+    defenderAttack: 100,
+    defenderSpecialAttack: 100,
+    defenderDefense: 100,
+    defenderSpecialDefense: 100,
+  };
+  const cases = [
+    {
+      moveClass: "target_attack",
+      ranks: { defenderRanks: { attack: 2 } },
+      control: { defenderAttack: 200 },
+    },
+    {
+      moveClass: "target_special_attack",
+      category: "Special",
+      ranks: { defenderRanks: { specialAttack: 2 } },
+      control: { defenderSpecialAttack: 200 },
+    },
+    {
+      moveClass: "user_defense",
+      ranks: { attackerRanks: { defense: 2 } },
+      control: { attackerDefense: 200 },
+    },
+    {
+      moveClass: "physical_defense",
+      category: "Special",
+      ranks: { defenderRanks: { defense: 2 } },
+      control: { defenderDefense: 200 },
+    },
+    {
+      moveClass: "special_defense",
+      ranks: { defenderRanks: { specialDefense: 2 } },
+      control: { defenderSpecialDefense: 200 },
+    },
+  ];
+
+  for (const entry of cases) {
+    const ranked = calculateDamageRange({
+      ...common,
+      category: entry.category || "Physical",
+      moveClass: entry.moveClass,
+      ...entry.ranks,
+    });
+    const control = calculateDamageRange({
+      ...common,
+      category: entry.category || "Physical",
+      moveClass: entry.moveClass,
+      ...entry.control,
+    });
+    assert.deepEqual(ranked, control, entry.moveClass);
+  }
+});
+
+test("プロキオン固有の攻撃・防御持ち物をROM倍率で計算する", () => {
+  const physical = {
+    ...base,
+    attackerTypes: [],
+    defenderTypes: [],
+    attack: 100,
+    defense: 100,
+  };
+  const doubledAttack = calculateDamageRange({ ...physical, attack: 200 });
+  for (const attackerName of ["リバード", "ララミンゴ"]) {
+    assert.deepEqual(
+      calculateDamageRange({
+        ...physical,
+        attackerName,
+        attackerItem: "ももいろシャボン",
+      }),
+      doubledAttack,
+      attackerName,
+    );
+  }
+  assert.deepEqual(
+    calculateDamageRange({
+      ...physical,
+      attackerName: "ピカチュウ",
+      attackerItem: "ももいろシャボン",
+    }),
+    calculateDamageRange(physical),
+  );
+  assert.deepEqual(
+    calculateDamageRange({
+      ...physical,
+      defenderName: "メタモン",
+      defenderItem: "メタルパウダー",
+    }),
+    calculateDamageRange({ ...physical, defense: 150 }),
+  );
+});
+
+test("こころのしずくはラティアス・ラティオスの特攻と特防を1.5倍にする", () => {
+  const special = {
+    ...base,
+    category: "Special",
+    moveType: "ほのお",
+    attackerTypes: [],
+    defenderTypes: [],
+    attack: 100,
+    defense: 100,
+  };
+  assert.deepEqual(
+    calculateDamageRange({
+      ...special,
+      attackerName: "ラティオス",
+      attackerItem: "こころのしずく",
+    }),
+    calculateDamageRange({ ...special, attack: 150 }),
+  );
+  assert.deepEqual(
+    calculateDamageRange({
+      ...special,
+      defenderName: "ラティアス",
+      defenderItem: "こころのしずく",
+    }),
+    calculateDamageRange({ ...special, defense: 150 }),
+  );
+});
+
+test("うしおのおこうはみず技の威力を1.2倍にする", () => {
+  const incense = calculateDamageRange({
+    ...base,
+    power: 50,
+    moveType: "みず",
+    attackerTypes: [],
+    defenderTypes: [],
+    attackerItem: "うしおのおこう",
+  });
+  const power60 = calculateDamageRange({
+    ...base,
+    power: 60,
+    moveType: "みず",
+    attackerTypes: [],
+    defenderTypes: [],
+  });
+  assert.deepEqual(incense, power60);
 });
 
 test("ソウルブレイクは壁によるダメージ軽減を無視する", () => {

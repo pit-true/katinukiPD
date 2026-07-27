@@ -67,6 +67,11 @@ test("ROM固有技は選択時だけ専用条件を入力できる", () => {
     "punishment",
     "payback",
     "deadly_bone",
+    "target_attack",
+    "target_special_attack",
+    "user_defense",
+    "physical_defense",
+    "special_defense",
   ]) {
     assert.match(script, new RegExp(`['"]${moveClass}['"]`));
   }

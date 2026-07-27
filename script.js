@@ -97,10 +97,8 @@ function isItemEffectiveForMove(item, move) {
     const exclusiveItems = {
         'でんきだま': ['ピカチュウ'],
         'こころのしずく': ['ラティオス', 'ラティアス'],
-        'しんかいのウロコ': ['パールル'],
-        'しんかいのキバ': ['パールル'],
         'メタルパウダー': ['メタモン'],
-        'ふといホネ': ['カラカラ', 'ガラガラ']
+        'ももいろシャボン': ['リバード', 'ララミンゴ']
     };
     
     // 専用アイテムの場合、該当ポケモン以外は効果なし
@@ -114,6 +112,7 @@ function isItemEffectiveForMove(item, move) {
     if (item.timing === "attackMod") {
         if (isPhysical && item.a && item.a !== 1.0) return true;
         if (isSpecial && item.c && item.c !== 1.0) return true;
+        if (item.type === move.type) return true;
     }
     
     // タイプ一致補正系アイテム
@@ -123,6 +122,17 @@ function isItemEffectiveForMove(item, move) {
     
     // 威力補正系アイテム（特定技への補正）
     if (item.timing === "powerMod") {
+        return true;
+    }
+    if ([
+        'いのちのたま',
+        'たつじんのおび',
+        'ちからのハチマキ',
+        'ものしりメガネ',
+    ].includes(item.name)) {
+        return true;
+    }
+    if (item.name.endsWith('ジュエル')) {
         return true;
     }
     
@@ -1619,14 +1629,7 @@ function showItemList(dropdown, input, side) {
     dropdown.style.left = (rect.left + window.scrollX) + 'px';
     dropdown.style.width = rect.width + 'px';
     
-    // サイドによってフィルタリング
-    const filteredItems = itemData.filter(item => {
-        if (side === 'attacker') {
-            return item.timing === 'attackMod';
-        } else {
-            return item.timing !== 'attackMod';
-        }
-    });
+    const filteredItems = itemData;
     
     filteredItems.forEach(item => {
         const itemElement = createDropdownItem(item.name, () => {
@@ -1666,13 +1669,7 @@ function filterItemList(searchText, dropdown, input, side) {
     const hiraganaSearch = toHiragana(search);
     const katakanaSearch = toKatakana(search);
     
-    // サイドによってフィルタリング
     const filtered = itemData.filter(item => {
-        // まずタイミングでフィルタ
-        if (side === 'attacker' && item.timing !== 'attackMod') return false;
-        if (side === 'defender' && item.timing === 'attackMod') return false;
-        
-        // 次に検索文字でフィルタ
         const name = item.name ? item.name.toLowerCase() : '';
         const hiragana = item.hiragana ? item.hiragana.toLowerCase() : '';
         const romaji = item.romaji ? item.romaji.toLowerCase() : '';
@@ -2646,6 +2643,31 @@ function selectMove(moveName) {
 }
 
 const ROM_MOVE_SETTING_SCHEMAS = {
+    'target_attack': {
+        title: '相手の攻撃ランク',
+        rankSide: 'defender',
+        stats: ['attack'],
+    },
+    'target_special_attack': {
+        title: '相手の特攻ランク',
+        rankSide: 'defender',
+        stats: ['specialAttack'],
+    },
+    'user_defense': {
+        title: '自分の防御ランク',
+        rankSide: 'attacker',
+        stats: ['defense'],
+    },
+    'physical_defense': {
+        title: '相手の防御ランク',
+        rankSide: 'defender',
+        stats: ['defense'],
+    },
+    'special_defense': {
+        title: '相手の特防ランク',
+        rankSide: 'defender',
+        stats: ['specialDefense'],
+    },
     'quick_turn': {
         title: '相手の素早さランク',
         rankSide: 'defender',
