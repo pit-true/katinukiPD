@@ -112,8 +112,10 @@ test("主要な第7世代向け持ち物を重複なく収録する", () => {
 
 test("全タイプのジュエル説明をVPDの1.5倍仕様に合わせる", () => {
   const items = readJson("item.json");
-  const gems = items.filter((item) => item.name.endsWith("のジュエル"));
+  const gems = items.filter((item) => item.name.endsWith("ジュエル"));
 
   assert.equal(gems.length, 18);
   assert.ok(gems.every((item) => item.description.includes("1.5倍")));
+  assert.ok(gems.some((item) => item.name === "ようせいジュエル"));
+  assert.ok(!gems.some((item) => item.name === "フェアリーのジュエル"));
 });
