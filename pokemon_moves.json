@@ -4869,7 +4869,7 @@
     "power": 70,
     "accuracy": 90,
     "category": "Special",
-    "class": "gyro_ball",
+    "class": "gravel_breath",
     "target": 1,
     "description": "はがねタイプに\nつよい ブレスを\nはきつける。\nあいてより おそいと\nいりょくが たかまる。",
     "effect_id": 52,
@@ -9055,13 +9055,12 @@
     "power": 90,
     "accuracy": 100,
     "category": "Physical",
-    "class": "fixed",
+    "class": "standard",
     "target": 1,
     "description": "おうじゃの ちからを\nこめて かみつく。\nひこうタイプや\nふゆうする あいてにも\nこうげきが あたる。",
     "effect_id": 41,
     "effect_chance": 10,
-    "contact": true,
-    "fixed_value": 40
+    "contact": true
   },
   {
     "name": "デッドリーボーン",

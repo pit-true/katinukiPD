@@ -68,7 +68,7 @@ test("説明文で明示されたタイプ相性の例外は4技", () => {
 test("説明文から確定できる特殊ダメージ技を専用クラスへ分類する", () => {
   const moves = readJson("pokemon_moves.json");
   const expected = {
-    "グラベルブレス": "gyro_ball",
+    "グラベルブレス": "gravel_breath",
     "カラフルアタック": "user_type",
     "アクロバット": "itemless_boost",
     "ソウルシェイプ": "target_half_hp",
@@ -92,6 +92,9 @@ test("説明文から確定できる特殊ダメージ技を専用クラスへ�
   for (const [name, moveClass] of Object.entries(expected)) {
     assert.equal(moves.find((move) => move.name === name)?.class, moveClass, name);
   }
+  const beastKingFang = moves.find((move) => move.name === "じゅうおうのキバ");
+  assert.equal(beastKingFang?.class, "standard");
+  assert.equal(Object.hasOwn(beastKingFang, "fixed_value"), false);
   for (const name of [
     "スターダスト",
     "だいちのいかり",

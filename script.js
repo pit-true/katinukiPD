@@ -2703,6 +2703,13 @@ const ROM_MOVE_SETTING_SCHEMAS = {
             label: '相手より後に行動',
         },
     },
+    'gravel_breath': {
+        title: '行動順',
+        condition: {
+            id: 'romActsAfterTarget',
+            label: '相手より後に行動',
+        },
+    },
     'deadly_bone': {
         title: '自分の素早さランク',
         rankSide: 'attacker',

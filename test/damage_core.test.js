@@ -307,9 +307,10 @@ test("みずに抜群と明記された技は複合タイプを含めて相性�
   assert.equal(poisonLeaf.effectiveness, 1);
 });
 
-test("グラベルブレスはいわ技本来の耐性を上書きしてはがねに抜群となる", () => {
+test("グラベルブレスははがね相手でもいわ技本来の相性を維持してダメージだけ2倍にする", () => {
   const target = {
     ...base,
+    power: 70,
     moveType: "いわ",
     attackerTypes: ["いわ"],
     defenderTypes: ["はがね"],
@@ -321,26 +322,54 @@ test("グラベルブレスはいわ技本来の耐性を上書きしてはが�
   const gravelBreath = calculateDamageRange({
     ...target,
     moveName: "グラベルブレス",
+    moveClass: "gravel_breath",
+  });
+  const neutralRockMove = calculateDamageRange({
+    ...target,
+    moveName: "いわなだれ",
+    defenderTypes: ["ノーマル"],
   });
 
   assert.equal(ordinaryRockMove.effectiveness, 0.5);
-  assert.equal(gravelBreath.effectiveness, 2);
+  assert.equal(gravelBreath.effectiveness, 0.5);
+  assert.equal(gravelBreath.max, neutralRockMove.max);
   assert.ok(gravelBreath.max > ordinaryRockMove.max);
 });
 
-test("グラベルブレスは素早さ比で威力を求め150で打ち止めにする", () => {
+test("グラベルブレスは素早さ比で威力を変えず70に固定する", () => {
   assert.equal(resolveMovePower({
-    moveClass: "gyro_ball",
+    moveClass: "gravel_breath",
     power: 70,
     attackerSpeed: 100,
     defenderSpeed: 200,
-  }), 51);
+  }), 70);
   assert.equal(resolveMovePower({
-    moveClass: "gyro_ball",
+    moveClass: "gravel_breath",
     power: 70,
     attackerSpeed: 40,
     defenderSpeed: 400,
-  }), 150);
+  }), 70);
+});
+
+test("グラベルブレスははがね相手または後攻で2倍になり両方でも重複しない", () => {
+  assert.equal(resolveMoveDamageMultiplier({
+    moveClass: "gravel_breath",
+    defenderTypes: [],
+  }), 1);
+  assert.equal(resolveMoveDamageMultiplier({
+    moveClass: "gravel_breath",
+    defenderTypes: ["はがね"],
+  }), 2);
+  assert.equal(resolveMoveDamageMultiplier({
+    moveClass: "gravel_breath",
+    defenderTypes: [],
+    actsAfterTarget: true,
+  }), 2);
+  assert.equal(resolveMoveDamageMultiplier({
+    moveClass: "gravel_breath",
+    defenderTypes: ["はがね"],
+    actsAfterTarget: true,
+  }), 2);
 });
 
 test("道具なし・HP半分・相手HP比例の技威力を自動計算する", () => {

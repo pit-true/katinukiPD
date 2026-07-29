@@ -163,7 +163,6 @@
 
   const MOVE_TYPE_EFFECTIVENESS_OVERRIDES = {
     "じゅうおうのキバ": { "ひこう": 1 },
-    "グラベルブレス": { "はがね": 2 },
     "フリーズドライ": { "みず": 2 },
     "ポイズンリーフ": { "みず": 2 },
   };
@@ -206,11 +205,6 @@
       options.attackerCurrentHp ?? options.attackerMaxHp ?? 1;
     const attackerMaxHp = Math.max(1, options.attackerMaxHp || 1);
 
-    if (options.moveClass === "gyro_ball") {
-      const attackerSpeed = Math.max(1, options.attackerSpeed || 1);
-      const defenderSpeed = Math.max(1, options.defenderSpeed || 1);
-      return Math.min(150, Math.floor(25 * defenderSpeed / attackerSpeed) + 1);
-    }
     if (options.moveClass === "itemless_boost" && !options.attackerItem) {
       return power * 2;
     }
@@ -267,6 +261,15 @@
   }
 
   function resolveMoveDamageMultiplier(options) {
+    if (
+      options.moveClass === "gravel_breath"
+      && (
+        options.actsAfterTarget
+        || (options.defenderTypes || []).includes("はがね")
+      )
+    ) {
+      return 2;
+    }
     if (options.moveClass === "quick_turn") {
       const targetSpeedRank = normalizeRank(options.defenderRanks?.speed);
       if (targetSpeedRank < 0) return 0;

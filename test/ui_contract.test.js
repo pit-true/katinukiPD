@@ -87,3 +87,10 @@ test("ROM固有技は選択時だけ専用条件を入力できる", () => {
   assert.match(script, /attackerRanks/);
   assert.match(script, /defenderRanks/);
 });
+
+test("グラベルブレスは後攻条件を選択できる", () => {
+  assert.match(
+    script,
+    /'gravel_breath':\s*\{[\s\S]*?id:\s*'romActsAfterTarget'[\s\S]*?相手より後に行動/,
+  );
+});
