@@ -8,6 +8,28 @@
 })(typeof globalThis !== "undefined" ? globalThis : this, function () {
   "use strict";
 
+  const DAMAGE_RELEVANT_ABILITIES = {
+    attacker: new Set([
+      "ヨガパワー", "ちからもち", "はりきり", "こんじょう",
+      "どくぼうそう", "サンパワー", "よわき", "しんりょく",
+      "もうか", "げきりゅう", "むしのしらせ", "ちからずく",
+      "テクニシャン", "かたいツメ", "がんじょうあご",
+      "てつのこぶし", "すてみ", "すなのちから", "エレキスキン",
+      "スカイスキン", "フェアリースキン", "フリーズスキン",
+      "ノーマルスキン", "スナイパー", "へんげんじざい",
+      "てきおうりょく", "いろめがね",
+    ]),
+    defender: new Set([
+      "ファーコート", "ふしぎなうろこ", "あついしぼう", "たいねつ",
+      "フィルター", "ハードロック", "マルチスケイル",
+      "フレンドガード",
+    ]),
+  };
+
+  function isDamageRelevantAbility(side, ability) {
+    return DAMAGE_RELEVANT_ABILITIES[side]?.has(ability) || false;
+  }
+
   const TYPE_CHART = {
     "ノーマル": { "いわ": 0.5, "ゴースト": 0, "はがね": 0.5 },
     "ほのお": {
@@ -346,13 +368,17 @@
     const attackerCurrentHp = options.attackerCurrentHp ?? attackerMaxHp;
     let result = value;
 
-    if (category === "Physical" && ability === "ちからもち") {
+    if (category === "Physical" && ["ヨガパワー", "ちからもち"].includes(ability)) {
       result *= 2;
     } else if (category === "Physical" && ability === "はりきり") {
       result = applyRatio(result, 3, 2);
     } else if (category === "Physical" && ability === "こんじょう" && options.statused) {
       result = applyRatio(result, 3, 2);
-    } else if (category === "Physical" && ability === "どくぼうそう" && options.poisoned) {
+    } else if (
+      category === "Physical"
+      && ability === "どくぼうそう"
+      && options.toxicBoostActive
+    ) {
       result = applyRatio(result, 3, 2);
     } else if (category === "Special" && ability === "サンパワー" && options.weather === "sunny") {
       result = applyRatio(result, 3, 2);
@@ -638,6 +664,7 @@
     formatMoveDetails,
     getMoveTypeEffectiveness,
     getTypeEffectiveness,
+    isDamageRelevantAbility,
     resolveMoveDamageMultiplier,
     resolveMovePower,
     resolveMoveType,

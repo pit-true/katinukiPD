@@ -563,7 +563,7 @@ function restoreAbilityCheckboxes() {
     // 攻撃側特性
     const attackerAbilities = [
         'yogaPowerCheck', 'hugePowerCheck', 'harikiriCheck',
-        'plusCheck', 'minusCheck', 'gutsCheck',
+        'plusCheck', 'minusCheck', 'gutsCheck', 'toxicBoostCheck',
         'shinryokuCheck', 'moukaCheck', 'gekiryuuCheck',
         'mushiNoShiraseCheck', 'moraibiCheck'
     ];
@@ -586,7 +586,7 @@ function restoreAbilityCheckboxes() {
 function restoreOtherCheckboxes() {
     const checkboxes = [
         'criticalCheck', 'substituteCheck', 'doubleCheck',
-        'wallCheck', 'burnCheck', 'poisonCheck', 'chargingCheck',
+        'wallCheck', 'burnCheck', 'chargingCheck',
         'helpCheck', 'twofoldCheck', 'keepDamageCheck'
     ];
     
@@ -642,9 +642,11 @@ function initializePageWithRestore() {
         initializeMobileControls();
         document.getElementById('attackerAbility')?.addEventListener('change', function() {
             attackerPokemon.ability = this.value;
+            updateAbilityCheckboxes('attacker', this.value);
         });
         document.getElementById('defenderAbility')?.addEventListener('change', function() {
             defenderPokemon.ability = this.value;
+            updateDefenderAbilityCheckboxes(this.value);
         });
         
         // ★重要：データ読み込み完了後に入力値を復元
@@ -2038,13 +2040,18 @@ function updateAbilitySelect(side, abilities) {
     if (!select) return;
 
     const abilityList = [...new Set(
-        (Array.isArray(abilities) ? abilities : [abilities]).filter(Boolean)
+        (Array.isArray(abilities) ? abilities : [abilities])
+            .filter(Boolean)
+            .filter(ability => KatinukiDamageCore.isDamageRelevantAbility(side, ability))
     )];
+    const currentAbility = target.ability;
     select.replaceChildren(new Option('なし', ''));
     for (const ability of abilityList) {
         select.add(new Option(ability, ability));
     }
-    select.value = abilityList[0] || '';
+    select.value = abilityList.includes(currentAbility)
+        ? currentAbility
+        : abilityList[0] || '';
     target.ability = select.value;
 }
 
@@ -2065,6 +2072,8 @@ function selectPokemon(side, pokemonName) {
         // 特性チェックボックスを非表示
         if (side === 'attacker') {
             hideAllAbilityCheckboxes(side);
+        } else {
+            hideAllDefenderAbilityCheckboxes();
         }
         
         // 入力制限をクリア
@@ -2104,9 +2113,9 @@ function selectPokemon(side, pokemonName) {
     if (pokemonInfo && pokemonInfo.ability) {
         updateAbilitySelect(side, pokemonInfo.ability);
         if (side === 'attacker') {
-            updateAbilityCheckboxes(side, pokemonInfo.ability);
+            updateAbilityCheckboxes(side, target.ability);
         } else {
-            updateDefenderAbilityCheckboxes(pokemonInfo.ability);
+            updateDefenderAbilityCheckboxes(target.ability);
         }
     } else {
         updateAbilitySelect(side, []);
@@ -2448,22 +2457,28 @@ function updateAbilitiesAfterSwap() {
     if (attackerPokemon.name) {
         const attackerInfo = allPokemonData.find(p => p.name === attackerPokemon.name);
         if (attackerInfo && attackerInfo.ability) {
-            updateAbilityCheckboxes('attacker', attackerInfo.ability);
+            updateAbilitySelect('attacker', attackerInfo.ability);
+            updateAbilityCheckboxes('attacker', attackerPokemon.ability);
         } else {
+            updateAbilitySelect('attacker', []);
             hideAllAbilityCheckboxes('attacker');
         }
     } else {
+        updateAbilitySelect('attacker', []);
         hideAllAbilityCheckboxes('attacker');
     }
     
     if (defenderPokemon.name) {
         const defenderInfo = allPokemonData.find(p => p.name === defenderPokemon.name);
         if (defenderInfo && defenderInfo.ability) {
-            updateDefenderAbilityCheckboxes(defenderInfo.ability);
+            updateAbilitySelect('defender', defenderInfo.ability);
+            updateDefenderAbilityCheckboxes(defenderPokemon.ability);
         } else {
+            updateAbilitySelect('defender', []);
             hideAllDefenderAbilityCheckboxes();
         }
     } else {
+        updateAbilitySelect('defender', []);
         hideAllDefenderAbilityCheckboxes();
     }
 }
@@ -3138,6 +3153,9 @@ function updateAbilityCheckboxes(side, abilities) {
       case 'こんじょう':
         showAndCheckAbility('gutsContainer', 'gutsCheck');
         break;
+      case 'どくぼうそう':
+        showAndCheckAbility('toxicBoostContainer', 'toxicBoostCheck');
+        break;
       case 'しんりょく':
         showAndCheckAbility('shinryokuContainer', 'shinryokuCheck');
         break;
@@ -3170,9 +3188,10 @@ function showAndCheckAbility(containerId, checkboxId) {
 }
 
 function hideAllAbilityCheckboxes(side) {
+  document.querySelector('.attackerAbilityContainer').style.display = 'none';
   const abilityContainers = [
     'yogaPowerContainer', 'hugePowerContainer','harikiriContainer',
-    'plusContainer', 'minusContainer', 'gutsContainer',
+    'plusContainer', 'minusContainer', 'gutsContainer', 'toxicBoostContainer',
     'shinryokuContainer', 'moukaContainer', 'gekiryuuContainer', 'mushiNoShiraseContainer',
     'moraibiContainer'
   ];
@@ -6056,12 +6075,9 @@ function calculateDamage(attack, defense, level, power, category, moveType, atta
       weather,
       critical: document.getElementById('criticalCheck')?.checked || false,
       burned: document.getElementById('burnCheck')?.checked || false,
-      poisoned: document.getElementById('poisonCheck')?.checked || false,
-      statused: (
-          document.getElementById('burnCheck')?.checked
-          || document.getElementById('poisonCheck')?.checked
-          || false
-      ),
+      toxicBoostActive:
+          document.getElementById('toxicBoostCheck')?.checked || false,
+      statused: document.getElementById('burnCheck')?.checked || false,
       attackerCurrentHp,
       attackerMaxHp,
       defenderStatused:

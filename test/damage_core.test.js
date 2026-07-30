@@ -5,6 +5,7 @@ const {
   calculateDamageRange,
   formatMoveDetails,
   getTypeEffectiveness,
+  isDamageRelevantAbility,
   resolveMoveDamageMultiplier,
   resolveMovePower,
   resolveMoveType,
@@ -131,7 +132,7 @@ test("どくぼうそうはどく・もうどく時の物理攻撃をランク�
   const normal = calculateDamageRange(physical);
   const poisoned = calculateDamageRange({
     ...physical,
-    poisoned: true,
+    toxicBoostActive: true,
     attackerRanks: { attack: 2 },
   });
   const romOrderControl = calculateDamageRange({
@@ -142,20 +143,53 @@ test("どくぼうそうはどく・もうどく時の物理攻撃をランク�
   const special = calculateDamageRange({
     ...physical,
     category: "Special",
-    poisoned: true,
+    toxicBoostActive: true,
     attackerRanks: { specialAttack: 2 },
   });
 
   assert.deepEqual(poisoned, romOrderControl);
   assert.deepEqual(normal, calculateDamageRange({
     ...physical,
-    poisoned: false,
+    toxicBoostActive: false,
   }));
   assert.deepEqual(special, calculateDamageRange({
     ...physical,
     category: "Special",
     attackerRanks: { specialAttack: 2 },
   }));
+});
+
+test("攻撃側・防御側で実際にダメージ計算へ影響する特性だけを候補にする", () => {
+  assert.equal(isDamageRelevantAbility("attacker", "どくぼうそう"), true);
+  assert.equal(isDamageRelevantAbility("attacker", "ヨガパワー"), true);
+  assert.equal(isDamageRelevantAbility("attacker", "スナイパー"), true);
+  assert.equal(isDamageRelevantAbility("defender", "マルチスケイル"), true);
+  assert.equal(isDamageRelevantAbility("attacker", "プレッシャー"), false);
+  assert.equal(isDamageRelevantAbility("attacker", "きょううん"), false);
+  assert.equal(isDamageRelevantAbility("defender", "プレッシャー"), false);
+  assert.equal(isDamageRelevantAbility("defender", "きょううん"), false);
+  assert.equal(isDamageRelevantAbility("attacker", "マルチスケイル"), false);
+  assert.equal(isDamageRelevantAbility("defender", "スナイパー"), false);
+});
+
+test("ヨガパワーは物理攻撃を2倍にする", () => {
+  const physical = {
+    ...base,
+    attackerTypes: [],
+    defenderTypes: [],
+    attack: 100,
+    defense: 100,
+  };
+  assert.deepEqual(
+    calculateDamageRange({
+      ...physical,
+      attackerAbility: "ヨガパワー",
+    }),
+    calculateDamageRange({
+      ...physical,
+      attack: 200,
+    }),
+  );
 });
 
 test("とつげきチョッキは特殊防御をランク補正前に1.5倍し物理防御には掛からない", () => {
