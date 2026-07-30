@@ -549,35 +549,8 @@ function restoreSpecialSettings() {
         updateCastformTypeIfNeeded();
     }
     
-    // 特性チェックボックス（必要に応じて追加）
-    restoreAbilityCheckboxes();
-    
     // その他のチェックボックス
     restoreOtherCheckboxes();
-}
-
-/**
- * 特性チェックボックスの復元
- */
-function restoreAbilityCheckboxes() {
-    // 攻撃側特性
-    const attackerAbilities = [
-        'yogaPowerCheck', 'hugePowerCheck', 'harikiriCheck',
-        'plusCheck', 'minusCheck', 'gutsCheck', 'toxicBoostCheck',
-        'shinryokuCheck', 'moukaCheck', 'gekiryuuCheck',
-        'mushiNoShiraseCheck', 'moraibiCheck'
-    ];
-    
-    // 防御側特性
-    const defenderAbilities = [
-        'atsuishibouCheck', 'fushiginaurokoCheck'
-    ];
-    
-    [...attackerAbilities, ...defenderAbilities].forEach(abilityId => {
-        const checkbox = document.getElementById(abilityId);
-        if (checkbox && checkbox.checked) {
-        }
-    });
 }
 
 /**
@@ -640,15 +613,6 @@ function initializePageWithRestore() {
         updateDetailSummary('defender');
         setupHPSyncListeners();
         initializeMobileControls();
-        document.getElementById('attackerAbility')?.addEventListener('change', function() {
-            attackerPokemon.ability = this.value;
-            updateAbilityCheckboxes('attacker', this.value);
-        });
-        document.getElementById('defenderAbility')?.addEventListener('change', function() {
-            defenderPokemon.ability = this.value;
-            updateDefenderAbilityCheckboxes(this.value);
-        });
-        
         // ★重要：データ読み込み完了後に入力値を復元
         setTimeout(() => {
             restoreInputValuesOnLoad();
@@ -2034,25 +1998,53 @@ function restoreNatureSelectionFromValue(side, natureName) {
 // 4. 選択処理
 // ========================
 
-function updateAbilitySelect(side, abilities) {
-    const select = document.getElementById(`${side}Ability`);
+function updateAbilityOptions(side, abilities, preserveSelection = false) {
+    const container = document.getElementById(`${side}AbilityOptions`);
+    const row = document.getElementById(`${side}AbilityRow`);
     const target = side === 'attacker' ? attackerPokemon : defenderPokemon;
-    if (!select) return;
+    if (!container || !row) return;
 
     const abilityList = [...new Set(
         (Array.isArray(abilities) ? abilities : [abilities])
             .filter(Boolean)
             .filter(ability => KatinukiDamageCore.isDamageRelevantAbility(side, ability))
     )];
-    const currentAbility = target.ability;
-    select.replaceChildren(new Option('なし', ''));
+    const selectedAbility = preserveSelection && abilityList.includes(target.ability)
+        ? target.ability
+        : '';
+
+    container.replaceChildren();
     for (const ability of abilityList) {
-        select.add(new Option(ability, ability));
+        const label = document.createElement('label');
+        label.className = 'ability-checkbox';
+
+        const input = document.createElement('input');
+        input.type = 'checkbox';
+        input.value = ability;
+        input.checked = ability === selectedAbility;
+        input.addEventListener('change', () => {
+            if (input.checked) {
+                container.querySelectorAll('input[type="checkbox"]').forEach(other => {
+                    if (other !== input) other.checked = false;
+                });
+                target.ability = ability;
+            } else if (target.ability === ability) {
+                target.ability = '';
+            }
+
+            if (side === 'attacker' && currentMove) {
+                updateMoveDescription(currentMove);
+            }
+        });
+
+        const text = document.createElement('span');
+        text.textContent = ability;
+        label.append(input, text);
+        container.append(label);
     }
-    select.value = abilityList.includes(currentAbility)
-        ? currentAbility
-        : abilityList[0] || '';
-    target.ability = select.value;
+
+    target.ability = selectedAbility;
+    row.style.display = abilityList.length > 0 ? 'flex' : 'none';
 }
 
 // ポケモン選択
@@ -2067,14 +2059,7 @@ function selectPokemon(side, pokemonName) {
         target.types = [];
         target.ability = "";
         target.canEvolve = false;
-        updateAbilitySelect(side, []);
-        
-        // 特性チェックボックスを非表示
-        if (side === 'attacker') {
-            hideAllAbilityCheckboxes(side);
-        } else {
-            hideAllDefenderAbilityCheckboxes();
-        }
+        updateAbilityOptions(side, []);
         
         // 入力制限をクリア
         clearRealStatInputLimits(side);
@@ -2111,19 +2096,9 @@ function selectPokemon(side, pokemonName) {
     // ポケモンデータから特性を確認
     const pokemonInfo = allPokemonData.find(p => p.name === pokemonName);
     if (pokemonInfo && pokemonInfo.ability) {
-        updateAbilitySelect(side, pokemonInfo.ability);
-        if (side === 'attacker') {
-            updateAbilityCheckboxes(side, target.ability);
-        } else {
-            updateDefenderAbilityCheckboxes(target.ability);
-        }
+        updateAbilityOptions(side, pokemonInfo.ability);
     } else {
-        updateAbilitySelect(side, []);
-        if (side === 'attacker') {
-            hideAllAbilityCheckboxes(side);
-        } else {
-            hideAllDefenderAbilityCheckboxes();
-        }
+        updateAbilityOptions(side, []);
     }
     updateAllRealStatInputLimits(side);
     if (side === 'attacker' && currentMove) {
@@ -2457,29 +2432,23 @@ function updateAbilitiesAfterSwap() {
     if (attackerPokemon.name) {
         const attackerInfo = allPokemonData.find(p => p.name === attackerPokemon.name);
         if (attackerInfo && attackerInfo.ability) {
-            updateAbilitySelect('attacker', attackerInfo.ability);
-            updateAbilityCheckboxes('attacker', attackerPokemon.ability);
+            updateAbilityOptions('attacker', attackerInfo.ability, true);
         } else {
-            updateAbilitySelect('attacker', []);
-            hideAllAbilityCheckboxes('attacker');
+            updateAbilityOptions('attacker', []);
         }
     } else {
-        updateAbilitySelect('attacker', []);
-        hideAllAbilityCheckboxes('attacker');
+        updateAbilityOptions('attacker', []);
     }
-    
+
     if (defenderPokemon.name) {
         const defenderInfo = allPokemonData.find(p => p.name === defenderPokemon.name);
         if (defenderInfo && defenderInfo.ability) {
-            updateAbilitySelect('defender', defenderInfo.ability);
-            updateDefenderAbilityCheckboxes(defenderPokemon.ability);
+            updateAbilityOptions('defender', defenderInfo.ability, true);
         } else {
-            updateAbilitySelect('defender', []);
-            hideAllDefenderAbilityCheckboxes();
+            updateAbilityOptions('defender', []);
         }
     } else {
-        updateAbilitySelect('defender', []);
-        hideAllDefenderAbilityCheckboxes();
+        updateAbilityOptions('defender', []);
     }
 }
 // ウェザーボールのタイプと分類を取得する
@@ -3121,134 +3090,6 @@ function selectMultiTurnMove(turn, moveName) {
         }
     } else {
         multiTurnMoves[turn] = null;
-    }
-}
-
-// 特性チェックボックスの表示制御
-function updateAbilityCheckboxes(side, abilities) {
-  // 配列でない場合は配列に変換
-  const abilityList = Array.isArray(abilities) ? abilities : [abilities];
-  
-  // 一旦すべて非表示
-  hideAllAbilityCheckboxes(side);
-  
-  // 該当する特性のチェックボックスを表示
-  abilityList.forEach(ability => {
-    switch(ability) {
-      case 'ヨガパワー':
-        showAndCheckAbility('yogaPowerContainer', 'yogaPowerCheck');
-        break;
-      case 'ちからもち':
-        showAndCheckAbility('hugePowerContainer', 'hugePowerCheck');
-        break;
-      case 'はりきり':
-        showAndCheckAbility('harikiriContainer', 'harikiriCheck');
-        break;
-      case 'プラス':
-        showAndCheckAbility('plusContainer', 'plusheck');
-        break;
-      case 'マイナス':
-        showAndCheckAbility('minusContainer', 'minusCheck');
-        break;
-      case 'こんじょう':
-        showAndCheckAbility('gutsContainer', 'gutsCheck');
-        break;
-      case 'どくぼうそう':
-        showAndCheckAbility('toxicBoostContainer', 'toxicBoostCheck');
-        break;
-      case 'しんりょく':
-        showAndCheckAbility('shinryokuContainer', 'shinryokuCheck');
-        break;
-      case 'もうか':
-        showAndCheckAbility('moukaContainer', 'moukaCheck');
-        break;
-      case 'げきりゅう':
-        showAndCheckAbility('gekiryuuContainer', 'gekiryuuCheck');
-        break;
-      case 'むしのしらせ':
-        showAndCheckAbility('mushiNoShiraseContainer', 'mushiNoShiraseCheck');
-        break;
-      case 'もらいび':
-        showAndCheckAbility('moraibiContainer', 'moraibiCheck');
-        break;
-    }
-  });
-}
-function showAndCheckAbility(containerId, checkboxId) {
-    document.querySelector('.attackerAbilityContainer').style.display = 'flex';
-  const container = document.getElementById(containerId);
-  if (container) {
-    container.style.display = 'inline-block';
-    // デフォルトではチェックを入れない（ユーザーが選択）
-    const checkbox = document.getElementById(checkboxId);
-    if (checkbox) {
-      checkbox.checked = false;
-    }
-  }
-}
-
-function hideAllAbilityCheckboxes(side) {
-  document.querySelector('.attackerAbilityContainer').style.display = 'none';
-  const abilityContainers = [
-    'yogaPowerContainer', 'hugePowerContainer','harikiriContainer',
-    'plusContainer', 'minusContainer', 'gutsContainer', 'toxicBoostContainer',
-    'shinryokuContainer', 'moukaContainer', 'gekiryuuContainer', 'mushiNoShiraseContainer',
-    'moraibiContainer'
-  ];
-  
-  abilityContainers.forEach(id => {
-    const container = document.getElementById(id);
-    if (container) {
-      container.style.display = 'none';
-      const checkbox = container.querySelector('input[type="checkbox"]');
-      if (checkbox) {
-        checkbox.checked = false;
-      }
-    }
-  });
-}
-
-function hideAllDefenderAbilityCheckboxes() {
-    document.querySelector('.defenderAbilityContainer').style.display = 'none';
-    const defenderAbilities = ['atsuishibouContainer', 'fushiginaurokoContainer'];
-    defenderAbilities.forEach(id => {
-        const container = document.getElementById(id);
-        if (container) {
-            container.style.display = 'none';
-            const checkbox = container.querySelector('input[type="checkbox"]');
-            if (checkbox) checkbox.checked = false;
-        }
-    });
-}
-
-// 防御側の特性更新関数
-function updateDefenderAbilityCheckboxes(abilities) {
-    const abilityList = Array.isArray(abilities) ? abilities : [abilities];
-    
-    // まず全ての防御側特性を非表示
-    hideAllDefenderAbilityCheckboxes();
-    
-    // 防御側の特性コンテナを表示するかどうか
-    let hasDefenderAbility = false;
-    
-    abilityList.forEach(ability => {
-        if (ability === 'あついしぼう') {
-            hasDefenderAbility = true;
-            const container = document.getElementById('atsuishibouContainer');
-            if (container) {
-                container.style.display = 'inline-block';
-            }
-        } else if (ability === 'ふしぎなうろこ') {
-            hasDefenderAbility = true;
-            const container = document.getElementById('fushiginaurokoContainer');
-            if (container) {
-                container.style.display = 'inline-block';
-            }
-        }
-    });
-    
-    if (hasDefenderAbility) {
-        document.querySelector('.defenderAbilityContainer').style.display = 'flex';
     }
 }
 
@@ -6075,8 +5916,7 @@ function calculateDamage(attack, defense, level, power, category, moveType, atta
       weather,
       critical: document.getElementById('criticalCheck')?.checked || false,
       burned: document.getElementById('burnCheck')?.checked || false,
-      toxicBoostActive:
-          document.getElementById('toxicBoostCheck')?.checked || false,
+      toxicBoostActive: attackerPokemon.ability === 'どくぼうそう',
       statused: document.getElementById('burnCheck')?.checked || false,
       attackerCurrentHp,
       attackerMaxHp,
@@ -7244,7 +7084,7 @@ class MultiHitCalculator {
         let accuracy = (move.accuracy || 100) / 100;
         
         // はりきりの効果
-        if (document.getElementById('harikiriCheck')?.checked && move.category === 'Physical') {
+        if (attackerPokemon.ability === 'はりきり' && move.category === 'Physical') {
             accuracy *= 0.8;
         }
         
@@ -7459,7 +7299,7 @@ function calculateMultiHitKOProbabilityWithDistribution(singleMinDamage, singleM
     
     // はりきりの効果（物理技の命中率0.8倍）
     let finalAccuracy = baseAccuracy;
-    if (document.getElementById('harikiriCheck')?.checked && currentMove.category === 'Physical') {
+    if (attackerPokemon.ability === 'はりきり' && currentMove.category === 'Physical') {
         finalAccuracy *= 0.8;
     }
     
@@ -8569,7 +8409,7 @@ function calculateMoveDamageRange(move, turnIndex = 0) {
         } else {
             let baseAccuracy = (move.accuracy || 100) / 100;
             
-            if (document.getElementById('harikiriCheck')?.checked && isPhysical) {
+            if (attackerPokemon.ability === 'はりきり' && isPhysical) {
                 baseAccuracy *= 0.8;
             }
             
@@ -8754,7 +8594,7 @@ function calculateMoveDamageRangeWithItems(move, turnIndex = 0) {
         } else {
             let baseAccuracy = (move.accuracy || 100) / 100;
             
-            if (document.getElementById('harikiriCheck')?.checked && isPhysical) {
+            if (attackerPokemon.ability === 'はりきり' && isPhysical) {
                 baseAccuracy *= 0.8;
             }
             
@@ -10281,7 +10121,7 @@ function generateUnifiedKORateHTML(koRates, actualTurns, moveInfo, evasionRankTe
             
             // 命中率情報
             const weather = document.getElementById('weatherSelect').value;
-            const hasHarikiri = document.getElementById('harikiriCheck')?.checked;
+            const hasHarikiri = attackerPokemon.ability === 'はりきり';
             
             let accText = `命中${b.accuracy}%`;
             if (weather === 'rain' && (isMultiTurn ? moveInfo[turn].name : currentMove.name) === 'かみなり') {
@@ -11386,7 +11226,7 @@ function generateUnifiedKORateHTML(koRates, actualTurns, moveInfo, evasionRankTe
             
             // 命中率情報
             const weather = document.getElementById('weatherSelect').value;
-            const hasHarikiri = document.getElementById('harikiriCheck')?.checked;
+            const hasHarikiri = attackerPokemon.ability === 'はりきり';
             
             let accText = `命中${b.accuracy}%`;
             if (weather === 'rain' && (isMultiTurn ? moveInfo[turn].name : currentMove.name) === 'かみなり') {

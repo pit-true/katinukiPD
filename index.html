@@ -206,11 +206,9 @@
                     <div id="moveDescriptionText">-</div>
                 </div>
             </details>
-            <div class="input-row">
-                <label for="attackerAbility" class="inline-label">特性:</label>
-                <select id="attackerAbility">
-                    <option value="">なし</option>
-                </select>
+            <div class="input-row ability-choice-row" id="attackerAbilityRow" style="display: none;">
+                <span class="inline-label">特性:</span>
+                <div id="attackerAbilityOptions" class="ability-container" role="group" aria-label="攻撃側の特性"></div>
             </div>
             <div class="input-row">
                 <label for="attackerCurrentHP" class="inline-label">現在HP:</label>
@@ -331,57 +329,6 @@
             <div class="move-special-setting rom-move-settings" id="romMoveSettings" style="display: none;">
                 <div class="rom-move-settings-title" id="romMoveSettingsTitle"></div>
                 <div class="rom-move-settings-fields" id="romMoveSettingsFields"></div>
-            </div>
-            <!-- 攻撃側の特性チェックボックス -->
-            <div class="attackerAbilityContainer ability-container" style="display: none;">
-              <label id="yogaPowerContainer" class="ability-checkbox">
-                <input type="checkbox" id="yogaPowerCheck">
-                <span>ヨガパワー</span>
-              </label>
-              <label id="hugePowerContainer" class="ability-checkbox">
-                <input type="checkbox" id="hugePowerCheck">
-                <span>ちからもち</span>
-              </label>
-              <label id="harikiriContainer" class="ability-checkbox">
-                <input type="checkbox" id="harikiriCheck">
-                <span>はりきり</span>
-              </label>
-              <label id="plusContainer" class="ability-checkbox">
-                <input type="checkbox" id="plusCheck">
-                <span>プラス</span>
-              </label>
-              <label id="minusContainer" class="ability-checkbox">
-                <input type="checkbox" id="minusCheck">
-                <span>マイナス</span>
-              </label>
-              <label id="gutsContainer" class="ability-checkbox">
-                <input type="checkbox" id="gutsCheck">
-                <span>こんじょう</span>
-              </label>
-              <label id="toxicBoostContainer" class="ability-checkbox">
-                <input type="checkbox" id="toxicBoostCheck">
-                <span>どくぼうそう</span>
-              </label>
-              <label id="shinryokuContainer" class="ability-checkbox">
-                <input type="checkbox" id="shinryokuCheck">
-                <span>しんりょく</span>
-              </label>
-              <label id="moukaContainer" class="ability-checkbox">
-                <input type="checkbox" id="moukaCheck">
-                <span>もうか</span>
-              </label>
-              <label id="gekiryuuContainer" class="ability-checkbox">
-                <input type="checkbox" id="gekiryuuCheck">
-                <span>げきりゅう</span>
-              </label>
-              <label id="mushiNoShiraseContainer" class="ability-checkbox">
-                <input type="checkbox" id="mushiNoShiraseCheck">
-                <span>むしのしらせ</span>
-              </label>
-              <label id="moraibiContainer" class="ability-checkbox">
-                <input type="checkbox" id="moraibiCheck">
-                <span>もらいび</span>
-              </label>
             </div>
             <!-- まひ・こんらん設定 -->
             <div class="status-conditions">
@@ -636,21 +583,9 @@
                 </div>
             </div>
             <!-- 防御側の特性チェックボックス -->
-            <div class="input-row">
-                <label for="defenderAbility" class="inline-label">特性:</label>
-                <select id="defenderAbility">
-                    <option value="">なし</option>
-                </select>
-            </div>
-            <div class="defenderAbilityContainer ability-container" style="display: none;">
-              <label id="atsuishibouContainer" class="ability-checkbox">
-                <input type="checkbox" id="atsuishibouCheck">
-                <span>あついしぼう</span>
-              </label>
-              <label id="fushiginaurokoContainer" class="ability-checkbox">
-                <input type="checkbox" id="fushiginaurokoCheck">
-                <span>ふしぎなうろこ</span>
-              </label>
+            <div class="input-row ability-choice-row" id="defenderAbilityRow" style="display: none;">
+                <span class="inline-label">特性:</span>
+                <div id="defenderAbilityOptions" class="ability-container" role="group" aria-label="防御側の特性"></div>
             </div>
             <!-- 持ち物選択 -->
             <div class="input-row">

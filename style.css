@@ -303,11 +303,6 @@ button:hover {
     font-weight: 600;
 }
 
-.attackerAbilityContainer,
-.defenderAbilityContainer {
-    display: none !important;
-}
-
 .level-input {
     min-width: 0;
 }
@@ -1003,11 +998,6 @@ input[type="number"]::-webkit-inner-spin-button {
 .ability-checkbox:has(input:checked) {
     background-color: #e7f3ff;
     border-color: #007bff;
-}
-
-.attackerAbilityContainer,
-.defenderAbilityContainer {
-    display: none;
 }
 
 /* ========================

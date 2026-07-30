@@ -23,32 +23,36 @@ test("作品選択とバッジ補正を公開UI・計算処理に残さない", 
   assert.equal(script.includes("applyBadgeModifier"), false);
 });
 
-test("どくぼうそうは専用チェックで発動し戦闘条件へ毒入力を置かない", () => {
-  assert.match(
-    html,
-    /id="toxicBoostContainer"[\s\S]*?<input type="checkbox" id="toxicBoostCheck">[\s\S]*?どくぼうそう/,
-  );
+test("どくぼうそうは選択中の特性から発動し戦闘条件へ毒入力を置かない", () => {
   assert.match(
     script,
-    /toxicBoostActive:\s*document\.getElementById\('toxicBoostCheck'\)/,
+    /toxicBoostActive:\s*attackerPokemon\.ability\s*===\s*['"]どくぼうそう['"]/,
   );
+  assert.doesNotMatch(html, /id="toxicBoostCheck"/);
   assert.doesNotMatch(html, /id="poisonCheck"/);
   assert.doesNotMatch(script, /poisonCheck|poisoned:/);
 });
 
-test("特性候補は計算へ影響するものだけに絞り選択中の特性チェックだけを表示する", () => {
+test("計算に関係する特性だけを候補数と同じ数のチェックボックスで表示する", () => {
+  assert.doesNotMatch(html, /<select id="(?:attacker|defender)Ability"/);
+  assert.match(html, /id="attackerAbilityRow"[^>]*style="display:\s*none/);
+  assert.match(html, /id="attackerAbilityOptions"/);
+  assert.match(html, /id="defenderAbilityRow"[^>]*style="display:\s*none/);
+  assert.match(html, /id="defenderAbilityOptions"/);
   assert.match(
     script,
     /\.filter\(ability\s*=>\s*KatinukiDamageCore\.isDamageRelevantAbility\(side,\s*ability\)\)/,
   );
   assert.match(
     script,
-    /attackerPokemon\.ability = this\.value;[\s\S]*?updateAbilityCheckboxes\('attacker', this\.value\)/,
+    /document\.createElement\(['"]input['"]\)[\s\S]*?input\.type\s*=\s*['"]checkbox['"]/,
   );
   assert.match(
     script,
-    /defenderPokemon\.ability = this\.value;[\s\S]*?updateDefenderAbilityCheckboxes\(this\.value\)/,
+    /container\.querySelectorAll\(['"]input\[type="checkbox"\]['"]\)[\s\S]*?other\.checked\s*=\s*false/,
   );
+  assert.doesNotMatch(script, /new Option\([^)]*なし/);
+  assert.doesNotMatch(script, /getElementById\(['"](?:attacker|defender)Ability['"]\)/);
 });
 
 test("レベルプリセットはLv50とLv100だけにする", () => {
