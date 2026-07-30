@@ -286,40 +286,52 @@
 
   function resolveOffensiveStat(options) {
     if (options.moveClass === "target_attack") {
-      return applyBattleRank(
-        options.defenderAttack || options.attack,
-        options.defenderRanks?.attack,
-      );
+      return options.defenderAttack || options.attack;
     }
     if (options.moveClass === "target_special_attack") {
-      return applyBattleRank(
-        options.defenderSpecialAttack || options.attack,
-        options.defenderRanks?.specialAttack,
-      );
+      return options.defenderSpecialAttack || options.attack;
     }
     if (options.moveClass === "user_defense") {
-      return applyBattleRank(
-        options.attackerDefense || options.attack,
-        options.attackerRanks?.defense,
-      );
+      return options.attackerDefense || options.attack;
     }
     return options.attack;
   }
 
+  function resolveOffensiveRank(options) {
+    if (options.moveClass === "target_attack") {
+      return options.defenderRanks?.attack;
+    }
+    if (options.moveClass === "target_special_attack") {
+      return options.defenderRanks?.specialAttack;
+    }
+    if (options.moveClass === "user_defense") {
+      return options.attackerRanks?.defense;
+    }
+    return options.category === "Special"
+      ? options.attackerRanks?.specialAttack
+      : options.attackerRanks?.attack;
+  }
+
   function resolveDefensiveStat(options) {
     if (options.moveClass === "physical_defense") {
-      return applyBattleRank(
-        options.defenderDefense || options.defense,
-        options.defenderRanks?.defense,
-      );
+      return options.defenderDefense || options.defense;
     }
     if (options.moveClass === "special_defense") {
-      return applyBattleRank(
-        options.defenderSpecialDefense || options.defense,
-        options.defenderRanks?.specialDefense,
-      );
+      return options.defenderSpecialDefense || options.defense;
     }
     return options.defense;
+  }
+
+  function resolveDefensiveRank(options) {
+    if (options.moveClass === "physical_defense") {
+      return options.defenderRanks?.defense;
+    }
+    if (options.moveClass === "special_defense") {
+      return options.defenderRanks?.specialDefense;
+    }
+    return options.category === "Special"
+      ? options.defenderRanks?.specialDefense
+      : options.defenderRanks?.defense;
   }
 
   function applyRatio(value, numerator, denominator = 1) {
@@ -339,6 +351,8 @@
     } else if (category === "Physical" && ability === "はりきり") {
       result = applyRatio(result, 3, 2);
     } else if (category === "Physical" && ability === "こんじょう" && options.statused) {
+      result = applyRatio(result, 3, 2);
+    } else if (category === "Physical" && ability === "どくぼうそう" && options.poisoned) {
       result = applyRatio(result, 3, 2);
     } else if (category === "Special" && ability === "サンパワー" && options.weather === "sunny") {
       result = applyRatio(result, 3, 2);
@@ -494,7 +508,9 @@
       options.attackerTypes,
     );
     let attack = applyAttackModifiers(resolveOffensiveStat(options), options, moveType);
+    attack = applyBattleRank(attack, resolveOffensiveRank(options));
     let defense = applyDefenseModifiers(resolveDefensiveStat(options), options, moveType);
+    defense = applyBattleRank(defense, resolveDefensiveRank(options));
     let power = applyPowerModifiers(resolveMovePower(options), options, moveType);
 
     if (

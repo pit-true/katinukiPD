@@ -23,6 +23,18 @@ test("作品選択とバッジ補正を公開UI・計算処理に残さない", 
   assert.equal(script.includes("applyBadgeModifier"), false);
 });
 
+test("攻撃側のどく・もうどく状態をどくぼうそうの計算へ渡す", () => {
+  assert.match(
+    html,
+    /<input type="checkbox" id="poisonCheck">\s*どく・もうどく/,
+  );
+  assert.match(script, /poisoned:\s*document\.getElementById\('poisonCheck'\)/);
+  assert.match(
+    script,
+    /statused:\s*\([\s\S]*?burnCheck[\s\S]*?\|\|[\s\S]*?poisonCheck/,
+  );
+});
+
 test("レベルプリセットはLv50とLv100だけにする", () => {
   const selects = [...html.matchAll(
     /<select class="level-preset"[\s\S]*?<\/select>/g,

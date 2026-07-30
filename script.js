@@ -586,7 +586,7 @@ function restoreAbilityCheckboxes() {
 function restoreOtherCheckboxes() {
     const checkboxes = [
         'criticalCheck', 'substituteCheck', 'doubleCheck',
-        'wallCheck', 'burnCheck', 'chargingCheck',
+        'wallCheck', 'burnCheck', 'poisonCheck', 'chargingCheck',
         'helpCheck', 'twofoldCheck', 'keepDamageCheck'
     ];
     
@@ -5894,31 +5894,10 @@ function calculateLeechSeed2HealAmount() {
     return Math.floor(attackerMaxHP / 8);
 }
 
-function getRankMultiplier(rankValue) {
-    const multipliers = {
-        '-6': { numerator: 10, denominator: 40 },
-        '-5': { numerator: 10, denominator: 35 },
-        '-4': { numerator: 10, denominator: 30 },
-        '-3': { numerator: 10, denominator: 25 },
-        '-2': { numerator: 10, denominator: 20 },
-        '-1': { numerator: 10, denominator: 15 },
-        '±0':  { numerator: 10, denominator: 10 },
-        '+1':  { numerator: 15, denominator: 10 },
-        '+2':  { numerator: 20, denominator: 10 },
-        '+3':  { numerator: 25, denominator: 10 },
-        '+4':  { numerator: 30, denominator: 10 },
-        '+5':  { numerator: 35, denominator: 10 },
-        '+6':  { numerator: 40, denominator: 10 }
-    };
-    
-    const mult = multipliers[rankValue.toString()];
-    return mult ? mult.numerator / mult.denominator : 1.0;
-}
-
 // ダメージ計算本体
 function calculateDamage(attack, defense, level, power, category, moveType, attackerTypes, defenderTypes, atkRank, defRank, move = currentMove) {
-  let finalAttack = attack;
-  let finalDefense = defense;
+  const finalAttack = attack;
+  const finalDefense = defense;
   let finalPower = power;
   let effectiveAtkRank = atkRank;
 
@@ -5993,12 +5972,6 @@ function calculateDamage(attack, defense, level, power, category, moveType, atta
     effectiveAtkRank = calculateRageAttackRank(atkRank, rageHitCount);
   }
 
-  // ランク補正を実数値に反映し、以降は第7世代準拠コアで計算する。
-  const atkRankMultiplier = getRankMultiplier(effectiveAtkRank);
-  const defRankMultiplier = getRankMultiplier(defRank);
-  finalAttack = Math.floor(finalAttack * atkRankMultiplier);
-  finalDefense = Math.floor(finalDefense * defRankMultiplier);
-
   // 技固有の条件は基礎威力へまとめて反映する。
   if (document.getElementById('doroasobiCheck').checked && moveType === 'でんき') {
     finalPower = Math.floor(finalPower / 3);
@@ -6047,6 +6020,14 @@ function calculateDamage(attack, defense, level, power, category, moveType, atta
   );
   const isDouble = document.getElementById('doubleCheck')?.checked || false;
   const romMoveConditions = getRomMoveConditions();
+  const attackRankStat = category === 'Special' ? 'specialAttack' : 'attack';
+  const defenseRankStat = category === 'Special' ? 'specialDefense' : 'defense';
+  if (romMoveConditions.attackerRanks[attackRankStat] === undefined) {
+      romMoveConditions.attackerRanks[attackRankStat] = effectiveAtkRank;
+  }
+  if (romMoveConditions.defenderRanks[defenseRankStat] === undefined) {
+      romMoveConditions.defenderRanks[defenseRankStat] = defRank;
+  }
   const damage = KatinukiDamageCore.calculateDamageRange({
       level,
       power: finalPower,
@@ -6075,7 +6056,12 @@ function calculateDamage(attack, defense, level, power, category, moveType, atta
       weather,
       critical: document.getElementById('criticalCheck')?.checked || false,
       burned: document.getElementById('burnCheck')?.checked || false,
-      statused: document.getElementById('burnCheck')?.checked || false,
+      poisoned: document.getElementById('poisonCheck')?.checked || false,
+      statused: (
+          document.getElementById('burnCheck')?.checked
+          || document.getElementById('poisonCheck')?.checked
+          || false
+      ),
       attackerCurrentHp,
       attackerMaxHp,
       defenderStatused:

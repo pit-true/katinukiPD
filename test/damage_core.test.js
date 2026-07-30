@@ -119,6 +119,76 @@ test("いのちのたまとこだわりメガネを計算する", () => {
   assert.ok(choiceSpecs.max > lifeOrb.max);
 });
 
+test("どくぼうそうはどく・もうどく時の物理攻撃をランク補正前に1.5倍する", () => {
+  const physical = {
+    ...base,
+    attackerTypes: [],
+    defenderTypes: [],
+    attack: 101,
+    defense: 100,
+    attackerAbility: "どくぼうそう",
+  };
+  const normal = calculateDamageRange(physical);
+  const poisoned = calculateDamageRange({
+    ...physical,
+    poisoned: true,
+    attackerRanks: { attack: 2 },
+  });
+  const romOrderControl = calculateDamageRange({
+    ...physical,
+    attackerAbility: "",
+    attack: 302,
+  });
+  const special = calculateDamageRange({
+    ...physical,
+    category: "Special",
+    poisoned: true,
+    attackerRanks: { specialAttack: 2 },
+  });
+
+  assert.deepEqual(poisoned, romOrderControl);
+  assert.deepEqual(normal, calculateDamageRange({
+    ...physical,
+    poisoned: false,
+  }));
+  assert.deepEqual(special, calculateDamageRange({
+    ...physical,
+    category: "Special",
+    attackerRanks: { specialAttack: 2 },
+  }));
+});
+
+test("とつげきチョッキは特殊防御をランク補正前に1.5倍し物理防御には掛からない", () => {
+  const special = {
+    ...base,
+    category: "Special",
+    attackerTypes: [],
+    defenderTypes: [],
+    attack: 100,
+    defense: 101,
+  };
+  const assaultVest = calculateDamageRange({
+    ...special,
+    defenderItem: "とつげきチョッキ",
+    defenderRanks: { specialDefense: 2 },
+  });
+  const romOrderControl = calculateDamageRange({
+    ...special,
+    defense: 302,
+  });
+  const physical = {
+    ...special,
+    category: "Physical",
+    defenderItem: "とつげきチョッキ",
+  };
+
+  assert.deepEqual(assaultVest, romOrderControl);
+  assert.deepEqual(
+    calculateDamageRange(physical),
+    calculateDamageRange({ ...physical, defenderItem: "" }),
+  );
+});
+
 test("いのちのたまは急所・タイプ一致・タイプ相性より前にダメージを1.3倍する", () => {
   const lifeOrb = calculateDamageRange({
     ...base,
