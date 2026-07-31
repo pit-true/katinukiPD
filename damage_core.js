@@ -30,6 +30,18 @@
     return DAMAGE_RELEVANT_ABILITIES[side]?.has(ability) || false;
   }
 
+  function resolveMultiTurnDefenderHp(currentHp, maxHp, turnIndex) {
+    const normalizedMaxHp = Math.max(1, Number(maxHp) || 1);
+    const normalizedCurrentHp = Math.max(
+      0,
+      Math.min(normalizedMaxHp, Number(currentHp) || 0),
+    );
+    if (turnIndex <= 0 || normalizedCurrentHp < normalizedMaxHp) {
+      return normalizedCurrentHp;
+    }
+    return normalizedMaxHp - 1;
+  }
+
   const TYPE_CHART = {
     "ノーマル": { "いわ": 0.5, "ゴースト": 0, "はがね": 0.5 },
     "ほのお": {
@@ -176,6 +188,13 @@
     "かみなりパンチ", "マッハパンチ", "ばくれつパンチ", "きあいパンチ",
     "コメットパンチ", "シャドーパンチ", "スカイアッパー", "アームハンマー",
     "バレットパンチ", "ドレインパンチ", "グロウパンチ",
+  ]);
+
+  const RECOIL_MOVES = new Set([
+    "とっしん", "すてみタックル", "じごくぐるま", "ボルテッカー",
+    "だいちのいかり", "フレアドライブ", "ブレイブバード", "ウッドハンマー",
+    "ワイルドボルト", "アクアインパクト", "もろはのずつき",
+    "ムーンインパクト", "インパクトサイト",
   ]);
 
   const BATTLE_RANK_STATS = [
@@ -458,6 +477,7 @@
 
     const biting = options.biting || BITING_MOVES.has(options.moveName);
     const punching = options.punching || PUNCHING_MOVES.has(options.moveName);
+    const recoil = options.recoil || RECOIL_MOVES.has(options.moveName);
 
     const pinchTypes = {
       "しんりょく": "くさ",
@@ -481,7 +501,7 @@
       result = applyRatio(result, 3, 2);
     } else if (ability === "てつのこぶし" && punching) {
       result = applyRatio(result, 6, 5);
-    } else if (ability === "すてみ" && options.recoil) {
+    } else if (ability === "すてみ" && recoil) {
       result = applyRatio(result, 6, 5);
     } else if (
       ability === "すなのちから"
@@ -665,6 +685,7 @@
     getMoveTypeEffectiveness,
     getTypeEffectiveness,
     isDamageRelevantAbility,
+    resolveMultiTurnDefenderHp,
     resolveMoveDamageMultiplier,
     resolveMovePower,
     resolveMoveType,

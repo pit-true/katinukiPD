@@ -5755,7 +5755,7 @@ function calculateLeechSeed2HealAmount() {
 }
 
 // ダメージ計算本体
-function calculateDamage(attack, defense, level, power, category, moveType, attackerTypes, defenderTypes, atkRank, defRank, move = currentMove) {
+function calculateDamage(attack, defense, level, power, category, moveType, attackerTypes, defenderTypes, atkRank, defRank, move = currentMove, defenderCurrentHpOverride) {
   const finalAttack = attack;
   const finalDefense = defense;
   let finalPower = power;
@@ -5791,7 +5791,8 @@ function calculateDamage(attack, defense, level, power, category, moveType, atta
           defenderTypes,
           atkRank,
           defRank,
-          singleHitMove
+          singleHitMove,
+          defenderCurrentHpOverride
       ));
       return sumDamageRanges(hitRanges);
   }
@@ -5873,11 +5874,15 @@ function calculateDamage(attack, defense, level, power, category, moveType, atta
           || defenderStats.hp
           || 1
   );
-  const defenderCurrentHp = Math.max(
-      0,
-      parseInt(document.getElementById('defenderCurrentHP')?.value)
-          || defenderMaxHp
+  const displayedDefenderCurrentHp = parseInt(
+      document.getElementById('defenderCurrentHP')?.value
   );
+  const defenderCurrentHp = Math.max(0, Math.min(
+      defenderMaxHp,
+      Number.isFinite(defenderCurrentHpOverride)
+          ? defenderCurrentHpOverride
+          : (displayedDefenderCurrentHp || defenderMaxHp)
+  ));
   const isDouble = document.getElementById('doubleCheck')?.checked || false;
   const romMoveConditions = getRomMoveConditions();
   const attackRankStat = category === 'Special' ? 'specialAttack' : 'attack';
@@ -8325,6 +8330,22 @@ function calculateMoveDamageRange(move, turnIndex = 0) {
     // ステータス計算
     const attackerStats = calculateStats(attackerPokemon);
     const defenderStats = calculateStats(defenderPokemon);
+    const defenderMaxHp = Math.max(
+        1,
+        parseInt(document.getElementById('defenderRealHP')?.value)
+            || defenderStats.hp
+            || 1
+    );
+    const initialDefenderCurrentHp = Math.max(
+        0,
+        parseInt(document.getElementById('defenderCurrentHP')?.value)
+            || defenderMaxHp
+    );
+    const defenderCurrentHpOverride = KatinukiDamageCore.resolveMultiTurnDefenderHp(
+        initialDefenderCurrentHp,
+        defenderMaxHp,
+        turnIndex
+    );
     
     // 攻撃値と防御値を決定
     const isPhysical = move.category === "Physical";
@@ -8359,7 +8380,8 @@ function calculateMoveDamageRange(move, turnIndex = 0) {
         defenderPokemon.types,
         atkRank,
         defRank,
-        move
+        move,
+        defenderCurrentHpOverride
     );
     
     // 防御側アイテムのみを元に戻す
@@ -8387,7 +8409,8 @@ function calculateMoveDamageRange(move, turnIndex = 0) {
         defenderPokemon.types,
         atkRank,
         defRank,
-        move
+        move,
+        defenderCurrentHpOverride
     );
     
     // 元の状態に戻す

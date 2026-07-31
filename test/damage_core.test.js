@@ -9,6 +9,7 @@ const {
   resolveMoveDamageMultiplier,
   resolveMovePower,
   resolveMoveType,
+  resolveMultiTurnDefenderHp,
 } = require("../damage_core.js");
 
 const base = {
@@ -190,6 +191,32 @@ test("ヨガパワーは物理攻撃を2倍にする", () => {
       attack: 200,
     }),
   );
+});
+
+test("インパクトサイトはすてみの対象技として威力を1.2倍する", () => {
+  const impactSite = {
+    ...base,
+    moveName: "インパクトサイト",
+    power: 90,
+    attackerAbility: "すてみ",
+  };
+
+  assert.deepEqual(
+    calculateDamageRange(impactSite),
+    calculateDamageRange({ ...impactSite, recoil: true }),
+  );
+  assert.ok(calculateDamageRange(impactSite).max > calculateDamageRange({
+    ...impactSite,
+    attackerAbility: "",
+  }).max);
+});
+
+test("複数ターン時のマルチスケイル判定用HPは初撃後に満タン扱いしない", () => {
+  assert.equal(resolveMultiTurnDefenderHp(200, 200, 0), 200);
+  assert.equal(resolveMultiTurnDefenderHp(200, 200, 1), 199);
+  assert.equal(resolveMultiTurnDefenderHp(200, 200, 4), 199);
+  assert.equal(resolveMultiTurnDefenderHp(135, 200, 0), 135);
+  assert.equal(resolveMultiTurnDefenderHp(135, 200, 3), 135);
 });
 
 test("とつげきチョッキは特殊防御をランク補正前に1.5倍し物理防御には掛からない", () => {

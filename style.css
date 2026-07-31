@@ -962,10 +962,9 @@ input[type="number"]::-webkit-inner-spin-button {
     flex-wrap: wrap;
     gap: 8px;
     margin: 10px 0;
-    padding: 10px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    border: 1px solid #e9ecef;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
 }
 
 .ability-checkbox {

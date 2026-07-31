@@ -55,6 +55,21 @@ test("計算に関係する特性だけを候補数と同じ数のチェック�
   assert.doesNotMatch(script, /getElementById\(['"](?:attacker|defender)Ability['"]\)/);
 });
 
+test("複数ターン計算はターンごとの防御側HPでマルチスケイルを判定する", () => {
+  assert.match(
+    script,
+    /resolveMultiTurnDefenderHp\([\s\S]*?turnIndex[\s\S]*?defenderCurrentHpOverride/,
+  );
+});
+
+test("特性チェック群を灰色のボックスで囲まない", () => {
+  const abilityStyle = style.match(/\.ability-container\s*\{([^}]*)\}/);
+  assert.ok(abilityStyle);
+  assert.match(abilityStyle[1], /background(?:-color)?:\s*transparent/);
+  assert.match(abilityStyle[1], /border:\s*0/);
+  assert.match(abilityStyle[1], /padding:\s*0/);
+});
+
 test("レベルプリセットはLv50とLv100だけにする", () => {
   const selects = [...html.matchAll(
     /<select class="level-preset"[\s\S]*?<\/select>/g,
