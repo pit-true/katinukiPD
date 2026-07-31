@@ -191,11 +191,16 @@
   ]);
 
   const RECOIL_MOVES = new Set([
-    "とっしん", "すてみタックル", "じごくぐるま", "ボルテッカー",
-    "だいちのいかり", "フレアドライブ", "ブレイブバード", "ウッドハンマー",
-    "ワイルドボルト", "アクアインパクト", "もろはのずつき",
-    "ムーンインパクト", "インパクトサイト",
+    "とびげり", "とっしん", "すてみタックル", "じごくぐるま",
+    "とびひざげり", "ボルテッカー", "だいちのいかり", "フレアドライブ",
+    "ブレイブバード", "ウッドハンマー", "ワイルドボルト",
+    "アクアインパクト", "もろはのずつき", "ムーンインパクト",
+    "インパクトサイト",
   ]);
+
+  function isRecoilMove(moveName) {
+    return RECOIL_MOVES.has(moveName);
+  }
 
   const BATTLE_RANK_STATS = [
     "attack", "defense", "speed", "specialAttack",
@@ -477,7 +482,7 @@
 
     const biting = options.biting || BITING_MOVES.has(options.moveName);
     const punching = options.punching || PUNCHING_MOVES.has(options.moveName);
-    const recoil = options.recoil || RECOIL_MOVES.has(options.moveName);
+    const recoil = options.recoil || isRecoilMove(options.moveName);
 
     const pinchTypes = {
       "しんりょく": "くさ",
@@ -685,6 +690,7 @@
     getMoveTypeEffectiveness,
     getTypeEffectiveness,
     isDamageRelevantAbility,
+    isRecoilMove,
     resolveMultiTurnDefenderHp,
     resolveMoveDamageMultiplier,
     resolveMovePower,

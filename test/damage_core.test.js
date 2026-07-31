@@ -6,11 +6,14 @@ const {
   formatMoveDetails,
   getTypeEffectiveness,
   isDamageRelevantAbility,
+  isRecoilMove,
   resolveMoveDamageMultiplier,
   resolveMovePower,
   resolveMoveType,
   resolveMultiTurnDefenderHp,
 } = require("../damage_core.js");
+
+const pokemonMoves = require("../pokemon_moves.json");
 
 const base = {
   level: 50,
@@ -209,6 +212,35 @@ test("インパクトサイトはすてみの対象技として威力を1.2倍�
     ...impactSite,
     attackerAbility: "",
   }).max);
+});
+
+test("説明文に反動・失敗時ダメージがある全技をすてみの対象にする", () => {
+  const recoilMovesFromDescriptions = pokemonMoves.filter((move) => {
+    const description = (move.description || "").replace(/\s/g, "");
+    return /じぶんも.*ダメージをうけ/.test(description)
+      || description.includes("はずすとじぶんがダメージをうける");
+  }).map((move) => move.name);
+
+  assert.deepEqual(recoilMovesFromDescriptions, [
+    "とびげり",
+    "とっしん",
+    "すてみタックル",
+    "じごくぐるま",
+    "とびひざげり",
+    "ボルテッカー",
+    "だいちのいかり",
+    "フレアドライブ",
+    "ブレイブバード",
+    "ウッドハンマー",
+    "ワイルドボルト",
+    "アクアインパクト",
+    "もろはのずつき",
+    "ムーンインパクト",
+    "インパクトサイト",
+  ]);
+  for (const moveName of recoilMovesFromDescriptions) {
+    assert.equal(isRecoilMove(moveName), true, `${moveName}がすてみ対象ではありません`);
+  }
 });
 
 test("複数ターン時のマルチスケイル判定用HPは初撃後に満タン扱いしない", () => {
