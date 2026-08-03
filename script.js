@@ -2452,36 +2452,36 @@ function updateAbilitiesAfterSwap() {
     }
 }
 // ウェザーボールのタイプと分類を取得する
-function getWeatherBallTypeAndCategory() {
+// タイプが変わっても分類は変わらない。
+// プロキオンの WazaDamageCalc (0x0803E458) は技データ record[10] の bit 0x02 で
+// 物理／特殊を決めており、技のタイプは見ていない（調査_技データ構造.md 8節）。
+// めざめるパワー・ウェザーボールはどちらも record[10]=3 なので常に特殊。
+function getWeatherBallType() {
     const weather = document.getElementById('weatherSelect').value;
     switch (weather) {
         case 'sunny':
-            return { type: 'ほのお', category: 'Special' };
+            return 'ほのお';
         case 'rain':
-            return { type: 'みず', category: 'Special' };
+            return 'みず';
         case 'sandstorm':
-            return { type: 'いわ', category: 'Physical' };
+            return 'いわ';
         case 'hail':
-            return { type: 'こおり', category: 'Special' };
+            return 'こおり';
         default:
-            return { type: 'ノーマル', category: 'Special' }; // 天候なしの場合
+            return 'ノーマル'; // 天候なしの場合
     }
 }
 // 天候変更時にウェザーボールを更新する
 function updateWeatherBallIfNeeded() {
     // 現在選択されている技がウェザーボールの場合
     if (currentMove && currentMove.class === 'weather_ball') {
-        const weatherData = getWeatherBallTypeAndCategory();
-        currentMove.type = weatherData.type;
-        currentMove.category = weatherData.category;
+        currentMove.type = getWeatherBallType();
     }
-    
+
     // 複数ターン技でウェザーボールがある場合
     for (let i = 0; i < multiTurnMoves.length; i++) {
         if (multiTurnMoves[i] && multiTurnMoves[i].class === 'weather_ball') {
-            const weatherData = getWeatherBallTypeAndCategory();
-            multiTurnMoves[i].type = weatherData.type;
-            multiTurnMoves[i].category = weatherData.category;
+            multiTurnMoves[i].type = getWeatherBallType();
         }
     }
 }
@@ -2521,17 +2521,13 @@ function updateCastformTypeIfNeeded() {
 // 技選択
 function selectMove(moveName) {
     
-    // めざめるパワーの場合、タイプと分類を動的に更新
+    // めざめるパワーの場合、タイプを動的に更新（分類は技データのまま）
     if (currentMove && currentMove.class === 'awaken_power') {
-        const newType = calculateHiddenPowerType();
-        currentMove.type = newType;
-        currentMove.category = getGen3CategoryByType(newType);
+        currentMove.type = calculateHiddenPowerType();
     }
-    // ウェザーボールの場合、天候に応じてタイプと分類を更新
+    // ウェザーボールの場合、天候に応じてタイプを更新（分類は技データのまま）
     if (currentMove && currentMove.class === 'weather_ball') {
-        const weatherData = getWeatherBallTypeAndCategory();
-        currentMove.type = weatherData.type;
-        currentMove.category = weatherData.category;
+        currentMove.type = getWeatherBallType();
     }
     
     // 全ての特殊設定を一旦非表示に
@@ -3070,23 +3066,13 @@ function selectMultiTurnMove(turn, moveName) {
     if (move) {
         multiTurnMoves[turn] = move;
         
-        // めざめるパワーの場合、タイプと分類を動的に更新
+        // めざめるパワーの場合、タイプを動的に更新（分類は技データのまま）
         if (move && move.class === 'awaken_power') {
-            const newType = calculateHiddenPowerType();
-            multiTurnMoves[turn] = { 
-                ...move, 
-                type: newType,
-                category: getGen3CategoryByType(newType)
-            };
+            multiTurnMoves[turn] = { ...move, type: calculateHiddenPowerType() };
         }
-        // ウェザーボールの場合、天候に応じてタイプと分類を更新
+        // ウェザーボールの場合、天候に応じてタイプを更新（分類は技データのまま）
         if (move && move.class === 'weather_ball') {
-            const weatherData = getWeatherBallTypeAndCategory();
-            multiTurnMoves[turn] = {
-                ...move,
-                type: weatherData.type,
-                category: weatherData.category
-            };
+            multiTurnMoves[turn] = { ...move, type: getWeatherBallType() };
         }
     } else {
         multiTurnMoves[turn] = null;
@@ -4013,27 +3999,8 @@ function calculateDefenderHiddenPowerType() {
 
 // 防御側専用のめざめるパワー威力計算
 function calculateDefenderHiddenPowerBP() {
-    // 防御側ポケモンの個体値を取得
-    const ivs = {
-        hp: parseInt(document.getElementById('defenderDetailIvHP').value),
-        a: parseInt(document.getElementById('defenderDetailIvA').value),
-        b: parseInt(document.getElementById('defenderDetailIvB').value),
-        c: parseInt(document.getElementById('defenderDetailIvC').value),
-        d: parseInt(document.getElementById('defenderDetailIvD').value),
-        s: parseInt(document.getElementById('defenderDetailIvS').value)
-    };
-    
-    // 威力計算 (各個体値を4で割った余りが2以上かどうか)
-    let powerSum = 0;
-    if (ivs.hp % 4 >= 2) powerSum += 1;
-    if (ivs.a % 4 >= 2) powerSum += 2;
-    if (ivs.b % 4 >= 2) powerSum += 4;
-    if (ivs.s % 4 >= 2) powerSum += 8;
-    if (ivs.c % 4 >= 2) powerSum += 16;
-    if (ivs.d % 4 >= 2) powerSum += 32;
-    
-    const power = Math.floor(powerSum * 40 / 63) + 30;
-    return power;
+    // 威力は個体値に依存しない（calculateHiddenPowerBP のコメント参照）
+    return calculateHiddenPowerBP();
 }
 
 // 実数値計算
@@ -5474,9 +5441,7 @@ function calculatePower(move) {
         return pinchDownPower;
     }
 
-    else if (move.class === 'awaken_power'){
-        return calculateHiddenPowerBP();
-    }
+    // めざめるパワーは威力固定なので、末尾の move.power をそのまま使う
     // けたぐり・くさむすび・じゅうりょくは
     else if (move.class === 'weight_based') {
         const defenderWeight = getDefenderWeight();
@@ -5522,29 +5487,13 @@ function getDefenderWeight() {
     return pokemonData.weight;
 }
 
-// めざめるパワーの威力計算
+// めざめるパワーの威力
+// プロキオン・デネブでは第3世代の威力変動（個体値から30〜70）が撤廃されている。
+// ROMの WS_MEZAMERUPOWER (0x0802AE50) はタイプしか計算せず、威力を書き込む命令が無い。
+// 威力は技データの値（60）で固定なので、個体値は威力に影響しない。
 function calculateHiddenPowerBP() {
-    // 攻撃側ポケモンの個体値を取得（正しい順序：H-A-B-C-D-S）
-    const ivs = {
-        hp: parseInt(document.getElementById('attackerDetailIvHP').value),
-        a: parseInt(document.getElementById('attackerDetailIvA').value),
-        b: parseInt(document.getElementById('attackerDetailIvB').value),
-        c: parseInt(document.getElementById('attackerDetailIvC').value),
-        d: parseInt(document.getElementById('attackerDetailIvD').value),
-        s: parseInt(document.getElementById('attackerDetailIvS').value)
-    };
-    
-    // 威力計算 (各個体値を4で割った余りが2以上かどうか)
-    let powerSum = 0;
-    if (ivs.hp % 4 >= 2) powerSum += 1;
-    if (ivs.a % 4 >= 2) powerSum += 2;
-    if (ivs.b % 4 >= 2) powerSum += 4;
-    if (ivs.s % 4 >= 2) powerSum += 8;   // SとCの順序を修正
-    if (ivs.c % 4 >= 2) powerSum += 16;  // SとCの順序を修正
-    if (ivs.d % 4 >= 2) powerSum += 32;
-    
-    const power = Math.floor(powerSum * 40 / 63) + 30;
-    return power;
+    const move = moveData?.find(m => m.name === 'めざめるパワー');
+    return move?.power ?? 60;
 }
 
 
@@ -5594,46 +5543,18 @@ function calculateHiddenPowerType() {
     return typeTable[typeIndex];
 }
 
-// 3世代のタイプから物理/特殊を判定
-function getGen3CategoryByType(type) {
-    // 物理タイプ
-    const physicalTypes = ['ノーマル', 'かくとう', 'どく', 'じめん', 'ひこう', 'むし', 'いわ', 'ゴースト', 'はがね'];
-    
-    // 特殊タイプ
-    const specialTypes = ['ほのお', 'みず', 'でんき', 'くさ', 'こおり', 'エスパー', 'ドラゴン', 'あく'];
-    
-    if (physicalTypes.includes(type)) {
-        return 'Physical';
-    } else if (specialTypes.includes(type)) {
-        return 'Special';
-    } else {
-        // デフォルトは特殊
-        return 'Special';
-    }
-}
-
 // めざめるパワーのタイプ更新が必要かチェック
 function updateHiddenPowerIfNeeded() {
    
-    // 現在選択されている技がめざめるパワーの場合
+    // 現在選択されている技がめざめるパワーの場合（変わるのはタイプだけ）
     if (currentMove && currentMove.class === 'awaken_power') {
-        const newType = calculateHiddenPowerType();
-        const newPower = calculateHiddenPowerBP();
-        
-        currentMove.type = newType;
-        currentMove.category = getGen3CategoryByType(newType);
-        currentMove.power = newPower;
+        currentMove.type = calculateHiddenPowerType();
     }
-    
+
     // 複数ターン技でめざめるパワーがある場合
     for (let i = 0; i < multiTurnMoves.length; i++) {
         if (multiTurnMoves[i] && multiTurnMoves[i].class === 'awaken_power') {
-            const newType = calculateHiddenPowerType();
-            const newPower = calculateHiddenPowerBP();
-            
-            multiTurnMoves[i].type = newType;
-            multiTurnMoves[i].category = getGen3CategoryByType(newType);
-            multiTurnMoves[i].power = newPower;  // ← この行を追加
+            multiTurnMoves[i].type = calculateHiddenPowerType();
         }
     }
 }

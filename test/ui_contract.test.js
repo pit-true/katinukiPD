@@ -141,3 +141,30 @@ test("グラベルブレスは後攻条件を選択できる", () => {
     /'gravel_breath':\s*\{[\s\S]*?id:\s*'romActsAfterTarget'[\s\S]*?相手より後に行動/,
   );
 });
+
+test("めざめるパワーの威力は固定で、個体値から計算しない", () => {
+  // プロキオン・デネブでは WS_MEZAMERUPOWER (0x0802AE50) が威力を計算しない。
+  // 第3世代の x*40/63+30 は残っていてはいけない。
+  assert.doesNotMatch(script, /\*\s*40\s*\/\s*63/);
+  assert.doesNotMatch(script, /powerSum/);
+  assert.match(script, /function calculateHiddenPowerBP\(\)\s*\{[\s\S]*?moveData\?\.find/);
+});
+
+test("タイプが変わる技でも分類は技データのまま扱う", () => {
+  // WazaDamageCalc (0x0803E458) は record[10] の bit 0x02 で物理/特殊を決めており
+  // 技のタイプは見ていない。タイプからの分類判定を持ってはいけない。
+  assert.doesNotMatch(script, /getGen3CategoryByType/);
+  assert.doesNotMatch(script, /getWeatherBallTypeAndCategory/);
+  assert.match(script, /function getWeatherBallType\(\)/);
+  // めざめるパワー・ウェザーボールの分岐で category を書き換えない
+  for (const cls of ["awaken_power", "weather_ball"]) {
+    const marker = `class === '${cls}'`;
+    let from = script.indexOf(marker);
+    assert.notEqual(from, -1, `${cls} の分岐が存在する`);
+    while (from !== -1) {
+      const block = script.slice(from, from + 220);
+      assert.ok(!block.includes("category"), `${cls} の分岐で分類を上書きしない`);
+      from = script.indexOf(marker, from + 1);
+    }
+  }
+});
